@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CareerChapter } from "@/components/profile/career-chapter";
+import { ConferencesChapter } from "@/components/profile/conferences-chapter";
 import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
 import { ProfileStats } from "@/components/profile/profile-stats";
@@ -45,6 +46,7 @@ export default async function DoctorProfilePage() {
       <CareerChapter chapter={chapters.career} {...profile.career} />
       <TeachingChapter chapter={chapters.teaching} {...profile.teaching} />
       <ToolsChapter chapter={chapters.tools} {...profile.tools} />
+      <ConferencesChapter chapter={chapters.conferences} {...profile.conferences} />
     </div>
   );
 }
