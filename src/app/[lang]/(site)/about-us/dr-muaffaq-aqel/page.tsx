@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CtaBand } from "@/components/home/cta-band";
 import { BooksChapter } from "@/components/profile/books-chapter";
 import { CareerChapter } from "@/components/profile/career-chapter";
 import { ConferencesChapter } from "@/components/profile/conferences-chapter";
@@ -9,7 +10,9 @@ import { QualificationsChapter } from "@/components/profile/qualifications-chapt
 import { StrengthsChapter } from "@/components/profile/strengths-chapter";
 import { TeachingChapter } from "@/components/profile/teaching-chapter";
 import { ToolsChapter } from "@/components/profile/tools-chapter";
+import { Reveal } from "@/components/ui/reveal";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
+import { localeLink } from "@/lib/i18n";
 import { getLocale } from "@/lib/locale";
 import { baseOpenGraph, languageAlternates } from "@/lib/metadata";
 
@@ -33,8 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 /** The doctor's CV, set as a long editorial page. */
 export default async function DoctorProfilePage() {
-  const profile = doctorProfile[await getLocale()];
-  const { chapters } = profile;
+  const locale = await getLocale();
+  const profile = doctorProfile[locale];
+  const { chapters, closing } = profile;
 
   return (
     <div className="cv-page">
@@ -51,6 +55,9 @@ export default async function DoctorProfilePage() {
       <ConferencesChapter chapter={chapters.conferences} {...profile.conferences} />
       <BooksChapter chapter={chapters.books} {...profile.books} />
       <StrengthsChapter chapter={chapters.strengths} items={profile.strengths.items} />
+      <Reveal>
+        <CtaBand title={closing.title} text={closing.text} primaryAction={localeLink(locale, closing.primaryAction)} secondaryAction={localeLink(locale, closing.secondaryAction)} />
+      </Reveal>
     </div>
   );
 }

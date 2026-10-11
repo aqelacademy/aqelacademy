@@ -93,7 +93,7 @@ interface DoctorProfile {
   conferences: { text: string; paperLabel: string; items: Conference[] };
   books: { text: string; publishedLabel: string; inProgressLabel: string; items: Book[] };
   strengths: { items: string[] };
-  closing: { kicker: string; title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
+  closing: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
 }
 
 export const doctorProfile: Record<Locale, DoctorProfile> = {
@@ -251,7 +251,6 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       ],
     },
     closing: {
-      kicker: "أكاديمية الدكتور موفق عقل",
       title: "علمٌ يُطبَّق في الميدان",
       text: "خبرة عشرين عامًا، في برامج تدريبية معتمدة يشرف عليها الدكتور موفق عقل بنفسه.",
       primaryAction: { href: "/courses", label: "تصفّح الدورات" },
@@ -412,7 +411,6 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       ],
     },
     closing: {
-      kicker: "Dr Muaffaq Aqel Academy",
       title: "Knowledge you can use in the field",
       text: "Twenty years of experience, in accredited training programmes that Dr Muaffaq Aqel supervises himself.",
       primaryAction: { href: "/courses", label: "Browse courses" },
