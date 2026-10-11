@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
 import { ProfileStats } from "@/components/profile/profile-stats";
+import { QualificationsChapter } from "@/components/profile/qualifications-chapter";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
 import { getLocale } from "@/lib/locale";
 import { baseOpenGraph, languageAlternates } from "@/lib/metadata";
@@ -37,6 +38,7 @@ export default async function DoctorProfilePage() {
       <ProfileCover {...profile.cover} firstChapterId={chapters.profile.id} />
       <ProfileStats stats={profile.stats} />
       <ProfileChapter chapter={chapters.profile} intro={profile.intro} disciplines={profile.disciplines} />
+      <QualificationsChapter chapter={chapters.qualifications} education={profile.education} licences={profile.licences} />
     </div>
   );
 }

@@ -242,3 +242,30 @@ html:not([data-splash="seen"]) .cv-intro {
   opacity: clamp(0, calc(var(--merge) * 3 - 2), 1);
   transform: translate(-50%, -20%) scale(calc(0.85 + var(--merge) * 0.15));
 }
+
+/* Children of a `.cv-stagger` list inside a Reveal arrive one after another (`--i`); degree steps (`.cv-step`) rise from the floor. */
+[data-reveal] .cv-stagger > * {
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 90ms + 150ms);
+}
+
+[data-reveal="hidden"] .cv-stagger > * {
+  opacity: 0;
+  transform: translateY(1.5rem);
+}
+
+[data-reveal] .cv-step {
+  transform-origin: bottom;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 140ms + 300ms);
+}
+
+[data-reveal="hidden"] .cv-step {
+  transform: scaleY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .cv-stagger > *, [data-reveal] .cv-step { transition: none; }
+}
