@@ -42,7 +42,7 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
         </div>
 
         <div className="container-site grid pb-14 sm:pb-16 lg:min-h-[calc(100svh-4.1875rem)] lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-20">
-          <div className="cv-cover-text relative z-10 max-lg:-mt-24 sm:max-lg:-mt-32 lg:col-span-7">
+          <div className="cv-cover-text max-lg:-mt-24 sm:max-lg:-mt-32 lg:col-span-7">
             <nav aria-label={breadcrumbLabel} className="cv-intro max-lg:absolute max-lg:top-4 max-lg:start-4 lg:mb-14" style={order(0)}>
               <Link
                 href={back.href}
@@ -94,7 +94,8 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
             </a>
           </div>
 
-          <div className="relative max-lg:order-first max-lg:-mx-4 lg:col-span-5">
+          {/* Behind the text on phones (the name overlaps the photo's fade); the back link above is placed against the cover itself. */}
+          <div className="relative max-lg:order-first max-lg:-z-10 max-lg:-mx-4 lg:col-span-5">
             <div className="cv-cover-photo relative lg:pe-5 lg:pb-5">
               <div aria-hidden="true" className="cv-intro absolute top-5 start-5 end-0 bottom-0 rounded-lg border border-gold/60 max-lg:hidden" style={order(4)} />
               <div className="cv-intro cv-intro-photo relative h-[min(125vw,70svh)] overflow-hidden bg-brand lg:aspect-[4/5] lg:h-auto lg:rounded-lg" style={order(1)}>
