@@ -184,11 +184,18 @@ src/
                 [lang]/(site) public pages, [lang]/(app) sign-in/account/booking,
                 (dashboard)/admin the doctor's dashboard (its own root layout, Arabic only)
   components/   UI components (layout, header, ui, forms, home, courses, blog,
-                bookings, messages, notifications, admin)
+                bookings, messages, notifications, admin, profile)
   content/      Site content in Arabic and English: courses, articles, pages, contact details
   lib/          Helpers, validation, Supabase clients, data access layer (dal/)
   types/        Shared content types
-  assets/       Images
+  assets/       Images (the originals)
+public/img/     The same images as resized WebP files (generated, see Images)
 ```
+
+## Images
+
+Images are not resized on request. `npm run images` (`scripts/optimize-images.mjs`, uses `sharp`) turns every JPEG and PNG in `src/assets/images` into WebP files at the widths in `src/lib/image-sizes.json`, never larger than the original, and writes them to `public/img` with a content hash in the name, plus `src/lib/image-manifest.json`. `next/image` points at them through a custom loader (`src/lib/image-loader.ts`), and `public/_headers` caches `/img/*` for a year at Cloudflare's edge.
+
+After adding or replacing an image: import it in `src/content/` as usual, run `npm run images`, and commit `public/img` and the manifest with it. File names must be unique across folders. An image the script hasn't seen yet still shows, as its original file.
 
 All site copy lives in `src/content/`, in both languages. To add a course or an article, add the Arabic entry to `courses.ts` or `articles.ts` and the English one next to it (courses) or in `en/articles.ts` (articles), with the same slug. The pages and cards pick it up automatically. A bookable course also needs a row with that slug in `public.courses`: add it with a new migration and run `npx supabase db push`.
