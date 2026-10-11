@@ -26,6 +26,9 @@ interface ProfileCoverProps {
 export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, scrollCue, image, firstChapterId, back, breadcrumbLabel }: ProfileCoverProps) {
   return (
     <IntroTiming className="cv-cover">
+      <noscript>
+        <style>{".cv-intro, .cv-intro-photo img { animation: none !important; }"}</style>
+      </noscript>
       <ScrollProgress mode="exit" className="relative isolate overflow-hidden bg-ink-dark text-white">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
           <div className="container-site h-full">

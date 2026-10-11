@@ -137,18 +137,14 @@ html:has(.cv-page) {
   to { transform: translateY(200%); }
 }
 
-/* The cover's entrance, staggered by `--i`. On a tab's first load it waits for the opening screen; IntroTiming sets data-intro="now" when the splash is long gone. */
+/* The cover's entrance, staggered by `--i`. It stays paused on its first frame until IntroTiming sets data-intro="play" (the opening screen is fading and the portrait has loaded); a <noscript> rule in the cover turns it off without script. */
 .cv-intro {
   animation: cv-fade 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--i, 0) * 110ms + var(--intro-after, 0ms));
+  animation-delay: calc(var(--i, 0) * 110ms);
 }
 
-html:not([data-splash="seen"]) .cv-intro {
-  --intro-after: 1700ms;
-}
-
-.cv-cover[data-intro="now"] .cv-intro {
-  --intro-after: 0ms;
+.cv-cover:not([data-intro="play"]) :is(.cv-intro, .cv-intro-photo img) {
+  animation-play-state: paused;
 }
 
 .cv-intro-line {
