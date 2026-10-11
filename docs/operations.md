@@ -150,6 +150,7 @@ Every page below also exists in English under `/en` (for example `/en/courses`),
 | `/blog`            | Articles                     |
 | `/blog/[slug]`     | Article                      |
 | `/about-us`        | About the academy            |
+| `/about-us/dr-muaffaq-aqel` | Dr Muaffaq Aqel's CV (linked from About us) |
 | `/faqs`            | Frequently asked questions   |
 | `/contact-us`      | Contact details              |
 | `/policy`          | Privacy policy               |
