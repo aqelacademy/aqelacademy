@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { BooksChapter } from "@/components/profile/books-chapter";
 import { CareerChapter } from "@/components/profile/career-chapter";
 import { ConferencesChapter } from "@/components/profile/conferences-chapter";
 import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
 import { ProfileStats } from "@/components/profile/profile-stats";
 import { QualificationsChapter } from "@/components/profile/qualifications-chapter";
+import { StrengthsChapter } from "@/components/profile/strengths-chapter";
 import { TeachingChapter } from "@/components/profile/teaching-chapter";
 import { ToolsChapter } from "@/components/profile/tools-chapter";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
@@ -47,6 +49,8 @@ export default async function DoctorProfilePage() {
       <TeachingChapter chapter={chapters.teaching} {...profile.teaching} />
       <ToolsChapter chapter={chapters.tools} {...profile.tools} />
       <ConferencesChapter chapter={chapters.conferences} {...profile.conferences} />
+      <BooksChapter chapter={chapters.books} {...profile.books} />
+      <StrengthsChapter chapter={chapters.strengths} items={profile.strengths.items} />
     </div>
   );
 }
