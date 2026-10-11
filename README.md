@@ -1,36 +1,20 @@
 # Aqel Academy
 
-An Arabic (right-to-left) learning platform for **Dr. Muaffaq Aqel Academy for Applied Behavior Analysis and Rehabilitation**, which runs training programs in ABA, special education and behavioral rehabilitation.
+![The academy's home page in English](docs/hero.webp)
+
+A bilingual (Arabic and English) platform for Dr Muaffaq Aqel's academy of Applied Behaviour Analysis. It replaced the academy's WordPress site: students book a seat in a course, the doctor approves it from a simple dashboard, and they talk through in-app messages.
 
 **Live:** [aqelacademy.com](https://aqelacademy.com)
 
-## About
+## Highlights
 
-I designed and built this platform end to end. It replaces the academy's old WordPress site. Students can now create an account, book a seat in a course, and talk to the doctor directly. The doctor reviews every request from a simple dashboard. The admin side was designed for an older, non-technical user: large text, plain words and one-tap contact buttons.
+- Arabic (right to left) and English, with statically rendered pages and pre-built images
+- Bookings with approval, messages, notifications and email
+- Sign-in with email codes or Google, captcha, and Row Level Security on every table, tested in CI
+- Runs entirely on free tiers, with daily encrypted backups
 
-The whole platform runs on free tiers. Payments and the courses themselves stay outside the site.
+## Stack
 
-## Features
+Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Supabase · Cloudflare Workers
 
-- **Public site:** courses, a course fees page, an animated CV page for the doctor, articles, FAQ, contact, privacy and refund policy pages, in Arabic and British English (a language switch in the header). Pages are statically rendered and images are pre-built as WebP and served from the edge cache, with SEO metadata, hreflang links and link previews.
-- **Accounts:** email and password with 8-digit email codes, "Continue with Google", captcha protection, and account deletion by the user.
-- **Bookings:** a student requests a seat, and the doctor approves or rejects it. The course page itself shows where the request stands, so students need no dashboard. One open request per course, with rate limits.
-- **Messages:** one conversation per booking, with read receipts and auto-refresh.
-- **Notifications:** in-app header panels (booking sent, decision, new message) plus email.
-- **Doctor dashboard:** stats, a request queue, student search, and WhatsApp, call and email shortcuts.
-- **Security:** Row Level Security on every table, column-level grants, and a Google session required for admin rights. Strict security headers (CSP, HSTS) and automated database security tests in CI.
-- **Operations:** daily encrypted database backups, uptime monitoring, and automated dependency updates.
-
-## Tech stack
-
-- Next.js 16 (App Router), React 19, TypeScript
-- Tailwind CSS 4
-- Supabase (Postgres, Auth, Row Level Security)
-- Cloudflare Workers (via OpenNext) and Cloudflare Turnstile
-- Resend (email)
-- Zod
-- GitHub Actions
-
-## Development
-
-Setup, environment variables, deployment, database and backups are covered in [docs/operations.md](docs/operations.md).
+Setup and operations are in [docs/operations.md](docs/operations.md).
