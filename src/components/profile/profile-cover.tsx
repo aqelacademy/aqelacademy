@@ -22,7 +22,10 @@ interface ProfileCoverProps {
   breadcrumbLabel: string;
 }
 
-/** The page's opening: a navy title page with the name set large and the portrait unveiled beside it. */
+/**
+ * The page's opening: a navy title page with the name set large and the portrait unveiled beside it. On phones and
+ * tablets the portrait runs edge to edge at the top and fades into the navy, with the name rising over the fade.
+ */
 export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, scrollCue, image, firstChapterId, back, breadcrumbLabel }: ProfileCoverProps) {
   return (
     <IntroTiming className="cv-cover">
@@ -38,10 +41,13 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
           <div className="absolute top-1/2 -end-20 size-[28rem] -translate-y-1/2 rounded-full border border-gold/10 max-lg:hidden" />
         </div>
 
-        <div className="container-site grid gap-14 pt-12 pb-16 sm:pt-16 lg:min-h-[calc(100svh-4.1875rem)] lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-20">
-          <div className="cv-cover-text lg:col-span-7">
-            <nav aria-label={breadcrumbLabel} className="cv-intro mb-10 lg:mb-14" style={order(0)}>
-              <Link href={back.href} className="group inline-flex items-center gap-2 text-sm font-bold text-white/70 transition-colors hover:text-white">
+        <div className="container-site grid pb-14 sm:pb-16 lg:min-h-[calc(100svh-4.1875rem)] lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-20">
+          <div className="cv-cover-text relative z-10 max-lg:-mt-24 sm:max-lg:-mt-32 lg:col-span-7">
+            <nav aria-label={breadcrumbLabel} className="cv-intro max-lg:absolute max-lg:top-4 max-lg:start-4 lg:mb-14" style={order(0)}>
+              <Link
+                href={back.href}
+                className="group inline-flex items-center gap-2 text-sm font-bold text-white/70 transition-colors hover:text-white max-lg:rounded-full max-lg:bg-ink-dark/60 max-lg:px-3.5 max-lg:py-2 max-lg:text-white max-lg:backdrop-blur-sm"
+              >
                 <ArrowRight aria-hidden="true" className="size-4 text-gold transition-transform ltr:rotate-180 rtl:group-hover:translate-x-0.5 ltr:group-hover:-translate-x-0.5" />
                 {back.label}
               </Link>
@@ -50,7 +56,7 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
               <span aria-hidden="true" className="h-px w-10 bg-gold" />
               {eyebrow}
             </p>
-            <h1 className="mt-8 font-heading font-bold">
+            <h1 className="mt-6 font-heading font-bold sm:mt-8">
               <span className="block overflow-hidden pb-1">
                 <span className="cv-intro cv-intro-line block text-2xl text-gold sm:text-3xl" style={order(1)}>
                   {honorific}
@@ -88,11 +94,12 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
             </a>
           </div>
 
-          <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:col-span-5 lg:max-w-none">
-            <div className="cv-cover-photo relative pe-4 pb-4 sm:pe-5 sm:pb-5">
-              <div aria-hidden="true" className="cv-intro absolute top-4 start-4 end-0 bottom-0 rounded-lg border border-gold/60 sm:top-5 sm:start-5" style={order(4)} />
-              <div className="cv-intro cv-intro-photo relative aspect-[4/5] overflow-hidden rounded-lg bg-brand" style={order(1)}>
-                <Image src={image.src} alt={image.alt} fill preload sizes="(min-width: 1024px) 32rem, (min-width: 640px) 28rem, 100vw" className="object-cover object-[50%_25%]" />
+          <div className="relative max-lg:order-first max-lg:-mx-4 lg:col-span-5">
+            <div className="cv-cover-photo relative lg:pe-5 lg:pb-5">
+              <div aria-hidden="true" className="cv-intro absolute top-5 start-5 end-0 bottom-0 rounded-lg border border-gold/60 max-lg:hidden" style={order(4)} />
+              <div className="cv-intro cv-intro-photo relative h-[min(125vw,70svh)] overflow-hidden bg-brand lg:aspect-[4/5] lg:h-auto lg:rounded-lg" style={order(1)}>
+                <Image src={image.src} alt={image.alt} fill preload sizes="(min-width: 1024px) 32rem, 100vw" className="object-cover object-[50%_25%]" />
+                <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-dark from-15% via-ink-dark/70 to-transparent lg:hidden" />
               </div>
             </div>
             <p aria-hidden="true" className="cv-intro absolute top-0 -end-8 text-xs font-bold tracking-[0.35em] text-gold/80 [writing-mode:vertical-rl] max-xl:hidden" style={order(6)}>
