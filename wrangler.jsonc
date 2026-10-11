@@ -14,7 +14,7 @@
 			"binding": "WORKER_SELF_REFERENCE",
 			"service": "aqelacademy"
 		}
-	], 
+	],
 	// Runtime variables (SITE_URL, SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, TURNSTILE_SITE_KEY)
 	// are set in the Cloudflare dashboard; keep them across deploys.
 	"keep_vars": true,
