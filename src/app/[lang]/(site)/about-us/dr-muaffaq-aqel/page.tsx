@@ -66,7 +66,7 @@ export default async function DoctorProfilePage() {
       <BooksChapter chapter={chapters.books} {...profile.books} />
       <StrengthsChapter chapter={chapters.strengths} items={profile.strengths.items} />
       <Reveal>
-        <CtaBand title={closing.title} text={closing.text} primaryAction={localeLink(locale, closing.primaryAction)} secondaryAction={localeLink(locale, closing.secondaryAction)} />
+        <CtaBand title={closing.title} text={closing.text} primaryAction={localeLink(locale, closing.primaryAction)} secondaryAction={localeLink(locale, closing.secondaryAction)} image={closing.image} />
       </Reveal>
     </div>
   );

@@ -1,4 +1,5 @@
 import drPortrait from "@/assets/images/dr-muaffaq-portrait.jpg";
+import drSpeaking from "@/assets/images/dr-muaffaq-speaking.jpg";
 import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
 import type { Locale } from "@/lib/i18n";
 import type { ContentImage, NavLink } from "@/types/content";
@@ -93,7 +94,8 @@ interface DoctorProfile {
   conferences: { text: string; paperLabel: string; /** Phones: the cards scroll sideways. */ swipeHint: string; items: Conference[] };
   books: { text: string; publishedLabel: string; inProgressLabel: string; items: Book[] };
   strengths: { items: string[] };
-  closing: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
+  /** The image is the photo from his CV (cleaned of its decorations), shown round above the closing panel. */
+  closing: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink; image: ContentImage };
 }
 
 export const doctorProfile: Record<Locale, DoctorProfile> = {
@@ -256,6 +258,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       text: "خبرة ربع قرن، في برامج تدريبية معتمدة يشرف عليها الدكتور موفق عقل بنفسه.",
       primaryAction: { href: "/courses", label: "تصفّح الدورات" },
       secondaryAction: { href: "/contact-us", label: "تواصل معنا" },
+      image: { src: drSpeaking, alt: "الدكتور موفق عقل يلقي محاضرة" },
     },
   },
   en: {
@@ -417,6 +420,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       text: "A quarter of a century of experience, in accredited training programmes that Dr Muaffaq Aqel supervises himself.",
       primaryAction: { href: "/courses", label: "Browse courses" },
       secondaryAction: { href: "/contact-us", label: "Contact us" },
+      image: { src: drSpeaking, alt: "Dr Muaffaq Aqel giving a talk" },
     },
   },
 };
