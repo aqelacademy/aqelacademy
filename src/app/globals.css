@@ -269,3 +269,14 @@ html:not([data-splash="seen"]) .cv-intro {
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] .cv-stagger > *, [data-reveal] .cv-step { transition: none; }
 }
+
+/* The career line (CareerChapter) fills with the reader's progress; a dot fills once the line passes its place `--at`. */
+.cv-line {
+  transform-origin: top;
+  transform: scaleY(var(--progress, 1));
+}
+
+.cv-dot {
+  background-color: color-mix(in srgb, var(--color-gold) calc(clamp(0, (var(--progress, 1) - var(--at, 0)) * 25, 1) * 100%), white);
+  transition: background-color 0.2s linear;
+}
