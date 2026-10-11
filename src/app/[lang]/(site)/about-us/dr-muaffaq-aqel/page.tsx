@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ProfileCover } from "@/components/profile/profile-cover";
+import { ProfileStats } from "@/components/profile/profile-stats";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
 import { getLocale } from "@/lib/locale";
 import { baseOpenGraph, languageAlternates } from "@/lib/metadata";
@@ -29,7 +30,11 @@ export default async function DoctorProfilePage() {
 
   return (
     <div className="cv-page">
+      <div aria-hidden="true" className="sticky top-[4.1875rem] z-30 h-0">
+        <div className="cv-reading h-0.5 bg-gold" />
+      </div>
       <ProfileCover {...profile.cover} firstChapterId={chapters.profile.id} />
+      <ProfileStats stats={profile.stats} />
     </div>
   );
 }

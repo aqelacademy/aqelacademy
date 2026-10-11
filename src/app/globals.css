@@ -189,3 +189,25 @@ html:not([data-splash="seen"]) .cv-intro {
   html:has(.cv-page) { scroll-behavior: auto; }
   .cv-intro, .cv-intro-photo img, .cv-cue { animation: none; }
 }
+
+/* A thin gold reading-progress line under the header, driven by the page scroll where the browser supports scroll timelines. */
+@keyframes cv-grow {
+  from { transform: scaleX(0); }
+}
+
+.cv-reading {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .cv-reading {
+    display: block;
+    transform-origin: left;
+    animation: cv-grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  [dir="rtl"] .cv-reading {
+    transform-origin: right;
+  }
+}
