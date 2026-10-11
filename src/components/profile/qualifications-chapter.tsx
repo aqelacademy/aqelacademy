@@ -18,7 +18,7 @@ export function QualificationsChapter({ chapter, education, licences }: Qualific
   const lastStep = education.steps.length - 1;
 
   return (
-    <section id={chapter.id} className="border-y border-line bg-canvas py-24 lg:py-32">
+    <section id={chapter.id} className="border-y border-line bg-canvas py-20 sm:py-24 lg:py-32">
       <div className="container-site">
         <Reveal>
           <ChapterHeading index={2} kicker={chapter.kicker} title={chapter.title} />

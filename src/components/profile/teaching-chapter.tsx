@@ -12,7 +12,7 @@ interface TeachingChapterProps {
 /** 04: a navy band with the courses he has taught as a numbered index; "100+" sits faintly behind it. */
 export function TeachingChapter({ chapter, text, items }: TeachingChapterProps) {
   return (
-    <section id={chapter.id} className="relative isolate overflow-hidden bg-ink-dark py-24 lg:py-32">
+    <section id={chapter.id} className="relative isolate overflow-hidden bg-ink-dark py-20 sm:py-24 lg:py-32">
       <p aria-hidden="true" className="absolute -top-10 -end-6 -z-10 font-heading text-[11rem] leading-none font-bold text-white/[0.035] sm:text-[18rem] lg:-top-16 lg:text-[24rem]">
         100+
       </p>

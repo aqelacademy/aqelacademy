@@ -11,7 +11,7 @@ export function ScrollWords({ text }: ScrollWordsProps) {
 
   return (
     <ScrollProgress mode="track" className="py-6">
-      <p className="max-w-5xl font-heading text-2xl font-bold leading-[1.85] text-ink sm:text-3xl sm:leading-[1.85] lg:text-[2.5rem] lg:leading-[1.8]">
+      <p className="max-w-5xl font-heading text-[1.4rem] font-bold leading-[1.9] text-ink sm:text-3xl sm:leading-[1.85] lg:text-[2.5rem] lg:leading-[1.8]">
         {words.map((word, index) => (
           // Words repeat, so the index is part of the key; the text never reorders.
           <span key={`${index}-${word}`}>

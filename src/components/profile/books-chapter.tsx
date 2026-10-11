@@ -24,7 +24,7 @@ const shapes = [
 /** 07: the books as spines on a shelf (a stacked pile on phones): navy for published, paper for those in progress. A spine slides up when pointed at. */
 export function BooksChapter({ chapter, text, publishedLabel, inProgressLabel, items }: BooksChapterProps) {
   return (
-    <section id={chapter.id} className="border-t border-line bg-canvas py-24 lg:py-32">
+    <section id={chapter.id} className="border-t border-line bg-canvas py-20 sm:py-24 lg:py-32">
       <div className="container-site grid gap-14 lg:grid-cols-12 lg:items-end lg:gap-12">
         <Reveal className="lg:col-span-5">
           <ChapterHeading index={7} kicker={chapter.kicker} title={chapter.title} text={text} />

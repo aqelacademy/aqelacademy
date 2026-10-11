@@ -15,7 +15,7 @@ const circles = [
 /** Three circles, one per discipline, that drift together as the section scrolls into place; their overlap is the integrated view. */
 export function DisciplinesVenn({ fields, centre }: DisciplinesVennProps) {
   return (
-    <ScrollProgress mode="track" className="cv-venn relative mx-auto aspect-square w-full max-w-[17rem] sm:max-w-[26rem]">
+    <ScrollProgress mode="track" className="cv-venn relative mx-auto aspect-square w-full max-w-[20rem] sm:max-w-[26rem]">
       {circles.map((circle, index) => (
         <div key={fields[index]} className={`cv-venn-circle absolute top-[21%] left-[21%] aspect-square w-[58%] rounded-full border mix-blend-multiply ${circle.className}`}>
           <span className={`absolute text-xs font-bold leading-snug text-ink sm:text-sm ${circle.labelClassName}`}>{fields[index]}</span>

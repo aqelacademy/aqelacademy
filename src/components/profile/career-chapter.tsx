@@ -21,7 +21,7 @@ interface CareerChapterProps {
  */
 export function CareerChapter({ chapter, text, present, image, roles }: CareerChapterProps) {
   return (
-    <section id={chapter.id} className="py-24 lg:py-32">
+    <section id={chapter.id} className="py-20 sm:py-24 lg:py-32">
       <div className="container-site grid gap-16 lg:grid-cols-12 lg:gap-12">
         <Reveal className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
           <ChapterHeading index={3} kicker={chapter.kicker} title={chapter.title} text={text} />

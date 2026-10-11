@@ -23,7 +23,7 @@ function ToolList({ items, hidden = false }: { items: string[]; hidden?: boolean
 /** 05: the assessments and programmes he trained in, as two rows drifting in opposite directions (paused on hover). */
 export function ToolsChapter({ chapter, text, rows }: ToolsChapterProps) {
   return (
-    <section id={chapter.id} className="overflow-hidden border-b border-line bg-canvas py-24 lg:py-32">
+    <section id={chapter.id} className="overflow-hidden border-b border-line bg-canvas py-20 sm:py-24 lg:py-32">
       <Reveal className="container-site">
         <ChapterHeading index={5} kicker={chapter.kicker} title={chapter.title} text={text} />
       </Reveal>

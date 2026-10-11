@@ -11,7 +11,7 @@ interface StrengthsChapterProps {
 /** 08: the strengths as a numbered list; each rule draws itself in from the start side as the list arrives. */
 export function StrengthsChapter({ chapter, items }: StrengthsChapterProps) {
   return (
-    <section id={chapter.id} className="py-24 lg:py-32">
+    <section id={chapter.id} className="py-20 sm:py-24 lg:py-32">
       <div className="container-site grid gap-6 lg:grid-cols-12 lg:gap-12">
         <Reveal className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
           <ChapterHeading index={8} kicker={chapter.kicker} title={chapter.title} />

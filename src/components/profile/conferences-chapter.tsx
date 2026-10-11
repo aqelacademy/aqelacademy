@@ -18,7 +18,7 @@ export function ConferencesChapter({ chapter, text, paperLabel, items }: Confere
   return (
     <section id={chapter.id}>
       <ScrollProgress mode="pin" className="relative lg:motion-safe:h-[280vh]">
-        <div className="py-24 lg:py-32 lg:motion-safe:sticky lg:motion-safe:top-[4.1875rem] lg:motion-safe:flex lg:motion-safe:h-[calc(100svh-4.1875rem)] lg:motion-safe:flex-col lg:motion-safe:justify-center lg:motion-safe:overflow-hidden lg:motion-safe:py-0">
+        <div className="py-20 sm:py-24 lg:py-32 lg:motion-safe:sticky lg:motion-safe:top-[4.1875rem] lg:motion-safe:flex lg:motion-safe:h-[calc(100svh-4.1875rem)] lg:motion-safe:flex-col lg:motion-safe:justify-center lg:motion-safe:overflow-hidden lg:motion-safe:py-0">
           <div className="container-site">
             <ChapterHeading index={6} kicker={chapter.kicker} title={chapter.title} text={text} />
           </div>
