@@ -7,7 +7,7 @@ import { getCurrentUser } from "@/lib/dal/session";
 import type { Locale } from "@/lib/i18n";
 
 /** How many recent items a header panel lists; students have no other list pages. */
-export const PANEL_SIZE = 10;
+const PANEL_SIZE = 10;
 
 export interface PanelFeed<T> {
   unread: number;
