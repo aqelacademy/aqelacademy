@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBand } from "@/components/home/cta-band";
 import { BooksChapter } from "@/components/profile/books-chapter";
 import { CareerChapter } from "@/components/profile/career-chapter";
+import { ChapterRail } from "@/components/profile/chapter-rail";
 import { ConferencesChapter } from "@/components/profile/conferences-chapter";
 import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
@@ -45,6 +46,7 @@ export default async function DoctorProfilePage() {
       <div aria-hidden="true" className="sticky top-[4.1875rem] z-30 h-0">
         <div className="cv-reading h-0.5 bg-gold" />
       </div>
+      <ChapterRail chapters={Object.values(chapters).map(({ id, label }) => ({ id, label }))} label={profile.chaptersLabel} />
       <ProfileCover {...profile.cover} firstChapterId={chapters.profile.id} />
       <ProfileStats stats={profile.stats} />
       <ProfileChapter chapter={chapters.profile} intro={profile.intro} disciplines={profile.disciplines} />
