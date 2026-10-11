@@ -1,13 +1,13 @@
 import { Cairo, Noto_Naskh_Arabic } from "next/font/google";
 
 /** UI text. */
-export const cairo = Cairo({
+const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
 });
 
 /** Display headings on public pages (`font-heading`). */
-export const naskh = Noto_Naskh_Arabic({
+const naskh = Noto_Naskh_Arabic({
   variable: "--font-naskh",
   subsets: ["arabic", "latin"],
 });
