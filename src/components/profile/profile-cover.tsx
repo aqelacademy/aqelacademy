@@ -1,8 +1,10 @@
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { IntroTiming } from "@/components/profile/intro-timing";
 import { order } from "@/components/profile/order";
 import { ScrollProgress } from "@/components/profile/scroll-progress";
-import type { ContentImage } from "@/types/content";
+import type { ContentImage, NavLink } from "@/types/content";
 
 interface ProfileCoverProps {
   eyebrow: string;
@@ -15,10 +17,13 @@ interface ProfileCoverProps {
   image: ContentImage;
   /** The first chapter's id, for the scroll cue. */
   firstChapterId: string;
+  /** The page above (About us), with the locale prefix. */
+  back: NavLink;
+  breadcrumbLabel: string;
 }
 
 /** The page's opening: a navy title page with the name set large and the portrait unveiled beside it. */
-export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, scrollCue, image, firstChapterId }: ProfileCoverProps) {
+export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, scrollCue, image, firstChapterId, back, breadcrumbLabel }: ProfileCoverProps) {
   return (
     <IntroTiming className="cv-cover">
       <ScrollProgress mode="exit" className="relative isolate overflow-hidden bg-ink-dark text-white">
@@ -32,6 +37,12 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
 
         <div className="container-site grid gap-14 pt-12 pb-16 sm:pt-16 lg:min-h-[calc(100svh-4.1875rem)] lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-20">
           <div className="cv-cover-text lg:col-span-7">
+            <nav aria-label={breadcrumbLabel} className="cv-intro mb-10 lg:mb-14" style={order(0)}>
+              <Link href={back.href} className="group inline-flex items-center gap-2 text-sm font-bold text-white/70 transition-colors hover:text-white">
+                <ArrowRight aria-hidden="true" className="size-4 text-gold transition-transform ltr:rotate-180 rtl:group-hover:translate-x-0.5 ltr:group-hover:-translate-x-0.5" />
+                {back.label}
+              </Link>
+            </nav>
             <p className="cv-intro flex items-center gap-3 text-sm font-bold text-gold ltr:tracking-wide" style={order(0)}>
               <span aria-hidden="true" className="h-px w-10 bg-gold" />
               {eyebrow}
@@ -41,7 +52,7 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
                 <span className="cv-intro cv-intro-line block text-2xl text-gold sm:text-3xl" style={order(1)}>
                   {honorific}
                 </span>
-              </span>
+              </span>{" "}
               <span className="block overflow-hidden pb-3">
                 <span className="cv-intro cv-intro-line block text-6xl leading-[1.2] sm:text-7xl lg:text-[5.25rem] xl:text-8xl" style={order(2)}>
                   {name}

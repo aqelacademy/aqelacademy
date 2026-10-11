@@ -12,8 +12,10 @@ import { StrengthsChapter } from "@/components/profile/strengths-chapter";
 import { TeachingChapter } from "@/components/profile/teaching-chapter";
 import { ToolsChapter } from "@/components/profile/tools-chapter";
 import { Reveal } from "@/components/ui/reveal";
+import { aboutContent } from "@/content/about";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
-import { localeLink } from "@/lib/i18n";
+import { siteText } from "@/content/site";
+import { localeLink, localePath } from "@/lib/i18n";
 import { getLocale } from "@/lib/locale";
 import { baseOpenGraph, languageAlternates } from "@/lib/metadata";
 
@@ -47,7 +49,12 @@ export default async function DoctorProfilePage() {
         <div className="cv-reading h-0.5 bg-gold" />
       </div>
       <ChapterRail chapters={Object.values(chapters).map(({ id, label }) => ({ id, label }))} label={profile.chaptersLabel} />
-      <ProfileCover {...profile.cover} firstChapterId={chapters.profile.id} />
+      <ProfileCover
+        {...profile.cover}
+        firstChapterId={chapters.profile.id}
+        back={{ href: localePath(locale, "/about-us"), label: aboutContent[locale].title }}
+        breadcrumbLabel={siteText[locale].chrome.breadcrumb}
+      />
       <ProfileStats stats={profile.stats} />
       <ProfileChapter chapter={chapters.profile} intro={profile.intro} disciplines={profile.disciplines} />
       <QualificationsChapter chapter={chapters.qualifications} education={profile.education} licences={profile.licences} />
