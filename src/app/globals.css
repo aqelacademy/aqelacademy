@@ -368,3 +368,29 @@ html:has(.cv-page) {
 @media (prefers-reduced-motion: reduce) {
   .cv-nudge { animation: none; }
 }
+
+/* Phones: degrees and licences (QualificationsChapter) glide from the middle toward their reading edge (right in Arabic, left in English) and fade in from transparent, tied to the scroll by a CSS view timeline. Browsers without one show them in place. The block's own Reveal entrance is switched off there so the two don't compete. */
+@keyframes cv-glide {
+  from { opacity: 0; transform: translateX(var(--glide-from)); }
+}
+
+@media (max-width: 63.98rem) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .cv-glide-block[data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .cv-glide {
+      --glide-from: 32%;
+      animation: cv-glide cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 40%;
+    }
+
+    [dir="rtl"] .cv-glide {
+      --glide-from: -32%;
+    }
+  }
+}
