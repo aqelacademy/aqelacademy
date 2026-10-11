@@ -30,7 +30,7 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
   return (
     <IntroTiming className="cv-cover">
       <noscript>
-        <style>{".cv-intro, .cv-intro-photo img { animation: none !important; }"}</style>
+        <style>{".cv-cover .cv-intro { animation: none !important; }"}</style>
       </noscript>
       <ScrollProgress mode="exit" className="relative isolate overflow-hidden bg-ink-dark text-white">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">

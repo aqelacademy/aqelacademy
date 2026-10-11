@@ -137,28 +137,37 @@ html:has(.cv-page) {
   to { transform: translateY(200%); }
 }
 
-/* The cover's entrance, staggered by `--i`. It stays paused on its first frame until IntroTiming sets data-intro="play" (the opening screen is fading and the portrait has loaded); a <noscript> rule in the cover turns it off without script. */
+/*
+ * The cover's entrance. Its items wait hidden (`cv-hold`) until IntroTiming sets data-intro="play" (the opening
+ * screen is fading and the portrait has loaded); switching to the entrance keyframes starts it fresh, staggered by
+ * `--i`. The hold lasts 4.5 s at most, so if script is slow or blocked the cover simply appears; a <noscript> rule
+ * in the cover skips the hold altogether.
+ */
+@keyframes cv-hold {
+  from, to { opacity: 0; }
+}
+
 .cv-intro {
+  animation: cv-hold 4.5s;
+}
+
+.cv-cover[data-intro="play"] .cv-intro {
   animation: cv-fade 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(var(--i, 0) * 110ms);
 }
 
-.cv-cover:not([data-intro="play"]) :is(.cv-intro, .cv-intro-photo img) {
-  animation-play-state: paused;
-}
-
-.cv-intro-line {
+.cv-cover[data-intro="play"] .cv-intro-line {
   animation-name: cv-rise;
   animation-duration: 1.1s;
 }
 
-.cv-intro-photo {
+.cv-cover[data-intro="play"] .cv-intro-photo {
   animation-name: cv-unveil;
   animation-duration: 1.4s;
   animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.cv-intro-photo img {
+.cv-cover[data-intro="play"] .cv-intro-photo img {
   animation: cv-settle 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: inherit;
 }
@@ -184,7 +193,7 @@ html:has(.cv-page) {
 
 @media (prefers-reduced-motion: reduce) {
   html:has(.cv-page) { scroll-behavior: auto; }
-  .cv-intro, .cv-intro-photo img, .cv-cue { animation: none; }
+  .cv-cover :is(.cv-intro, .cv-intro-photo img), .cv-cue { animation: none !important; }
 }
 
 /* A thin gold reading-progress line under the header, driven by the page scroll where the browser supports scroll timelines. */

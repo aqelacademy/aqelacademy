@@ -12,9 +12,10 @@ interface IntroTimingProps {
 }
 
 /**
- * Holds the cover's entrance (CSS keeps `.cv-intro` paused until `data-intro="play"`) until the opening screen
- * starts fading and the portrait has loaded, so the reader sees the whole sequence and the photo never unveils
- * an empty frame.
+ * Starts the cover's entrance (`data-intro="play"`) once the opening screen starts fading and the portrait has
+ * loaded, so the reader sees the whole sequence and the photo never unveils an empty frame. CSS holds the items
+ * hidden meanwhile, for a few seconds at most; if that hold has already run out (very slow script), the cover is
+ * showing and is left alone rather than flashed.
  */
 export function IntroTiming({ children, className }: IntroTimingProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,6 +24,7 @@ export function IntroTiming({ children, className }: IntroTimingProps) {
     const element = ref.current;
     if (!element) return;
 
+    const holding = () => element.querySelector(".cv-intro")?.getAnimations()[0]?.playState === "running";
     const image = element.querySelector("img");
     const imageReady = new Promise<void>((resolve) => {
       if (!image || image.complete) return resolve();
@@ -34,7 +36,7 @@ export function IntroTiming({ children, className }: IntroTimingProps) {
     let cancelled = false;
     const cancelSplash = afterSplash(() => {
       imageReady.then(() => {
-        if (!cancelled) element.dataset.intro = "play";
+        if (!cancelled && holding()) element.dataset.intro = "play";
       });
     });
     return () => {
