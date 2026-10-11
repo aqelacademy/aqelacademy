@@ -23,11 +23,11 @@ export function TeachingChapter({ chapter, text, items }: TeachingChapterProps) 
         <Reveal>
           <ol className="cv-stagger grid gap-x-12 sm:grid-cols-2">
             {items.map((item, index) => (
-              <li key={item} style={order(index % 8)} className="group flex items-baseline gap-5 border-t border-white/10 py-5">
+              <li key={item} style={order(index % 8)} className="group flex items-baseline gap-4 border-t border-white/10 py-4 sm:gap-5 sm:py-5">
                 <span className="w-7 shrink-0 font-heading text-sm font-bold text-gold tabular-nums transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="text-lg leading-relaxed text-white/85 transition-colors duration-300 group-hover:text-white">{item}</span>
+                <span className="leading-relaxed text-white/85 sm:text-lg transition-colors duration-300 group-hover:text-white">{item}</span>
               </li>
             ))}
           </ol>
