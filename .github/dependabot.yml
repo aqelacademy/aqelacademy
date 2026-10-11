@@ -16,6 +16,12 @@ updates:
       # Types follow the Node version pinned in .nvmrc.
       - dependency-name: "@types/node"
         update-types: [version-update:semver-major]
+      # Next 16.4 breaks the Worker with OpenNext 1.20.9 ("Unexpected loadManifest(preview-props.json)",
+      # every page 500, 2026-10-11). Lift once an OpenNext release supports it and `npm run preview` passes.
+      - dependency-name: next
+        versions: [">=16.4.0"]
+      - dependency-name: eslint-config-next
+        versions: [">=16.4.0"]
 
   - package-ecosystem: github-actions
     directory: /
