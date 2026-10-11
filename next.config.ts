@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { deviceSizes, imageSizes } from "./src/lib/image-sizes.json";
 
 const canonicalHost = "aqelacademy.com";
 const isDev = process.env.NODE_ENV === "development";
@@ -36,8 +37,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
-    // AVIF first (smaller), WebP fallback; both are produced by Cloudflare Images.
-    formats: ["image/avif", "image/webp"],
+    // Images are pre-built WebP files in public/img (scripts/optimize-images.mjs), served static and edge-cached;
+    // the Worker's /_next/image resized on every request (~0.5 s each, no cache). The loader picks the file per width.
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    deviceSizes,
+    imageSizes,
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
