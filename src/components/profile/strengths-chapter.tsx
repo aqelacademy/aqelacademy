@@ -19,9 +19,9 @@ export function StrengthsChapter({ chapter, items }: StrengthsChapterProps) {
         <Reveal className="lg:col-span-8">
           <ol className="cv-stagger">
             {items.map((item, index) => (
-              <li key={item} style={order(index)} className="relative flex gap-6 py-7 sm:gap-10">
+              <li key={item} style={order(index)} className="relative flex gap-5 py-5 sm:gap-10 sm:py-7">
                 <span aria-hidden="true" className="cv-rule absolute inset-x-0 top-0 h-px bg-ink/15" />
-                <span className="w-8 shrink-0 font-heading text-2xl font-bold text-gold-dark tabular-nums">{String(index + 1).padStart(2, "0")}</span>
+                <span className="w-7 shrink-0 font-heading text-xl font-bold sm:w-8 sm:text-2xl text-gold-dark tabular-nums">{String(index + 1).padStart(2, "0")}</span>
                 <span className="text-lg font-bold leading-relaxed text-ink sm:text-xl sm:leading-relaxed">{item}</span>
               </li>
             ))}

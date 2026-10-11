@@ -13,7 +13,7 @@ function ToolList({ items, hidden = false }: { items: string[]; hidden?: boolean
     <ul aria-hidden={hidden || undefined} className="flex shrink-0">
       {items.map((item) => (
         <li key={item} className="pe-3">
-          <span className="block rounded-full border border-line bg-white px-5 py-2.5 font-bold whitespace-nowrap text-ink shadow-card sm:px-6 sm:py-3 sm:text-lg">{item}</span>
+          <span className="block rounded-full border border-line bg-white px-4 py-2 text-[0.95rem] font-bold whitespace-nowrap text-ink shadow-card sm:px-6 sm:py-3 sm:text-lg">{item}</span>
         </li>
       ))}
     </ul>
