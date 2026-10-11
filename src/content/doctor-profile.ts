@@ -3,7 +3,7 @@ import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
 import type { Locale } from "@/lib/i18n";
 import type { ContentImage, NavLink } from "@/types/content";
 
-/** The doctor's CV page (/about-us/dr-muaffaq-aqel), built from his Arabic and English CVs (2026). */
+/** The doctor's CV page (/about-us/dr-muaffaq-aqel), built from his Arabic and English CVs (2026). His real experience is 25 years (the CVs say 20; they are older). */
 export const doctorProfilePath = "/about-us/dr-muaffaq-aqel";
 
 export type ChapterId = "profile" | "qualifications" | "career" | "teaching" | "tools" | "conferences" | "books" | "strengths";
@@ -100,12 +100,12 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
   ar: {
     metaTitle: "الدكتور موفق عقل: السيرة الذاتية",
     metaDescription:
-      "السيرة الذاتية للدكتور موفق عقل: دكتوراه في التربية الخاصة والتأهيل، محلل سلوك دولي معتمد (QBA)، وأكثر من 20 عامًا في التدريب والتأهيل السلوكي في الأردن وسلطنة عُمان والإمارات.",
+      "السيرة الذاتية للدكتور موفق عقل: دكتوراه في التربية الخاصة والتأهيل، محلل سلوك دولي معتمد (QBA)، وأكثر من 25 عامًا في التدريب والتأهيل السلوكي في الأردن وسلطنة عُمان والإمارات.",
     chaptersLabel: "أقسام السيرة الذاتية",
     chapters: {
       profile: { id: "profile", label: "النبذة", kicker: "نبذة", title: "من هو الدكتور موفق عقل؟" },
       qualifications: { id: "qualifications", label: "المؤهلات", kicker: "المؤهلات", title: "الشهادات والتراخيص الدولية" },
-      career: { id: "career", label: "المسيرة", kicker: "المسيرة المهنية", title: "عشرون عامًا في الميدان" },
+      career: { id: "career", label: "المسيرة", kicker: "المسيرة المهنية", title: "ربع قرن في الميدان" },
       teaching: { id: "teaching", label: "التدريب", kicker: "التدريب", title: "دبلومات ودورات قدّمها" },
       tools: { id: "tools", label: "المقاييس", kicker: "التطوير المهني", title: "المقاييس والبرامج التي تدرّب عليها" },
       conferences: { id: "conferences", label: "المؤتمرات", kicker: "البحث العلمي", title: "أوراق علمية في مؤتمرات وملتقيات" },
@@ -127,13 +127,13 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       image: { src: drPortrait, alt: "الدكتور موفق عقل" },
     },
     stats: [
-      { value: 20, suffix: "+", label: "عامًا من الخبرة في التدريب والتأهيل" },
+      { value: 25, suffix: "+", label: "عامًا من الخبرة في التدريب والتأهيل" },
       { value: 100, suffix: "+", label: "دورة تدريبية تخصصية قدّمها" },
       { value: 500, suffix: "+", label: "ساعة تدريب في برامج QABA" },
       { value: 8, label: "أوراق علمية في مؤتمرات وملتقيات" },
     ],
     intro:
-      "أكثر من عشرين عامًا قضاها الدكتور موفق عقل بين قاعات التدريب ومراكز التأهيل والجامعات، في الأردن وسلطنة عُمان والإمارات. يجمع بين العلاج الطبيعي والتربية الخاصة وتحليل السلوك التطبيقي، ويحمل البورد الأمريكي الدولي محللًا سلوكيًا معتمدًا، ليقدّم للمتخصصين علمًا يُطبَّق في الميدان، لا يبقى على الورق.",
+      "أكثر من خمسة وعشرين عامًا قضاها الدكتور موفق عقل بين قاعات التدريب ومراكز التأهيل والجامعات، في الأردن وسلطنة عُمان والإمارات. يجمع بين العلاج الطبيعي والتربية الخاصة وتحليل السلوك التطبيقي، ويحمل البورد الأمريكي الدولي محللًا سلوكيًا معتمدًا، ليقدّم للمتخصصين علمًا يُطبَّق في الميدان، لا يبقى على الورق.",
     disciplines: {
       title: "ثلاثة تخصصات، ونظرة واحدة",
       text: "بدأ مسيرته في العلاج الطبيعي، ثم تخصص في التربية الخاصة والتأهيل حتى الدكتوراه، ثم في تحليل السلوك التطبيقي. لذلك يرى الطفل والأسرة والبرنامج صورة واحدة متكاملة، لا أجزاءً منفصلة.",
@@ -253,7 +253,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     },
     closing: {
       title: "علمٌ يُطبَّق في الميدان",
-      text: "خبرة عشرين عامًا، في برامج تدريبية معتمدة يشرف عليها الدكتور موفق عقل بنفسه.",
+      text: "خبرة ربع قرن، في برامج تدريبية معتمدة يشرف عليها الدكتور موفق عقل بنفسه.",
       primaryAction: { href: "/courses", label: "تصفّح الدورات" },
       secondaryAction: { href: "/contact-us", label: "تواصل معنا" },
     },
@@ -261,12 +261,12 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
   en: {
     metaTitle: "Dr Muaffaq Aqel: Curriculum vitae",
     metaDescription:
-      "The CV of Dr Muaffaq Aqel: PhD in special education and rehabilitation, Qualified Behavior Analyst (QBA), and more than 20 years of training and behavioural rehabilitation in Jordan, Oman and the UAE.",
+      "The CV of Dr Muaffaq Aqel: PhD in special education and rehabilitation, Qualified Behavior Analyst (QBA), and more than 25 years of training and behavioural rehabilitation in Jordan, Oman and the UAE.",
     chaptersLabel: "CV sections",
     chapters: {
       profile: { id: "profile", label: "Profile", kicker: "Profile", title: "Who is Dr Muaffaq Aqel?" },
       qualifications: { id: "qualifications", label: "Qualifications", kicker: "Qualifications", title: "Degrees and international licences" },
-      career: { id: "career", label: "Career", kicker: "Career", title: "Twenty years in the field" },
+      career: { id: "career", label: "Career", kicker: "Career", title: "A quarter of a century in the field" },
       teaching: { id: "teaching", label: "Teaching", kicker: "Teaching", title: "Diplomas and courses he has taught" },
       tools: { id: "tools", label: "Tools", kicker: "Professional development", title: "Assessments and programmes he is trained in" },
       conferences: { id: "conferences", label: "Conferences", kicker: "Research", title: "Papers at conferences and forums" },
@@ -288,13 +288,13 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
       image: { src: drPortrait, alt: "Dr Muaffaq Aqel" },
     },
     stats: [
-      { value: 20, suffix: "+", label: "years of training and rehabilitation" },
+      { value: 25, suffix: "+", label: "years of training and rehabilitation" },
       { value: 100, suffix: "+", label: "specialist training courses taught" },
       { value: 500, suffix: "+", label: "hours of training in QABA programmes" },
       { value: 8, label: "papers at conferences and forums" },
     ],
     intro:
-      "For more than twenty years, Dr Muaffaq Aqel has worked across training rooms, rehabilitation centres and universities in Jordan, Oman and the UAE. He brings together physical therapy, special education and Applied Behaviour Analysis, holds international board certification as a behaviour analyst, and gives specialists knowledge they can use in the field, not just on paper.",
+      "For more than twenty-five years, Dr Muaffaq Aqel has worked across training rooms, rehabilitation centres and universities in Jordan, Oman and the UAE. He brings together physical therapy, special education and Applied Behaviour Analysis, holds international board certification as a behaviour analyst, and gives specialists knowledge they can use in the field, not just on paper.",
     disciplines: {
       title: "Three disciplines, one view",
       text: "He began in physical therapy, went on to special education and rehabilitation up to a doctorate, and then to Applied Behaviour Analysis. So he sees the child, the family and the programme as one picture, not separate parts.",
@@ -414,7 +414,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     },
     closing: {
       title: "Knowledge you can use in the field",
-      text: "Twenty years of experience, in accredited training programmes that Dr Muaffaq Aqel supervises himself.",
+      text: "A quarter of a century of experience, in accredited training programmes that Dr Muaffaq Aqel supervises himself.",
       primaryAction: { href: "/courses", label: "Browse courses" },
       secondaryAction: { href: "/contact-us", label: "Contact us" },
     },
