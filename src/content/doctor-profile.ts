@@ -23,6 +23,14 @@ export interface ProfileStat {
   label: string;
 }
 
+export interface Disciplines {
+  title: string;
+  text: string;
+  /** In the order he studied them. */
+  fields: [string, string, string];
+  centre: string;
+}
+
 export interface Degree {
   year: number;
   title: string;
@@ -76,7 +84,7 @@ interface DoctorProfile {
   stats: ProfileStat[];
   /** Read word by word as it scrolls past. */
   intro: string;
-  disciplines: { title: string; text: string; fields: [string, string, string]; centre: string };
+  disciplines: Disciplines;
   education: { title: string; steps: Degree[] };
   licences: { title: string; numberLabel: string; items: Licence[] };
   career: { text: string; present: string; image: ContentImage; roles: CareerRole[] };

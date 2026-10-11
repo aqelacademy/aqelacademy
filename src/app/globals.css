@@ -211,3 +211,34 @@ html:not([data-splash="seen"]) .cv-intro {
     transform-origin: right;
   }
 }
+
+/* Word-by-word statement (ScrollWords): each word darkens once the progress passes its place `--w`. */
+.cv-word {
+  opacity: clamp(0.16, calc((var(--progress, 1) - var(--w)) * 11 + 0.16), 1);
+  transition: opacity 0.15s linear;
+}
+
+/* The three discipline circles (DisciplinesVenn): apart at first, overlapping once the section is in place. `--x` points to the start side. */
+.cv-venn {
+  --merge: clamp(0, calc(var(--progress, 1) * 2.4 - 0.35), 1);
+  --spread: calc(1 + (1 - var(--merge)) * 1.15);
+  --start: -1;
+}
+
+[dir="rtl"] .cv-venn {
+  --start: 1;
+}
+
+.cv-venn-circle {
+  opacity: calc(0.35 + var(--merge) * 0.65);
+  transform: translate(calc(var(--x) * var(--start) * var(--spread)), calc(var(--y) * var(--spread)));
+}
+
+.cv-venn-a { --x: 0%; --y: -29%; }
+.cv-venn-b { --x: 28%; --y: 19%; }
+.cv-venn-c { --x: -28%; --y: 19%; }
+
+.cv-venn-centre {
+  opacity: clamp(0, calc(var(--merge) * 3 - 2), 1);
+  transform: translate(-50%, -20%) scale(calc(0.85 + var(--merge) * 0.15));
+}

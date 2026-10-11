@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
 import { ProfileStats } from "@/components/profile/profile-stats";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
@@ -35,6 +36,7 @@ export default async function DoctorProfilePage() {
       </div>
       <ProfileCover {...profile.cover} firstChapterId={chapters.profile.id} />
       <ProfileStats stats={profile.stats} />
+      <ProfileChapter chapter={chapters.profile} intro={profile.intro} disciplines={profile.disciplines} />
     </div>
   );
 }
