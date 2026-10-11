@@ -42,13 +42,14 @@ export default async function DoctorProfilePage() {
   const locale = await getLocale();
   const profile = doctorProfile[locale];
   const { chapters, closing } = profile;
+  const railChapters = Object.values(chapters).map(({ id, label }) => ({ id, label }));
 
   return (
     <div className="cv-page">
       <div aria-hidden="true" className="sticky top-[4.1875rem] z-30 h-0">
         <div className="cv-reading h-0.5 bg-gold" />
       </div>
-      <ChapterRail chapters={Object.values(chapters).map(({ id, label }) => ({ id, label }))} label={profile.chaptersLabel} />
+      <ChapterRail chapters={railChapters} label={profile.chaptersLabel} />
       <ProfileCover
         {...profile.cover}
         firstChapterId={chapters.profile.id}
