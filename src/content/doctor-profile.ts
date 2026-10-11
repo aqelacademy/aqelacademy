@@ -90,7 +90,7 @@ interface DoctorProfile {
   career: { text: string; present: string; image: ContentImage; roles: CareerRole[] };
   teaching: { text: string; items: string[] };
   tools: { text: string; rows: [string[], string[]] };
-  conferences: { text: string; paperLabel: string; items: Conference[] };
+  conferences: { text: string; paperLabel: string; /** Phones: the cards scroll sideways. */ swipeHint: string; items: Conference[] };
   books: { text: string; publishedLabel: string; inProgressLabel: string; items: Book[] };
   strengths: { items: string[] };
   closing: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
@@ -215,6 +215,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     conferences: {
       text: "شارك بأوراق علمية في مؤتمرات وملتقيات في الأردن ومصر وسلطنة عُمان.",
       paperLabel: "ورقة علمية",
+      swipeHint: "اسحب لرؤية المزيد",
       items: [
         { year: 2012, country: "الأردن", title: "مؤتمر التوجهات الحديثة في التربية الخاصة" },
         { year: 2015, country: "الأردن", title: "الملتقى الإقليمي الأول في التوحد: تشخيص طيف التوحد وصعوبات التعلم وعلاجها" },
@@ -375,6 +376,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     conferences: {
       text: "He has presented papers at conferences and forums in Jordan, Egypt and Oman.",
       paperLabel: "Paper",
+      swipeHint: "Swipe to see more",
       items: [
         { year: 2012, country: "Jordan", title: "Conference on Modern Trends in Special Education" },
         { year: 2015, country: "Jordan", title: "First Regional Forum on Autism: diagnosing and treating autism spectrum disorder and learning difficulties" },

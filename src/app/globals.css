@@ -346,3 +346,25 @@ html:has(.cv-page) {
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] .cv-rule { transition: none; }
 }
+
+/* The swipe hint's arrow nudges toward the rest of the row (ConferencesChapter, phones). */
+@keyframes cv-nudge {
+  50% { transform: translateX(-0.3rem); }
+}
+
+.cv-nudge {
+  animation: cv-nudge 1.6s ease-in-out infinite;
+}
+
+[dir="ltr"] .cv-nudge {
+  animation-name: cv-nudge-ltr;
+}
+
+@keyframes cv-nudge-ltr {
+  from, to { transform: rotate(180deg); }
+  50% { transform: rotate(180deg) translateX(-0.3rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-nudge { animation: none; }
+}

@@ -31,7 +31,7 @@ export function CareerChapter({ chapter, text, present, image, roles }: CareerCh
           </div>
           {/* Phones and tablets: a wide crop above the list instead of the pinned portrait. */}
           <div className="relative -mt-2 aspect-[16/10] overflow-hidden rounded-lg bg-surface sm:aspect-[2/1] lg:hidden">
-            <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 0px, 100vw" className="object-cover object-[50%_30%]" />
+            <Image src={image.src} alt={image.alt} fill sizes="100vw" className="object-cover object-[50%_30%]" />
           </div>
         </Reveal>
 
