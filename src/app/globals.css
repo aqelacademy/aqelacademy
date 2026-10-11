@@ -280,3 +280,42 @@ html:not([data-splash="seen"]) .cv-intro {
   background-color: color-mix(in srgb, var(--color-gold) calc(clamp(0, (var(--progress, 1) - var(--at, 0)) * 25, 1) * 100%), white);
   transition: background-color 0.2s linear;
 }
+
+/* Two rows of tools drifting in opposite directions (ToolsChapter). Each track holds its list twice and slides by half its width, so the loop is seamless. */
+@keyframes cv-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes cv-marquee-rtl {
+  to { transform: translateX(50%); }
+}
+
+.cv-marquee-row {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.cv-marquee {
+  display: flex;
+  width: max-content;
+  animation: cv-marquee 70s linear infinite;
+}
+
+[dir="rtl"] .cv-marquee {
+  animation-name: cv-marquee-rtl;
+}
+
+.cv-marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 80s;
+}
+
+.cv-marquee-row:hover .cv-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-marquee-row { mask-image: none; }
+  .cv-marquee { animation: none; width: auto; justify-content: center; }
+  .cv-marquee > ul { flex-wrap: wrap; justify-content: center; row-gap: 0.75rem; }
+  .cv-marquee > ul[aria-hidden] { display: none; }
+}

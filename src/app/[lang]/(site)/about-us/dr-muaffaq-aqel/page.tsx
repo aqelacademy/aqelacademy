@@ -4,6 +4,8 @@ import { ProfileChapter } from "@/components/profile/profile-chapter";
 import { ProfileCover } from "@/components/profile/profile-cover";
 import { ProfileStats } from "@/components/profile/profile-stats";
 import { QualificationsChapter } from "@/components/profile/qualifications-chapter";
+import { TeachingChapter } from "@/components/profile/teaching-chapter";
+import { ToolsChapter } from "@/components/profile/tools-chapter";
 import { doctorProfile, doctorProfilePath } from "@/content/doctor-profile";
 import { getLocale } from "@/lib/locale";
 import { baseOpenGraph, languageAlternates } from "@/lib/metadata";
@@ -41,6 +43,8 @@ export default async function DoctorProfilePage() {
       <ProfileChapter chapter={chapters.profile} intro={profile.intro} disciplines={profile.disciplines} />
       <QualificationsChapter chapter={chapters.qualifications} education={profile.education} licences={profile.licences} />
       <CareerChapter chapter={chapters.career} {...profile.career} />
+      <TeachingChapter chapter={chapters.teaching} {...profile.teaching} />
+      <ToolsChapter chapter={chapters.tools} {...profile.tools} />
     </div>
   );
 }
