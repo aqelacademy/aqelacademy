@@ -384,9 +384,10 @@ html:has(.cv-page) {
 
     .cv-glide {
       --glide-from: 32%;
-      animation: cv-glide cubic-bezier(0.22, 1, 0.36, 1) both;
+      /* Settles about mid-screen, so the glide is seen rather than finished at the bottom edge. */
+      animation: cv-glide cubic-bezier(0.3, 0.7, 0.4, 1) both;
       animation-timeline: view();
-      animation-range: entry 5% cover 40%;
+      animation-range: entry 10% cover 45%;
     }
 
     [dir="rtl"] .cv-glide {
