@@ -1,7 +1,8 @@
 import drPortrait from "@/assets/images/dr-muaffaq-portrait.jpg";
 import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
+import { doctorProfilePath } from "@/content/doctor-profile";
 import type { Locale } from "@/lib/i18n";
-import type { ContentImage, TitledText } from "@/types/content";
+import type { ContentImage, NavLink, TitledText } from "@/types/content";
 
 interface TitledParagraphs {
   title: string;
@@ -11,7 +12,7 @@ interface TitledParagraphs {
 interface AboutContent {
   title: string;
   vision: TitledParagraphs & { image: ContentImage };
-  academy: TitledParagraphs & { programs: string[]; image: ContentImage };
+  academy: TitledParagraphs & { programs: string[]; image: ContentImage; profileLink: NavLink & { caption: string } };
   whyUs: { title: string; points: string[] };
   mission: TitledParagraphs;
   values: { title: string; items: TitledText[] };
@@ -45,6 +46,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
         "الدعم النفسي لذوي الاحتياجات الخاصة",
       ],
       image: { src: drPortrait, alt: "الدكتور موفق عقل" },
+      profileLink: { href: doctorProfilePath, label: "تعرّف على الدكتور موفق عقل", caption: "السيرة الذاتية: المؤهلات والخبرات والمؤلفات" },
     },
     whyUs: {
       title: "لماذا تختارنا؟",
@@ -99,6 +101,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
         "Psychological support for people with special needs",
       ],
       image: { src: drPortrait, alt: "Dr Muaffaq Aqel" },
+      profileLink: { href: doctorProfilePath, label: "Meet Dr Muaffaq Aqel", caption: "His CV: qualifications, career and publications" },
     },
     whyUs: {
       title: "Why choose us?",

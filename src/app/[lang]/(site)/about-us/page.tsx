@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DoctorProfileLink } from "@/components/profile/doctor-profile-link";
 import { cardClassName } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/check-list";
 import { PageHeader } from "@/components/ui/page-header";
@@ -6,6 +7,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SplitSection } from "@/components/ui/split-section";
 import { aboutContent } from "@/content/about";
+import { localePath } from "@/lib/i18n";
 import { getLocale } from "@/lib/locale";
 import { languageAlternates } from "@/lib/metadata";
 
@@ -15,7 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const { title, vision: aboutVision, academy: aboutAcademy, whyUs: aboutWhyUs, mission: aboutMission, values: aboutValues } = aboutContent[await getLocale()];
+  const locale = await getLocale();
+  const { title, vision: aboutVision, academy: aboutAcademy, whyUs: aboutWhyUs, mission: aboutMission, values: aboutValues } = aboutContent[locale];
 
   return (
     <>
@@ -45,6 +48,14 @@ export default async function AboutPage() {
             </div>
             <div className="mt-6">
               <CheckList items={aboutAcademy.programs} />
+            </div>
+            <div className="mt-10">
+              <DoctorProfileLink
+                href={localePath(locale, aboutAcademy.profileLink.href)}
+                label={aboutAcademy.profileLink.label}
+                caption={aboutAcademy.profileLink.caption}
+                image={aboutAcademy.image}
+              />
             </div>
           </SplitSection>
         </Reveal>
