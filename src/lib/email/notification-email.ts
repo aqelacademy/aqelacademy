@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 const escapes: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 
 /** Names, course titles… come from users: never put them into HTML unescaped. */
-export function escapeHtml(value: string): string {
+function escapeHtml(value: string): string {
   return value.replace(/[&<>"']/g, (character) => escapes[character]);
 }
 
