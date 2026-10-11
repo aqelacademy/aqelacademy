@@ -7,7 +7,7 @@ import { type ReactNode, useEffect, useRef } from "react";
  * - `track`: how far the box has passed a reading line at 60% of the viewport (timelines, word by word text).
  * - `pin`: a tall box with a sticky child: 0 when it reaches the top, 1 when its end does (horizontal tracks).
  */
-export type ProgressMode = "exit" | "track" | "pin";
+type ProgressMode = "exit" | "track" | "pin";
 
 function progressOf(mode: ProgressMode, top: number, height: number, viewport: number): number {
   if (mode === "exit") return -top / height;
