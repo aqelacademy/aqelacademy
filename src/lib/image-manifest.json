@@ -66,6 +66,17 @@
       1280
     ]
   },
+  "dr-muaffaq-headshot": {
+    "hash": "66519596e7",
+    "widths": [
+      64,
+      128,
+      256,
+      384,
+      640,
+      700
+    ]
+  },
   "dr-muaffaq-portrait": {
     "hash": "2112934edc",
     "widths": [
