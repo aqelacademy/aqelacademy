@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLink } from "@/components/home/arrow-link";
 import { ArticleSpread } from "@/components/home/article-spread";
 import { CourseIndex } from "@/components/home/course-index";
-import { CtaBand } from "@/components/home/cta-band";
+import { HomeClosing } from "@/components/home/home-closing";
 import { HomeFacts } from "@/components/home/home-facts";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomePillars } from "@/components/home/home-pillars";
@@ -47,7 +47,7 @@ export default async function HomePage() {
 
       <section className="border-y border-gold/25 bg-gold-soft py-20 sm:py-28">
         <Reveal className="container-site grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+          <div className="lg:col-span-5">
             <HomeSectionHeading index="02" kicker={journey.kicker} title={journey.title} />
             <p className="text-lg leading-loose">{journey.text}</p>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -72,9 +72,7 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      <Reveal>
-        <CtaBand title={cta.title} text={cta.text} primaryAction={localeLink(locale, cta.primaryAction)} secondaryAction={localeLink(locale, cta.secondaryAction)} />
-      </Reveal>
+      <HomeClosing title={cta.title} text={cta.text} primaryAction={localeLink(locale, cta.primaryAction)} secondaryAction={localeLink(locale, cta.secondaryAction)} />
     </>
   );
 }
