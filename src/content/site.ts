@@ -1,3 +1,6 @@
+import logoMark from "@/assets/images/logo-mark.png";
+import logoName from "@/assets/images/logo-name.png";
+import logoTagline from "@/assets/images/logo-tagline.png";
 import logo from "@/assets/images/logo.png";
 import type { Locale } from "@/lib/i18n";
 import type { ContentImage, NavLink } from "@/types/content";
@@ -14,6 +17,8 @@ export const site = {
     "برامج تدريب احترافية في تحليل السلوك التطبيقي (ABA)، التربية الخاصة، والتأهيل النفسي والسلوكي، بإشراف مباشر من الدكتور موفق عقل.",
   url: "https://aqelacademy.com",
   logo: { src: logo, alt: "شعار أكاديمية الدكتور موفق عقل" } satisfies ContentImage,
+  /** The new logo, cut out of its paper background: the emblem alone (header, footer), then its English name and tagline (opening screen). */
+  brand: { mark: logoMark, name: logoName, tagline: logoTagline },
   contact: {
     phone: "+96897192495",
     phoneDisplay: "0096897192495",

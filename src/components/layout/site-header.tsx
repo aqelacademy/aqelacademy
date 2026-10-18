@@ -23,7 +23,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       </a>
       <div className="container-site flex h-16 items-center gap-6">
         <Link href={localePath(locale, "/")} className="flex shrink-0 items-center gap-3">
-          <Image src={site.logo.src} alt={text.logoAlt} className="size-12" sizes="48px" preload />
+          <Image src={site.brand.mark} alt={text.logoAlt} className="h-12 w-auto" sizes="48px" preload />
           <span className="hidden md:block lg:hidden xl:block">
             <span className="block font-heading text-lg font-bold leading-snug text-ink">{text.name}</span>
             <span className="block text-xs text-body">{text.tagline}</span>
