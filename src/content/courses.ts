@@ -397,7 +397,7 @@ export function courseHoursLabel(hours: number, locale: Locale): string {
 /** Labels around the courses (cards, the course page, its summary card). */
 export const courseCopy: Record<
   Locale,
-  { listTitle: string; listIntro: string; details: string; empty: string; trainer: string; duration: string; hours: string; level: string; whatsappQuestion: string; whatsappPrefill: (title: string) => string }
+  { listTitle: string; listIntro: string; details: string; empty: string; trainer: string; duration: string; hours: string; fee: string; level: string; whatsappQuestion: string; whatsappPrefill: (title: string) => string }
 > = {
   ar: {
     listTitle: "الدورات التدريبية",
@@ -408,6 +408,7 @@ export const courseCopy: Record<
     trainer: "المدرب",
     duration: "المدة",
     hours: "عدد الساعات",
+    fee: "رسوم الدورة",
     level: "المستوى",
     whatsappQuestion: "لديك سؤال؟ تواصل معنا عبر واتساب",
     whatsappPrefill: (title) => `مرحبًا، لدي استفسار عن ${title}`,
@@ -421,6 +422,7 @@ export const courseCopy: Record<
     trainer: "Trainer",
     duration: "Duration",
     hours: "Training hours",
+    fee: "Course fee",
     level: "Level",
     whatsappQuestion: "Got a question? Message us on WhatsApp",
     whatsappPrefill: (title) => `Hello, I have a question about the ${title}`,

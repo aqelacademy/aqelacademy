@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ArrowLink } from "@/components/home/arrow-link";
+import { ArrowLink } from "@/components/ui/arrow-link";
 import { ArticleShowcase } from "@/components/home/article-showcase";
-import { CoursePath } from "@/components/home/course-path";
+import { CoursePath } from "@/components/courses/course-path";
 import { HomeApproach } from "@/components/home/home-approach";
 import { HomeClosing } from "@/components/home/home-closing";
 import { HomeHero } from "@/components/home/home-hero";
@@ -42,7 +42,7 @@ export default async function HomePage() {
             <p className="max-w-md leading-relaxed text-white/70">{courseCopy[locale].listIntro}</p>
             <ArrowLink link={localeLink(locale, featuredSection.action)} className="text-white" />
           </HomeSectionHeading>
-          <CoursePath locale={locale} courses={courses.slice(0, 3)} feeLabel={featuredSection.fee} />
+          <CoursePath locale={locale} courses={courses.slice(0, 3)} />
         </Reveal>
       </section>
 

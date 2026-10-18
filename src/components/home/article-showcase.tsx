@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PillArrow } from "@/components/home/pill-arrow";
+import { PillArrow } from "@/components/ui/pill-arrow";
 import { order } from "@/components/profile/order";
 import { formatDate } from "@/lib/format";
 import { localePath, type Locale } from "@/lib/i18n";

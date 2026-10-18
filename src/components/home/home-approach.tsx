@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeSectionHeading } from "@/components/home/home-section-heading";
-import { ArrowLink } from "@/components/home/arrow-link";
-import { PillArrow } from "@/components/home/pill-arrow";
+import { ArrowLink } from "@/components/ui/arrow-link";
+import { PillArrow } from "@/components/ui/pill-arrow";
 import { order } from "@/components/profile/order";
 import type { ContentImage, NavLink, TitledText } from "@/types/content";
 

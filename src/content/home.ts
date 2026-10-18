@@ -36,8 +36,7 @@ interface HomeContent {
   stats: { years: number; yearsLabel: string; programmesLabel: string };
   accreditationsTitle: string;
   accreditations: ContentImage[];
-  /** `fee` labels each course's price. */
-  featuredCourses: HomeSection & { action: NavLink; fee: string };
+  featuredCourses: HomeSection & { action: NavLink };
   journey: HomeSection & {
     text: string;
     points: TitledText[];
@@ -73,7 +72,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "البرامج التدريبية",
       title: "الدورات المميزة",
       action: { href: "/courses", label: "جميع الدورات" },
-      fee: "رسوم الدورة",
     },
     journey: {
       kicker: "لماذا نحن",
@@ -118,7 +116,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "Training programmes",
       title: "Featured courses",
       action: { href: "/courses", label: "All courses" },
-      fee: "Course fee",
     },
     journey: {
       kicker: "Why us",

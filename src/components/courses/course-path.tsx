@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PillArrow } from "@/components/home/pill-arrow";
+import { PillArrow } from "@/components/ui/pill-arrow";
 import { order } from "@/components/profile/order";
 import { courseCopy, courseDurationLabel } from "@/content/courses";
 import { formatCourseLevel, formatPrice } from "@/lib/format";
@@ -10,19 +10,17 @@ import type { Course } from "@/types/content";
 interface CoursePathProps {
   locale: Locale;
   courses: Course[];
-  /** Labels each course's price. */
-  feeLabel: string;
 }
 
 /** Each step stands higher than the one before on large screens, so the three courses read as a rising professional path. */
 const stepLift = ["lg:mb-0", "lg:mb-14", "lg:mb-28"];
 
 /**
- * The home page's courses on navy, as a rising path of three cards: the seal, the level and step number, the title, then hours and
+ * The courses on navy (home, courses, course fees), as a rising path of three cards: the seal, the level and step number, the title, then hours and
  * fee in the hero's light numerals, and the hero's pill to the course. Inside a Reveal the cards climb in one after
  * another (`.home-step`). The title is the card's one link and stretches over it.
  */
-export function CoursePath({ locale, courses, feeLabel }: CoursePathProps) {
+export function CoursePath({ locale, courses }: CoursePathProps) {
   const copy = courseCopy[locale];
 
   return (
@@ -53,7 +51,7 @@ export function CoursePath({ locale, courses, feeLabel }: CoursePathProps) {
                 <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{course.trainingHours}</dd>
               </div>
               <div className="border-s border-white/10 ps-5">
-                <dt className="text-xs text-white/55">{feeLabel}</dt>
+                <dt className="text-xs text-white/55">{copy.fee}</dt>
                 <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{formatPrice(course.priceUsd)}</dd>
               </div>
             </dl>
