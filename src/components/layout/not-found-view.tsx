@@ -17,8 +17,8 @@ export function NotFoundView({ locale }: NotFoundViewProps) {
       <SiteHeader locale={locale} />
       <main id="main" className="flex flex-1 items-center bg-canvas">
         <section className="container-site py-24 text-center">
-          <p className="font-heading text-7xl font-bold text-gold">404</p>
-          <h1 className="mt-4 font-heading text-2xl font-bold text-ink">{chrome.notFoundTitle}</h1>
+          <p className="text-7xl font-bold text-gold">404</p>
+          <h1 className="mt-4 text-2xl font-bold text-ink">{chrome.notFoundTitle}</h1>
           <p className="mt-3">{chrome.notFoundText}</p>
           <div className="mt-8">
             <ButtonLink href={localePath(locale, "/")}>{chrome.backHome}</ButtonLink>

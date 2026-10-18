@@ -86,7 +86,7 @@ export default async function AboutPage() {
           <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {aboutValues.items.map((value, index) => (
               <li key={value.title} className="border-t border-line pt-6">
-                <span aria-hidden="true" className="font-heading text-3xl font-bold tabular-nums text-gold">
+                <span aria-hidden="true" className="text-3xl font-bold tabular-nums text-gold">
                   0{index + 1}
                 </span>
                 <h3 className="mt-3 text-lg font-bold text-ink">{value.title}</h3>

@@ -62,14 +62,14 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
               <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
               {hero.eyebrow}
             </p>
-            <h1 className="mt-5 font-display font-light sm:mt-6">
+            <h1 className="mt-5 font-bold sm:mt-6">
               <span className="block overflow-hidden pb-2">
-                <span className="cv-intro home-line block text-[2.75rem] leading-[1.2] text-balance sm:text-7xl sm:leading-[1.15] xl:text-[5.25rem]" style={order(1)}>
+                <span className="cv-intro home-line block text-[2.5rem] leading-[1.25] text-balance sm:text-6xl sm:leading-[1.2] xl:text-7xl xl:leading-[1.2]" style={order(1)}>
                   {name}
                 </span>
               </span>{" "}
               <span className="block overflow-hidden pb-1">
-                <span className="cv-intro home-line block text-lg leading-snug text-white/75 sm:text-3xl" style={order(2)}>
+                <span className="cv-intro home-line block text-lg leading-snug font-normal text-white/75 sm:text-2xl" style={order(2)}>
                   {tagline}
                 </span>
               </span>
@@ -93,7 +93,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
             <div className="grid grid-cols-2 items-center gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-x-8">
               {facts.map((fact) => (
                 <p key={fact.label} className="flex items-center gap-3">
-                  <span className="font-display text-3xl leading-none font-light tabular-nums" dir="ltr">
+                  <span className="text-3xl leading-none font-bold tabular-nums" dir="ltr">
                     <CountUp value={fact.value} />
                     {fact.suffix}
                   </span>

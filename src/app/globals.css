@@ -33,10 +33,6 @@
 
 @theme inline {
   --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
-  /* Display headings on public pages; UI text stays in Cairo. */
-  --font-heading: var(--font-naskh), var(--font-cairo), serif;
-  /* The home page's display face, in both languages. */
-  --font-display: var(--font-plex-arabic), var(--font-cairo), sans-serif;
 }
 
 @utility container-site {

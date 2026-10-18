@@ -34,14 +34,14 @@ export function ConferencesChapter({ chapter, text, paperLabel, swipeHint, items
                 <li key={item.title} className="flex w-[80vw] max-w-[22rem] shrink-0 snap-start flex-col pe-4 sm:w-[22rem] sm:pe-5">
                   <p className="flex h-10 items-center gap-4">
                     <span aria-hidden="true" className="size-3 shrink-0 rounded-full bg-gold ring-4 ring-white" />
-                    <span className="font-heading text-3xl font-bold text-ink tabular-nums">{item.year}</span>
+                    <span className="text-3xl font-bold text-ink tabular-nums">{item.year}</span>
                   </p>
                   <article className="mt-6 flex min-h-60 flex-1 flex-col rounded-xl border border-line bg-white p-6 shadow-card transition-[border-color,box-shadow] duration-300 hover:border-gold/60 hover:shadow-lift">
                     <p className="flex items-center gap-2 text-sm">
                       <MapPin aria-hidden="true" className="size-4 text-gold" />
                       {item.country}
                     </p>
-                    <h3 className="mt-4 font-heading text-lg font-bold leading-relaxed text-ink sm:text-xl sm:leading-relaxed">{item.title}</h3>
+                    <h3 className="mt-4 text-lg font-bold leading-relaxed text-ink sm:text-xl sm:leading-relaxed">{item.title}</h3>
                     <p className="mt-auto flex items-center gap-2 pt-4 text-xs font-bold text-gold-dark">
                       <FileText aria-hidden="true" className="size-4" />
                       {paperLabel}

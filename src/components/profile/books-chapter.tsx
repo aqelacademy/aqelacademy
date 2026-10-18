@@ -55,7 +55,7 @@ export function BooksChapter({ chapter, text, publishedLabel, inProgressLabel, i
                   >
                     <span aria-hidden="true" className="absolute inset-y-2 start-2 w-px bg-gold/60 sm:inset-x-2 sm:inset-y-auto sm:top-3 sm:h-px sm:w-auto" />
                     <span aria-hidden="true" className="absolute inset-y-2 end-2 w-px bg-gold/60 sm:inset-x-2 sm:inset-y-auto sm:top-auto sm:bottom-3 sm:h-px sm:w-auto" />
-                    <span className="min-h-0 font-heading text-sm leading-snug font-bold sm:text-center sm:[writing-mode:vertical-rl]">{book.title}</span>
+                    <span className="min-h-0 text-sm leading-snug font-bold sm:text-center sm:[writing-mode:vertical-rl]">{book.title}</span>
                     <span className={`shrink-0 text-[0.7rem] font-bold sm:[writing-mode:vertical-rl] ${book.published ? "text-gold" : "text-gold-dark"}`}>
                       {book.published ? publishedLabel : inProgressLabel}
                     </span>

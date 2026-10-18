@@ -22,7 +22,7 @@ export function ProfileChapter({ chapter, intro, disciplines }: ProfileChapterPr
 
         <div className="mt-16 grid items-center gap-12 border-t border-line pt-16 sm:mt-20 sm:gap-14 sm:pt-20 lg:mt-28 lg:grid-cols-2 lg:gap-20 lg:pt-28">
           <Reveal>
-            <h3 className="font-heading text-2xl font-bold leading-snug text-ink md:text-3xl md:leading-snug">{disciplines.title}</h3>
+            <h3 className="text-2xl font-bold leading-snug text-ink md:text-3xl md:leading-snug">{disciplines.title}</h3>
             <span aria-hidden="true" className="mt-4 block h-0.5 w-12 bg-gold" />
             <p className="mt-6 max-w-xl leading-loose sm:text-lg">{disciplines.text}</p>
           </Reveal>

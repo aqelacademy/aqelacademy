@@ -30,7 +30,7 @@ export default async function AuthLayout({ children }: { children: ReactNode }) 
               <div className="flex size-20 items-center justify-center rounded-full bg-white p-1.5">
                 <Image src={site.logo.src} alt={logoAlt} sizes="80px" className="size-full" />
               </div>
-              <h2 className="mt-8 font-heading text-2xl font-bold leading-relaxed">{authPanel.title}</h2>
+              <h2 className="mt-8 text-2xl font-bold leading-relaxed">{authPanel.title}</h2>
               <span aria-hidden="true" className="mt-5 block h-0.5 w-12 bg-gold" />
               <div className="mt-6 text-white/90">
                 <CheckList items={authPanel.points} />

@@ -40,7 +40,7 @@ export function ArticleShowcase({ locale, articles }: ArticleShowcaseProps) {
               </time>
               <div className="flex items-end justify-between gap-6">
                 <div>
-                  <h3 className={`font-display leading-snug font-light text-balance ${lead ? "text-2xl sm:text-4xl sm:leading-snug" : "text-xl sm:text-2xl"}`}>
+                  <h3 className={`leading-snug font-bold text-balance ${lead ? "text-2xl sm:text-4xl sm:leading-snug" : "text-xl sm:text-2xl"}`}>
                     <Link href={localePath(locale, `/blog/${article.slug}`)} className="after:absolute after:inset-0 after:rounded-[1.75rem] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-gold">
                       {article.title}
                     </Link>

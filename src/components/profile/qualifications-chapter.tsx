@@ -33,15 +33,15 @@ export function QualificationsChapter({ chapter, education, licences }: Qualific
             {education.steps.map((step, index) => (
               <li key={step.year} style={order(index)} className="cv-glide max-lg:ms-[calc(var(--i)*1.25rem)] max-lg:border-s-2 max-lg:border-gold max-lg:ps-5">
                 <div className="lg:pe-6 lg:pb-6">
-                  <p className="font-heading text-lg font-bold text-gold-dark tabular-nums">{step.year}</p>
-                  <h4 className="mt-2 font-heading text-xl font-bold leading-snug text-ink">{step.title}</h4>
+                  <p className="text-lg font-bold text-gold-dark tabular-nums">{step.year}</p>
+                  <h4 className="mt-2 text-xl font-bold leading-snug text-ink">{step.title}</h4>
                   <p className="mt-1 text-sm">{step.place}</p>
                 </div>
                 <div
                   aria-hidden="true"
                   className={`cv-step relative hidden h-[calc(5rem+var(--i)*3.5rem)] overflow-hidden border-t-2 border-gold lg:block ${index === lastStep ? "bg-ink" : "border-e border-e-line bg-white"}`}
                 >
-                  <span className={`absolute bottom-3 start-5 font-heading text-6xl font-bold tabular-nums ${index === lastStep ? "text-gold" : "text-ink/[0.07]"}`}>
+                  <span className={`absolute bottom-3 start-5 text-6xl font-bold tabular-nums ${index === lastStep ? "text-gold" : "text-ink/[0.07]"}`}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -58,7 +58,7 @@ export function QualificationsChapter({ chapter, education, licences }: Qualific
                 key={licence.title}
                 className="cv-glide group relative isolate grid gap-x-8 gap-y-2 border-b border-line py-6 before:absolute before:inset-0 before:-z-10 before:scale-x-0 before:bg-white before:transition-transform before:duration-500 before:ease-out hover:before:scale-x-100 ltr:before:origin-left rtl:before:origin-right sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:px-4"
               >
-                <span className="font-heading text-2xl font-bold text-gold-dark tabular-nums">{licence.year}</span>
+                <span className="text-2xl font-bold text-gold-dark tabular-nums">{licence.year}</span>
                 <div>
                   <p className="text-lg font-bold leading-snug text-ink">{licence.title}</p>
                   {licence.issuer && <p className="mt-1 text-sm leading-relaxed">{licence.issuer}</p>}

@@ -13,7 +13,7 @@ export function InstructorCard({ instructor }: InstructorCardProps) {
         <Image src={instructor.image.src} alt={instructor.image.alt} fill sizes="96px" className="object-cover object-top" />
       </div>
       <div>
-        <p className="font-heading text-xl font-bold text-ink">{instructor.name}</p>
+        <p className="text-xl font-bold text-ink">{instructor.name}</p>
         <p className="mt-1 text-sm">{instructor.title}</p>
       </div>
     </div>

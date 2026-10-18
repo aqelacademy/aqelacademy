@@ -22,7 +22,7 @@ export function DoctorProfileLink({ href, label, caption, image }: DoctorProfile
         <Image src={image.src} alt="" fill sizes="64px" className="object-cover object-[50%_20%]" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-heading text-lg font-bold leading-snug text-ink">{label}</span>
+        <span className="block text-lg font-bold leading-snug text-ink">{label}</span>
         <span className="mt-0.5 block text-sm leading-relaxed">{caption}</span>
       </span>
       <span aria-hidden="true" className="flex size-10 shrink-0 items-center justify-center rounded-full bg-ink text-gold transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">

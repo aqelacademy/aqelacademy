@@ -56,7 +56,7 @@ export function ProfileCover({ eyebrow, honorific, name, fullName, role, facts, 
               <span aria-hidden="true" className="h-px w-10 bg-gold" />
               {eyebrow}
             </p>
-            <h1 className="mt-6 font-heading font-bold sm:mt-8">
+            <h1 className="mt-6 font-bold sm:mt-8">
               <span className="block overflow-hidden pb-1">
                 <span className="cv-intro cv-intro-line block text-2xl text-gold sm:text-3xl" style={order(1)}>
                   {honorific}

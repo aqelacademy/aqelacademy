@@ -31,7 +31,7 @@ export function HomeApproach({ heading, points, image, caption, actions }: HomeA
           </div>
           <figcaption className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-full bg-white py-2.5 ps-6 pe-2.5 shadow-pop sm:inset-x-6 sm:bottom-6">
             <span>
-              <span className="block font-display text-lg leading-snug text-ink">{caption.name}</span>
+              <span className="block text-lg leading-snug font-bold text-ink">{caption.name}</span>
               <span className="block text-xs text-body">{caption.role}</span>
             </span>
             <span aria-hidden="true" className="size-2 rounded-full bg-gold" />
@@ -45,11 +45,11 @@ export function HomeApproach({ heading, points, image, caption, actions }: HomeA
           <ol className="mt-12">
             {points.map((point, index) => (
               <li key={point.title} style={order(index)} className="home-focus grid grid-cols-[3.5rem_1fr] gap-x-4 border-t border-line py-8 last:border-b sm:grid-cols-[6rem_1fr] sm:gap-x-6">
-                <span aria-hidden="true" className="home-focus-number font-display text-4xl leading-none font-light text-ink/25 tabular-nums sm:text-6xl">
+                <span aria-hidden="true" className="home-focus-number text-4xl leading-none font-bold text-ink/25 tabular-nums sm:text-6xl">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-display text-xl leading-snug text-ink sm:text-2xl">{point.title}</h3>
+                  <h3 className="text-xl leading-snug font-bold text-ink sm:text-2xl">{point.title}</h3>
                   <p className="mt-2 max-w-xl leading-relaxed">{point.text}</p>
                 </div>
               </li>

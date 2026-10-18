@@ -51,7 +51,7 @@ export function ChapterRail({ chapters, label }: ChapterRailProps) {
             <a
               href={`#${chapter.id}`}
               aria-current={index === active ? "true" : undefined}
-              className="group relative flex size-9 items-center justify-center rounded-full font-heading text-xs font-bold text-body/70 tabular-nums transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-brand aria-[current]:bg-ink aria-[current]:text-gold"
+              className="group relative flex size-9 items-center justify-center rounded-full text-xs font-bold text-body/70 tabular-nums transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-brand aria-[current]:bg-ink aria-[current]:text-gold"
             >
               {String(index + 1).padStart(2, "0")}{" "}
               <span className="pointer-events-none absolute end-full me-3 rounded-md bg-ink px-2.5 py-1 font-sans text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">

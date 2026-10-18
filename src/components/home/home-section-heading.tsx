@@ -17,11 +17,11 @@ export function HomeSectionHeading({ index, kicker, title, children, dark = fals
     <div className={`grid gap-6 lg:grid-cols-12 lg:items-end ${children ? "mb-12 sm:mb-16" : "mb-6"}`}>
       <div className={children ? "lg:col-span-7" : "lg:col-span-12"}>
         <p className={`flex items-center gap-3 text-sm font-medium ${dark ? "text-white/70" : "text-body"}`}>
-          <span className={`font-display tabular-nums ${dark ? "text-gold" : "text-gold-dark"}`}>{index}</span>
+          <span className={`tabular-nums ${dark ? "text-gold" : "text-gold-dark"}`}>{index}</span>
           <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
           {kicker}
         </p>
-        <h2 className={`mt-4 font-display text-4xl leading-tight font-light text-balance sm:text-6xl sm:leading-tight ${dark ? "text-white" : "text-ink"}`}>{title}</h2>
+        <h2 className={`mt-4 text-3xl leading-tight font-bold text-balance sm:text-5xl sm:leading-tight ${dark ? "text-white" : "text-ink"}`}>{title}</h2>
       </div>
       {children && <div className="flex flex-col items-start gap-5 lg:col-span-5 lg:items-end lg:text-end">{children}</div>}
     </div>

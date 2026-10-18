@@ -13,7 +13,7 @@ interface TeachingChapterProps {
 export function TeachingChapter({ chapter, text, items }: TeachingChapterProps) {
   return (
     <section id={chapter.id} className="relative isolate overflow-hidden bg-ink-dark py-20 sm:py-24 lg:py-32">
-      <p aria-hidden="true" className="absolute -top-10 -end-6 -z-10 font-heading text-[11rem] leading-none font-bold text-white/[0.035] sm:text-[18rem] lg:-top-16 lg:text-[24rem]">
+      <p aria-hidden="true" className="absolute -top-10 -end-6 -z-10 text-[11rem] leading-none font-bold text-white/[0.035] sm:text-[18rem] lg:-top-16 lg:text-[24rem]">
         100+
       </p>
       <div className="container-site">
@@ -24,7 +24,7 @@ export function TeachingChapter({ chapter, text, items }: TeachingChapterProps) 
           <ol className="cv-stagger grid gap-x-12 sm:grid-cols-2">
             {items.map((item, index) => (
               <li key={item} style={order(index % 8)} className="group flex items-baseline gap-4 border-t border-white/10 py-4 sm:gap-5 sm:py-5">
-                <span className="w-7 shrink-0 font-heading text-sm font-bold text-gold tabular-nums transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+                <span className="w-7 shrink-0 text-sm font-bold text-gold tabular-nums transition-transform duration-300 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="leading-relaxed text-white/85 sm:text-lg transition-colors duration-300 group-hover:text-white">{item}</span>

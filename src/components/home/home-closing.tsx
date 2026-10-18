@@ -24,7 +24,7 @@ export function HomeClosing({ title, text, primaryAction, secondaryAction }: Hom
       </div>
       <div className="container-site py-24 text-center sm:py-32">
         <span aria-hidden="true" className="mx-auto block h-0.5 w-12 bg-gold" />
-        <h2 className="mx-auto mt-8 max-w-3xl font-display text-4xl leading-tight font-light text-balance sm:text-6xl sm:leading-tight">{title}</h2>
+        <h2 className="mx-auto mt-8 max-w-3xl text-3xl leading-tight font-bold text-balance sm:text-5xl sm:leading-tight">{title}</h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-loose text-white/75">{text}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <ButtonLink href={primaryAction.href} variant="gold">

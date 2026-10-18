@@ -36,12 +36,12 @@ export function CoursePath({ locale, courses, feeLabel }: CoursePathProps) {
               </span>
               <span className="flex items-center gap-3">
                 <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-white/80">{formatCourseLevel(course.level, locale)}</span>
-                <span aria-hidden="true" className="font-display text-lg font-light text-gold tabular-nums">
+                <span aria-hidden="true" className="text-lg font-bold text-gold tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </span>
             </div>
-            <h3 className="mt-10 font-display text-2xl leading-snug font-light text-white sm:text-[1.75rem] sm:leading-snug">
+            <h3 className="mt-10 text-xl leading-snug font-bold text-white sm:text-2xl sm:leading-snug">
               <Link href={localePath(locale, `/courses/${course.slug}`)} className="after:absolute after:inset-0 focus-visible:outline-none after:rounded-3xl focus-visible:after:outline-2 focus-visible:after:outline-gold">
                 {course.title}
               </Link>
@@ -50,11 +50,11 @@ export function CoursePath({ locale, courses, feeLabel }: CoursePathProps) {
             <dl className="mt-8 grid grid-cols-2 border-y border-white/10 py-5">
               <div>
                 <dt className="text-xs text-white/55">{copy.hours}</dt>
-                <dd className="mt-1 font-display text-3xl font-light text-white tabular-nums">{course.trainingHours}</dd>
+                <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{course.trainingHours}</dd>
               </div>
               <div className="border-s border-white/10 ps-5">
                 <dt className="text-xs text-white/55">{feeLabel}</dt>
-                <dd className="mt-1 font-display text-3xl font-light text-white tabular-nums">{formatPrice(course.priceUsd)}</dd>
+                <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{formatPrice(course.priceUsd)}</dd>
               </div>
             </dl>
             <div className="mt-6 flex items-center justify-between gap-4">

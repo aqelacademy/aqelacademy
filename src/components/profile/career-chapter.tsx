@@ -44,7 +44,7 @@ export function CareerChapter({ chapter, text, present, image, roles }: CareerCh
               <li key={`${item.start}-${item.place}`} className="relative ps-8 pb-10 last:pb-0 sm:ps-12 sm:pb-12" style={{ "--at": (index / roles.length).toFixed(3) } as CSSProperties}>
                 <span aria-hidden="true" className="cv-dot absolute top-2.5 start-0 size-3 rounded-full border-2 border-gold ltr:-translate-x-1/2 rtl:translate-x-1/2" />
                 <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="font-heading text-lg font-bold text-ink tabular-nums">
+                  <span className="text-lg font-bold text-ink tabular-nums">
                     {item.start} – {item.end ?? <span className="text-gold-dark">{present}</span>}
                   </span>
                   <span className="text-sm">{item.country}</span>

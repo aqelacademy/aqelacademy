@@ -25,7 +25,7 @@ export function CtaBand({ title, text, primaryAction, secondaryAction, image }: 
           </div>
         )}
         <span aria-hidden="true" className="mx-auto block h-0.5 w-12 bg-gold" />
-        <h2 className="mt-6 font-heading text-2xl font-bold leading-snug text-white md:text-3xl md:leading-snug">{title}</h2>
+        <h2 className="mt-6 text-2xl font-bold leading-snug text-white md:text-3xl md:leading-snug">{title}</h2>
         <p className="mx-auto mt-4 max-w-xl leading-loose text-white/80">{text}</p>
         <div className="relative mt-9 flex flex-wrap justify-center gap-3">
           <ButtonLink href={primaryAction.href} variant="gold">

@@ -22,7 +22,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
               <Image src={site.brand.mark} alt={text.logoAlt} sizes="40px" className="h-full w-auto" />
             </span>
             <span>
-              <span className="block font-heading text-lg font-bold leading-snug text-white">{text.name}</span>
+              <span className="block text-lg font-bold leading-snug text-white">{text.name}</span>
               <span className="block text-xs text-gold">{text.tagline}</span>
             </span>
           </Link>
