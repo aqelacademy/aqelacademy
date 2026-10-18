@@ -30,8 +30,8 @@ interface HomeHeroProps {
  * The home page's opening: a full-bleed photo filling the first screen, the academy's name rising line by line
  * once the opening screen lifts (IntroTiming waits for it and the photo). Scrolling away lets the photo drift slower
  * than the page and the words lift and fade (`--progress` from ScrollProgress). In Arabic the photo is mirrored so
- * the children sit opposite the text. On phones the words come first, then the photo fading in from
- * the navy and cut plainly at its foot, then the two actions and the facts. Everything falls back to the finished
+ * the children sit opposite the text. On phones the words sit on the photo, shaded as before, the photo
+ * ends in a clean cut, and the two actions and the facts follow below it. Everything falls back to the finished
  * hero without script or with reduced motion.
  */
 export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps) {
@@ -57,33 +57,35 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
           </div>
         </div>
 
-        <div className="home-hero-text container-site flex flex-col pt-10 pb-6 sm:pt-14 lg:min-h-[calc(100svh-4.1875rem)] lg:pt-20 lg:pb-20">
+        <div className="home-hero-text container-site flex flex-col pb-6 lg:min-h-[calc(100svh-4.1875rem)] lg:pt-20 lg:pb-20">
           <div className="flex max-w-3xl flex-1 flex-col justify-end">
-            <p className="cv-intro home-rise flex items-center gap-3 text-xs font-medium text-white/80 sm:text-sm ltr:tracking-wide" style={order(0)}>
-              <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
-              {hero.eyebrow}
-            </p>
-            <h1 className="mt-5 font-bold sm:mt-6">
-              <span className="block overflow-hidden pb-2">
-                <span className="cv-intro home-line block text-[2.5rem] leading-[1.25] text-balance sm:text-6xl sm:leading-[1.2] xl:text-7xl xl:leading-[1.2]" style={order(1)}>
-                  {name}
-                </span>
-              </span>{" "}
-              <span className="block overflow-hidden pb-1">
-                <span className="cv-intro home-line block text-lg leading-snug font-normal text-white/75 sm:text-2xl" style={order(2)}>
-                  {tagline}
-                </span>
-              </span>
-            </h1>
-            <p className="cv-intro home-rise mt-5 max-w-xl leading-relaxed text-white/85 sm:mt-7 sm:text-xl sm:leading-relaxed" style={order(3)}>
-              {hero.lead}
-            </p>
-            {/* Phones: the photo fades in from the navy at its top (rising a little behind the lead) and is cut plainly at its foot. */}
-            <div className="cv-intro home-rise relative -z-10 -mx-4 -mt-6 aspect-[4/5] overflow-hidden sm:aspect-[4/3] lg:hidden" style={order(4)}>
-              <div className="absolute inset-0 rtl:-scale-x-100">
-                <Image src={hero.image.src} alt="" loading="eager" fill sizes="100vw" className="object-cover object-[62%_center]" />
+            {/* Phones: the words sit on the photo, shaded as before, and the photo ends in a clean cut above the actions. */}
+            <div className="relative isolate -mx-4 flex min-h-[36rem] flex-col justify-end px-4 pt-40 pb-8 sm:min-h-[40rem] lg:contents">
+              <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden lg:hidden">
+                <div className="absolute inset-0 rtl:-scale-x-100">
+                  <Image src={hero.image.src} alt="" loading="eager" fill sizes="100vw" className="object-cover object-[62%_center]" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-dark/90 via-ink-dark/50 via-45% to-transparent" />
               </div>
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-ink-dark via-ink-dark/50 to-transparent" />
+              <p className="cv-intro home-rise flex items-center gap-3 text-xs font-medium text-white/80 sm:text-sm ltr:tracking-wide" style={order(0)}>
+                <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
+                {hero.eyebrow}
+              </p>
+              <h1 className="mt-5 font-bold sm:mt-6">
+                <span className="block overflow-hidden pb-2">
+                  <span className="cv-intro home-line block text-[2.5rem] leading-[1.25] text-balance sm:text-6xl sm:leading-[1.2] xl:text-7xl xl:leading-[1.2]" style={order(1)}>
+                    {name}
+                  </span>
+                </span>{" "}
+                <span className="block overflow-hidden pb-1">
+                  <span className="cv-intro home-line block text-lg leading-snug font-normal text-white/75 sm:text-2xl" style={order(2)}>
+                    {tagline}
+                  </span>
+                </span>
+              </h1>
+              <p className="cv-intro home-rise mt-5 max-w-xl leading-relaxed text-white/85 sm:mt-7 sm:text-xl sm:leading-relaxed" style={order(3)}>
+                {hero.lead}
+              </p>
             </div>
             <div className="cv-intro home-rise mt-8 flex flex-wrap items-center gap-x-8 gap-y-5 sm:mt-10" style={order(4)}>
               <Link
