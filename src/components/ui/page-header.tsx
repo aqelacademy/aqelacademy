@@ -13,26 +13,31 @@ interface PageHeaderProps {
   compact?: boolean;
 }
 
-/** The title band at the top of public pages, with a link back to the page above. */
+/** The navy title band at the top of public pages, in the home hero's style: a link back to the page above, then the title set light and large. */
 export async function PageHeader({ title, parents = [], compact = false }: PageHeaderProps) {
   const locale = await getLocale();
   const { chrome } = siteText[locale];
   const back: NavLink = parents.at(-1) ?? { href: "/", label: chrome.home };
 
   return (
-    <div className="border-b border-line bg-canvas">
-      <div className={`container-site ${compact ? "py-8 sm:py-10" : "py-12 sm:py-16"}`}>
+    <div className="relative isolate overflow-hidden bg-ink-dark text-white">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="container-site h-full">
+          <div className="cv-columns h-full border-x border-white/[0.04]" />
+        </div>
+      </div>
+      <div className={`container-site ${compact ? "py-10 sm:py-12" : "py-14 sm:py-20"}`}>
         <nav aria-label={chrome.breadcrumb}>
           <Link
             href={localePath(locale, back.href)}
-            className="group inline-flex items-center gap-2 text-sm font-bold text-body transition-colors hover:text-ink"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
           >
             <ArrowRight aria-hidden="true" className="size-4 text-gold transition-transform ltr:rotate-180 rtl:group-hover:translate-x-0.5 ltr:group-hover:-translate-x-0.5" />
             {back.label}
           </Link>
         </nav>
-        <h1 className={`max-w-3xl font-heading font-bold leading-snug text-ink ${compact ? "mt-3 text-2xl md:text-3xl md:leading-snug" : "mt-4 text-3xl md:text-4xl md:leading-snug"}`}>{title}</h1>
-        <span aria-hidden="true" className={`block h-0.5 w-12 bg-gold ${compact ? "mt-4" : "mt-5"}`} />
+        <h1 className={`max-w-4xl font-display font-light text-balance ${compact ? "mt-4 text-3xl leading-snug md:text-4xl md:leading-snug" : "mt-5 text-4xl leading-tight md:text-6xl md:leading-tight"}`}>{title}</h1>
+        <span aria-hidden="true" className={`block size-1.5 rounded-full bg-gold ${compact ? "mt-5" : "mt-7"}`} />
       </div>
     </div>
   );
