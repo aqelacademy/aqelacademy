@@ -101,11 +101,9 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
                   <span className="max-w-[8.5rem] text-xs leading-snug text-white/70">{fact.label}</span>
                 </p>
               ))}
-              <section aria-label={accreditations.title} className="flex items-center gap-2">
+              <section aria-label={accreditations.title} className="flex items-center gap-4">
                 {accreditations.badges.map((badge) => (
-                  <span key={badge.alt} className="flex h-10 items-center rounded-md bg-white px-2">
-                    <Image src={badge.src} alt={badge.alt} sizes="96px" className="h-7 w-auto" />
-                  </span>
+                  <Image key={badge.alt} src={badge.src} alt={badge.alt} sizes="128px" className="h-11 w-auto" />
                 ))}
               </section>
             </div>

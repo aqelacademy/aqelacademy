@@ -1,6 +1,6 @@
 import classroom from "@/assets/images/classroom.jpg";
-import qabaCourseworkProvider from "@/assets/images/qaba-coursework-provider.jpg";
-import qabaTrainingProgram from "@/assets/images/qaba-training-program.jpg";
+import qabaCourseworkProvider from "@/assets/images/qaba-coursework-provider.png";
+import qabaTrainingProgram from "@/assets/images/qaba-training-program.png";
 import type { Locale } from "@/lib/i18n";
 import type { ContentImage, NavLink } from "@/types/content";
 

@@ -145,23 +145,23 @@
     ]
   },
   "qaba-coursework-provider": {
-    "hash": "6f10498c4a",
+    "hash": "7da3272685",
     "widths": [
       64,
       128,
       256,
       384,
-      392
+      390
     ]
   },
   "qaba-training-program": {
-    "hash": "8893f7f437",
+    "hash": "a94f9a722d",
     "widths": [
       64,
       128,
       256,
       384,
-      640
+      586
     ]
   },
   "share": {
