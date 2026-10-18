@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ArticleGrid } from "@/components/blog/article-grid";
 import { ArrowLink } from "@/components/home/arrow-link";
+import { ArticleSpread } from "@/components/home/article-spread";
 import { CourseIndex } from "@/components/home/course-index";
 import { CtaBand } from "@/components/home/cta-band";
 import { HomeFacts } from "@/components/home/home-facts";
@@ -9,7 +9,6 @@ import { HomePillars } from "@/components/home/home-pillars";
 import { HomeSectionHeading } from "@/components/home/home-section-heading";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/ui/reveal";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { getArticles } from "@/content/articles";
 import { courseCopy, getCourses } from "@/content/courses";
 import { homeContent } from "@/content/home";
@@ -64,10 +63,12 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      <section className="container-site py-20">
+      <section className="container-site py-20 sm:py-28">
         <Reveal>
-          <SectionHeading title={articlesSection.title} action={articlesSection.action} />
-          <ArticleGrid articles={getArticles(locale).slice(0, 3)} />
+          <HomeSectionHeading index="03" kicker={articlesSection.kicker} title={articlesSection.title}>
+            <ArrowLink link={localeLink(locale, articlesSection.action)} />
+          </HomeSectionHeading>
+          <ArticleSpread locale={locale} articles={getArticles(locale).slice(0, 3)} />
         </Reveal>
       </section>
 

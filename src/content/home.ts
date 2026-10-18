@@ -38,7 +38,7 @@ interface HomeContent {
   accreditations: ContentImage[];
   featuredCourses: HomeSection & { action: NavLink };
   journey: HomeSection & { text: string; points: string[]; primaryAction: NavLink; secondaryAction: NavLink };
-  latestArticles: HomeSection & { action: NavLink; readMore: string };
+  latestArticles: HomeSection & { action: NavLink };
   cta: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
 }
 
@@ -79,7 +79,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "المعرفة",
       title: "آخر المقالات",
       action: { href: "/blog", label: "جميع المقالات" },
-      readMore: "اقرأ المقال",
     },
     cta: {
       title: "هل أنت مستعد لبدء رحلتك التدريبية؟",
@@ -118,7 +117,6 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "Knowledge",
       title: "Latest articles",
       action: { href: "/blog", label: "All articles" },
-      readMore: "Read the article",
     },
     cta: {
       title: "Ready to start your training?",
