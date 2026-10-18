@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { SocialLinks } from "@/components/ui/social-links";
 import { site, siteText } from "@/content/site";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -17,8 +18,8 @@ export function SiteFooter({ locale }: SiteFooterProps) {
       <div className="container-site grid gap-10 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-[1.5fr_1fr_1.2fr]">
         <div className="sm:col-span-2 lg:col-span-1">
           <Link href={localePath(locale, "/")} className="inline-flex items-center gap-3">
-            <span className="flex size-14 items-center justify-center rounded-full bg-white p-1">
-              <Image src={site.logo.src} alt={text.logoAlt} sizes="56px" className="size-full" />
+            <span className="flex size-14 items-center justify-center rounded-full bg-white p-2">
+              <Image src={site.brand.mark} alt={text.logoAlt} sizes="40px" className="h-full w-auto" />
             </span>
             <span>
               <span className="block font-heading text-lg font-bold leading-snug text-white">{text.name}</span>
@@ -26,6 +27,9 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             </span>
           </Link>
           <p className="mt-5 max-w-sm leading-loose">{text.description}</p>
+          <div className="mt-6">
+            <SocialLinks locale={locale} />
+          </div>
         </div>
 
         <nav aria-label={text.chrome.quickLinks}>
