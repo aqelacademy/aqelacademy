@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { ArticleGrid } from "@/components/blog/article-grid";
-import { CourseGrid } from "@/components/courses/course-grid";
+import { ArrowLink } from "@/components/home/arrow-link";
+import { CourseIndex } from "@/components/home/course-index";
 import { CtaBand } from "@/components/home/cta-band";
 import { HomeFacts } from "@/components/home/home-facts";
 import { HomeHero } from "@/components/home/home-hero";
+import { HomeSectionHeading } from "@/components/home/home-section-heading";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CheckList } from "@/components/ui/check-list";
 import { Reveal } from "@/components/ui/reveal";
@@ -34,10 +36,13 @@ export default async function HomePage() {
         <HomeFacts facts={facts} accreditationsTitle={accreditationsTitle} accreditations={accreditations} />
       </HomeHero>
 
-      <section className="container-site py-20">
+      <section className="container-site py-20 sm:py-28">
         <Reveal>
-          <SectionHeading title={featuredSection.title} subtitle={courseCopy[locale].listIntro} action={featuredSection.action} />
-          <CourseGrid courses={courses.slice(0, 3)} />
+          <HomeSectionHeading index="01" kicker={featuredSection.kicker} title={featuredSection.title}>
+            <p className="max-w-md leading-relaxed">{courseCopy[locale].listIntro}</p>
+            <ArrowLink link={localeLink(locale, featuredSection.action)} />
+          </HomeSectionHeading>
+          <CourseIndex locale={locale} courses={courses.slice(0, 3)} />
         </Reveal>
       </section>
 
