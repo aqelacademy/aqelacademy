@@ -35,16 +35,8 @@
   --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
   /* Display headings on public pages; UI text stays in Cairo. */
   --font-heading: var(--font-naskh), var(--font-cairo), serif;
-  /* The home page's display face: Reem Kufi in Arabic, Fraunces in English (set per language below). */
-  --font-display: var(--display-family);
-}
-
-:root {
-  --display-family: var(--font-reem-kufi), var(--font-cairo), sans-serif;
-}
-
-:root:lang(en) {
-  --display-family: var(--font-fraunces), var(--font-reem-kufi), serif;
+  /* The home page's display face, in both languages. */
+  --font-display: var(--font-plex-arabic), var(--font-cairo), sans-serif;
 }
 
 @utility container-site {
