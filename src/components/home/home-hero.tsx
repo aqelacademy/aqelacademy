@@ -1,4 +1,3 @@
-import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CountUp } from "@/components/profile/count-up";
@@ -6,6 +5,7 @@ import { IntroTiming } from "@/components/profile/intro-timing";
 import { order } from "@/components/profile/order";
 import { ScrollProgress } from "@/components/profile/scroll-progress";
 import { ArrowLink } from "@/components/home/arrow-link";
+import { PillArrow } from "@/components/home/pill-arrow";
 import { SocialLinks } from "@/components/ui/social-links";
 import type { HomeHeroContent } from "@/content/home";
 import { siteText } from "@/content/site";
@@ -83,9 +83,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
                 className="group inline-flex items-center gap-4 rounded-full bg-white py-2 ps-7 pe-2 font-bold text-ink transition-colors duration-300 hover:bg-gold-soft focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 {primary.label}
-                <span className="flex size-10 items-center justify-center rounded-full bg-ink text-white transition-colors duration-300 group-hover:bg-gold group-hover:text-ink">
-                  <ArrowLeft aria-hidden="true" className="size-4 transition-transform duration-500 ltr:rotate-180 rtl:group-hover:-rotate-45 ltr:group-hover:rotate-[225deg]" />
-                </span>
+                <PillArrow className="size-10 bg-ink text-white group-hover:bg-gold group-hover:text-ink" />
               </Link>
               <ArrowLink link={localeLink(locale, hero.secondaryAction)} className="text-white" />
             </div>
