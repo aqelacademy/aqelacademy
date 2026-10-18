@@ -28,10 +28,11 @@ interface HomeHeroProps {
 
 /**
  * The home page's opening: a full-bleed photo filling the first screen, the academy's name rising line by line
- * once the opening screen lifts (IntroTiming waits for it and the photo). Scrolling away closes the photo into a
- * rounded card and lets the words drift up (`--progress` from ScrollProgress). In Arabic the photo is mirrored so
+ * once the opening screen lifts (IntroTiming waits for it and the photo). Scrolling away lets the photo drift slower
+ * than the page and the words lift and fade (`--progress` from ScrollProgress). In Arabic the photo is mirrored so
  * the children sit opposite the text. On phones the photo takes the top of the screen and fades into navy, the text
- * ends above the floating WhatsApp button, and the facts follow below. Everything falls back to the finished hero without script or with reduced motion.
+ * ends above the floating WhatsApp button, and the facts follow below. Everything falls back to the finished
+ * hero without script or with reduced motion.
  */
 export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps) {
   const { name, tagline, chrome } = siteText[locale];
@@ -43,7 +44,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
         <style>{".home-hero .cv-intro { animation: none !important; }"}</style>
       </noscript>
       <ScrollProgress mode="exit" className="relative isolate overflow-hidden bg-ink-dark text-white">
-        <div className="home-hero-frame absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10">
           <div className="home-hero-window absolute inset-0 overflow-hidden max-lg:bottom-auto max-lg:h-[62svh]">
             <div className="absolute inset-0 rtl:-scale-x-100">
               <Image src={hero.image.src} alt={hero.image.alt} fill preload sizes="100vw" className="object-cover object-[66%_bottom] lg:object-[58%_center]" />

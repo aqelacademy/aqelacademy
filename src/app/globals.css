@@ -448,7 +448,7 @@ html:has(.cv-page) {
 /*
  * The home hero (HomeHero). IntroTiming sets data-intro="play" once the opening screen lifts and the photo has
  * loaded, and the words rise in order (`--i`); the photo itself stays still. While the hero scrolls away
- * (`--progress`), the photo closes into a rounded card and drifts, and the words lift and fade.
+ * (`--progress`), the photo drifts slower than the page and the words lift and fade.
  */
 @keyframes home-line {
   from { transform: translateY(110%); }
@@ -466,10 +466,6 @@ html:has(.cv-page) {
 .home-hero[data-intro="play"] .home-line {
   animation-name: home-line;
   animation-duration: 1.2s;
-}
-
-.home-hero-frame {
-  clip-path: inset(calc(var(--progress, 0) * 9%) calc(var(--progress, 0) * 4%) 0 round calc(var(--progress, 0) * 3rem));
 }
 
 .home-hero-window {
