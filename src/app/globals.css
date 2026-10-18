@@ -447,23 +447,9 @@ html:has(.cv-page) {
 
 /*
  * The home hero (HomeHero). IntroTiming sets data-intro="play" once the opening screen lifts and the photo has
- * loaded: the photo opens out of a small window on navy (1.6 s) and settles from a slow zoom, the shade comes up,
- * then the words rise in order (`--i`). While the hero scrolls away (`--progress`), the photo closes into a rounded
- * card and drifts, and the words lift and fade.
+ * loaded, and the words rise in order (`--i`); the photo itself stays still. While the hero scrolls away
+ * (`--progress`), the photo closes into a rounded card and drifts, and the words lift and fade.
  */
-@keyframes home-window {
-  from { clip-path: inset(30% 34% round 1.5rem); }
-  to { clip-path: inset(0 round 0); }
-}
-
-@keyframes home-photo {
-  from { transform: scale(1.45); }
-}
-
-@keyframes home-shade {
-  from { opacity: 0; }
-}
-
 @keyframes home-line {
   from { transform: translateY(110%); }
 }
@@ -472,21 +458,9 @@ html:has(.cv-page) {
   from { opacity: 0; transform: translateY(1.25rem); }
 }
 
-.home-hero[data-intro="play"] .home-hero-window {
-  animation: home-window 1.6s cubic-bezier(0.83, 0, 0.17, 1) both;
-}
-
-.home-hero[data-intro="play"] .home-hero-photo {
-  animation: home-photo 2.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.home-hero[data-intro="play"] .home-hero-shade {
-  animation: home-shade 1s ease-out 0.8s both;
-}
-
 .home-hero[data-intro="play"] :is(.home-line, .home-rise) {
   animation: home-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(1s + var(--i, 0) * 120ms);
+  animation-delay: calc(0.15s + var(--i, 0) * 110ms);
 }
 
 .home-hero[data-intro="play"] .home-line {
@@ -508,5 +482,5 @@ html:has(.cv-page) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero :is(.cv-intro, .home-hero-photo, .home-hero-shade) { animation: none !important; }
+  .home-hero .cv-intro { animation: none !important; }
 }
