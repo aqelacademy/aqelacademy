@@ -1,4 +1,4 @@
-import { Cairo, Noto_Naskh_Arabic } from "next/font/google";
+import { Cairo, Fraunces, Noto_Naskh_Arabic, Reem_Kufi } from "next/font/google";
 
 /** UI text. */
 const cairo = Cairo({
@@ -12,5 +12,18 @@ const naskh = Noto_Naskh_Arabic({
   subsets: ["arabic", "latin"],
 });
 
-/** Classes for <html>: both font variables, shared by the site and dashboard root layouts. */
-export const fontClassName = `${cairo.variable} ${naskh.variable}`;
+/** The home page's display face in Arabic (`font-display`): a calm Fatimid-style Kufi. */
+const reemKufi = Reem_Kufi({
+  variable: "--font-reem-kufi",
+  subsets: ["arabic", "latin"],
+});
+
+/** The home page's display face in English (`font-display` under `lang="en"`); Arabic pages never load it. */
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  preload: false,
+});
+
+/** Classes for <html>: every font variable, shared by the site and dashboard root layouts. */
+export const fontClassName = `${cairo.variable} ${naskh.variable} ${reemKufi.variable} ${fraunces.variable}`;
