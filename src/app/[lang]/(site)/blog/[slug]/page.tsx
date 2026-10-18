@@ -1,4 +1,3 @@
-import { CalendarDays } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -37,16 +36,20 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/blog/[s
   return (
     <>
       <PageHeader title={article.title} parents={[{ href: "/blog", label: articleCopy[locale].listTitle }]} />
-      <div className="container-site py-20">
-        <article className="mx-auto max-w-3xl">
-          <p className="flex items-center gap-2 text-sm font-bold text-gold-dark">
-            <CalendarDays aria-hidden="true" className="size-4 text-gold" />
-            <time dateTime={article.publishedAt}>{formatDate(article.publishedAt, locale)}</time>
-          </p>
-          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-lg bg-surface">
-            <Image src={article.image.src} alt={article.image.alt} fill sizes="(min-width: 768px) 48rem, 100vw" preload className="object-cover" />
+      <div className="relative isolate">
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-32 bg-ink-dark sm:h-48" />
+        <div className="container-site">
+          <div className="relative mx-auto aspect-[16/9] max-w-5xl overflow-hidden rounded-[2rem] bg-surface shadow-pop">
+            <Image src={article.image.src} alt={article.image.alt} fill sizes="(min-width: 1024px) 64rem, 100vw" preload className="object-cover" />
           </div>
-          <div className="mt-12">
+        </div>
+      </div>
+      <div className="container-site pt-12 pb-20 sm:pb-28">
+        <article className="mx-auto max-w-3xl">
+          <time dateTime={article.publishedAt} className="inline-flex rounded-full border border-line px-4 py-1.5 text-sm font-bold text-gold-dark">
+            {formatDate(article.publishedAt, locale)}
+          </time>
+          <div className="mt-10">
             <RichText blocks={article.body} />
           </div>
         </article>

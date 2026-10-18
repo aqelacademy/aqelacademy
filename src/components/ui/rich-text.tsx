@@ -16,7 +16,7 @@ function renderBlock(block: RichBlock): ReactNode {
   switch (block.type) {
     case "heading":
       return block.level === 2 ? (
-        <h2 className="mt-12 text-2xl font-bold leading-snug text-ink">{block.text}</h2>
+        <h2 className="mt-14 text-2xl font-bold leading-snug text-ink before:me-3 before:inline-block before:size-2 before:rounded-full before:bg-gold before:align-middle sm:text-3xl sm:leading-snug">{block.text}</h2>
       ) : (
         <h3 className="mt-8 text-xl font-bold leading-snug text-ink">{block.text}</h3>
       );
