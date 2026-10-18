@@ -26,7 +26,15 @@ export const site = {
     email: "mouaffaq2007@yahoo.com",
     location: "عمّان، الأردن",
   },
+  social: [
+    { network: "instagram", href: "https://www.instagram.com/aqel.academy/" },
+    { network: "linkedin", href: "https://www.linkedin.com/in/dr-muwaffaq-aqel-20485b444/" },
+    { network: "youtube", href: "https://www.youtube.com/@aqelacademy" },
+    { network: "facebook", href: "https://www.facebook.com/profile.php?id=61595509531130" },
+  ],
 } as const;
+
+export type SocialNetwork = (typeof site.social)[number]["network"];
 
 interface SiteText {
   name: string;
@@ -63,6 +71,9 @@ interface SiteText {
     errorText: string;
     retry: string;
     loading: string;
+    followUs: string;
+    /** Each network's name, for the icon links' accessible names. */
+    social: Record<SocialNetwork, string>;
   };
 }
 
@@ -116,6 +127,8 @@ export const siteText: Record<Locale, SiteText> = {
       errorText: "نعتذر عن ذلك. حاول مرة أخرى بعد قليل.",
       retry: "إعادة المحاولة",
       loading: "جارٍ التحميل…",
+      followUs: "تابعنا",
+      social: { instagram: "إنستغرام", linkedin: "لينكدإن", youtube: "يوتيوب", facebook: "فيسبوك" },
     },
   },
   en: {
@@ -165,6 +178,8 @@ export const siteText: Record<Locale, SiteText> = {
       errorText: "Sorry about that. Please try again in a moment.",
       retry: "Try again",
       loading: "Loading…",
+      followUs: "Follow us",
+      social: { instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube", facebook: "Facebook" },
     },
   },
 };
