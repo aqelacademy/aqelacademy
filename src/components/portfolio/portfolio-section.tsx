@@ -10,6 +10,8 @@ interface PortfolioSectionProps {
   text?: string;
   /** The band's background: white, ivory or navy. */
   tone?: "white" | "ivory" | "navy";
+  /** Centres the heading (for sections whose content is centred too). */
+  centered?: boolean;
   children: ReactNode;
 }
 
@@ -20,14 +22,14 @@ const toneClasses = {
 };
 
 /** One portfolio section: an anchor for the section bar, the numbered heading, then its content, all sliding in once. */
-export function PortfolioSection({ id, index, kicker, title, text, tone = "white", children }: PortfolioSectionProps) {
+export function PortfolioSection({ id, index, kicker, title, text, tone = "white", centered = false, children }: PortfolioSectionProps) {
   const navy = tone === "navy";
 
   return (
     <section id={id} className={`scroll-mt-32 py-16 sm:py-28 ${toneClasses[tone]}`}>
       <Reveal className="container-site">
-        <header className="mb-10 max-w-3xl sm:mb-16">
-          <p className={`flex items-center gap-3 text-sm font-bold ${navy ? "text-white/70" : "text-body"}`}>
+        <header className={`mb-10 max-w-3xl sm:mb-16 ${centered ? "mx-auto text-center" : ""}`}>
+          <p className={`flex items-center gap-3 text-sm font-bold ${centered ? "justify-center" : ""} ${navy ? "text-white/70" : "text-body"}`}>
             <span className={`tabular-nums ${navy ? "text-gold" : "text-gold-dark"}`}>{String(index).padStart(2, "0")}</span>
             <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
             {kicker}

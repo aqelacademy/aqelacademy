@@ -84,7 +84,7 @@ export default async function DoctorProfilePage() {
         <PortfolioCareer roles={profile.career.roles} present={profile.career.present} image={profile.career.image} />
       </PortfolioSection>
 
-      <PortfolioSection id={chapters.teaching.id} index={indexOf("teaching")} kicker={chapters.teaching.kicker} title={chapters.teaching.title} text={profile.teaching.text} tone="navy">
+      <PortfolioSection id={chapters.teaching.id} index={indexOf("teaching")} kicker={chapters.teaching.kicker} title={chapters.teaching.title} text={profile.teaching.text} tone="navy" centered>
         <PortfolioExpertise taught={profile.teaching.items} tools={{ title: chapters.tools.title, text: profile.tools.text, items: profile.tools.rows.flat() }} />
       </PortfolioSection>
 
