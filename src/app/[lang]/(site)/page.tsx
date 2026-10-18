@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ArticleGrid } from "@/components/blog/article-grid";
 import { CourseGrid } from "@/components/courses/course-grid";
 import { CtaBand } from "@/components/home/cta-band";
+import { HomeFacts } from "@/components/home/home-facts";
 import { HomeHero } from "@/components/home/home-hero";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CheckList } from "@/components/ui/check-list";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { SplitSection } from "@/components/ui/split-section";
 import { getArticles } from "@/content/articles";
 import { courseCopy, getCourses } from "@/content/courses";
 import { homeContent } from "@/content/home";
@@ -21,31 +21,29 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const locale = await getLocale();
-  const { hero, accreditationsTitle, accreditations, featuredCourses: featuredSection, latestArticles: articlesSection, journey, cta } = homeContent[locale];
+  const { hero, stats, accreditationsTitle, accreditations, featuredCourses: featuredSection, latestArticles: articlesSection, journey, cta } = homeContent[locale];
+  const courses = getCourses(locale);
+  const facts = [
+    { value: stats.years, suffix: "+", label: stats.yearsLabel },
+    { value: courses.length, label: stats.programmesLabel },
+  ];
 
   return (
     <>
-      <HomeHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        lead={hero.lead}
-        text={hero.text}
-        image={hero.image}
-        actions={[localeLink(locale, hero.primaryAction), localeLink(locale, hero.secondaryAction)]}
-        accreditationsTitle={accreditationsTitle}
-        accreditations={accreditations}
-      />
+      <HomeHero locale={locale} hero={hero}>
+        <HomeFacts facts={facts} accreditationsTitle={accreditationsTitle} accreditations={accreditations} />
+      </HomeHero>
 
       <section className="container-site py-20">
         <Reveal>
           <SectionHeading title={featuredSection.title} subtitle={courseCopy[locale].listIntro} action={featuredSection.action} />
-          <CourseGrid courses={getCourses(locale).slice(0, 3)} />
+          <CourseGrid courses={courses.slice(0, 3)} />
         </Reveal>
       </section>
 
       <section className="border-y border-line bg-canvas py-20">
         <Reveal className="container-site">
-          <SplitSection image={journey.image}>
+          <div>
             <SectionHeading title={journey.title} />
             <p className="text-lg leading-loose">{journey.text}</p>
             <div className="mt-8 font-bold text-ink">
@@ -57,7 +55,7 @@ export default async function HomePage() {
                 {journey.secondaryAction.label}
               </ButtonLink>
             </div>
-          </SplitSection>
+          </div>
         </Reveal>
       </section>
 

@@ -1,71 +1,101 @@
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-import { AccreditationBadges } from "@/components/home/accreditation-badges";
+import type { ReactNode } from "react";
+import { IntroTiming } from "@/components/profile/intro-timing";
+import { order } from "@/components/profile/order";
 import { ButtonLink } from "@/components/ui/button-link";
-import type { ContentImage, NavLink } from "@/types/content";
+import { SocialLinks } from "@/components/ui/social-links";
+import type { HomeHeroContent } from "@/content/home";
+import { siteText } from "@/content/site";
+import { localeLink, type Locale } from "@/lib/i18n";
 
 interface HomeHeroProps {
-  /** The academy's English slogan, in both languages. */
-  eyebrow: string;
-  title: string;
-  lead: string;
-  text: string;
-  image: ContentImage;
-  /** First action is primary, the rest are outlined. */
-  actions: NavLink[];
-  accreditationsTitle: string;
-  accreditations: ContentImage[];
-}
-
-interface HeroActionsProps {
-  actions: NavLink[];
-  className: string;
-}
-
-function HeroActions({ actions, className }: HeroActionsProps) {
-  return (
-    <div className={className}>
-      {actions.map((action, index) => (
-        <ButtonLink key={action.href} href={action.href} variant={index === 0 ? "primary" : "outline"}>
-          {action.label}
-        </ButtonLink>
-      ))}
-    </div>
-  );
+  locale: Locale;
+  hero: HomeHeroContent;
+  /** The facts strip along the bottom of the hero. */
+  children: ReactNode;
 }
 
 /**
- * On phones the photo runs edge to edge under the text, fading in from white, with the two actions sitting in
- * the fade and a thin gold arc across the top. From `sm` up it is a framed photo beside the text.
+ * The home page's opening, on navy: the academy's name set large in the display face, the actions and social
+ * accounts, and the doctor's photo in an arched frame. The items rise in one after another once the opening
+ * screen lifts (IntroTiming, shared with the CV cover), and a thin gold orbit turns slowly behind the photo.
  */
-export function HomeHero({ eyebrow, title, lead, text, image, actions, accreditationsTitle, accreditations }: HomeHeroProps) {
+export function HomeHero({ locale, hero, children }: HomeHeroProps) {
+  const { name, tagline, chrome } = siteText[locale];
+  const actions = [localeLink(locale, hero.primaryAction), localeLink(locale, hero.secondaryAction)];
+
   return (
-    <section className="overflow-hidden border-b border-line">
-      <div className="container-site grid items-center gap-x-16 gap-y-12 py-14 max-sm:gap-y-0 max-sm:pt-8 max-sm:pb-10 md:py-20 lg:grid-cols-[1.15fr_1fr]">
-        <div>
-          <p className="flex flex-col items-center gap-3 text-center text-xs font-bold text-gold-dark ltr:tracking-wide sm:flex-row sm:text-start sm:text-sm">
-            <span aria-hidden="true" className="order-2 h-px w-12 bg-gold sm:order-none sm:w-10" />
-            {eyebrow}
-          </p>
-          <h1 className="mt-7 font-heading text-4xl font-bold max-sm:ltr:text-3xl leading-snug text-ink sm:mt-6 sm:leading-normal lg:text-[2.75rem] lg:leading-normal">{title}</h1>
-          <p className="mt-5 max-w-xl text-lg font-bold leading-relaxed text-ink sm:mt-6 sm:text-xl">{lead}</p>
-          <p className="mt-3 max-w-xl leading-loose sm:mt-4 sm:text-lg">{text}</p>
-          <HeroActions actions={actions} className="mt-9 flex flex-wrap gap-3 max-sm:hidden" />
-        </div>
-
-        <div className="relative max-sm:-mx-4 max-sm:mt-2 max-sm:border-b max-sm:border-line sm:pe-4 sm:pb-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-          <div aria-hidden="true" className="absolute top-4 start-4 end-0 bottom-0 rounded-lg border border-gold/70 max-sm:hidden" />
-          <div className="relative aspect-[3/4] overflow-hidden bg-surface sm:aspect-[3/2] sm:rounded-lg">
-            <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 34rem, 100vw" preload className="object-cover object-[50%_75%] sm:object-center" />
-            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-3/5 bg-gradient-to-b from-white from-15% via-white/70 via-45% to-transparent sm:hidden" />
-            <HeroActions actions={actions} className="absolute inset-x-4 top-5 flex gap-3 sm:hidden [&>a]:flex-1 [&>a]:justify-center [&>a]:px-3" />
+    <IntroTiming className="cv-cover">
+      <noscript>
+        <style>{".cv-cover .cv-intro { animation: none !important; }"}</style>
+      </noscript>
+      <section className="relative isolate overflow-hidden bg-ink-dark text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <div className="container-site h-full">
+            <div className="cv-columns h-full border-x border-white/[0.04]" />
           </div>
-          <div aria-hidden="true" className="pointer-events-none absolute -inset-x-1/4 top-[4.75rem] h-28 rounded-[50%] border-t border-gold/60 sm:hidden" />
+          <div className="home-orbit absolute top-[46%] -end-56 size-[48rem] -translate-y-1/2 rounded-full border border-gold/15 max-lg:hidden">
+            <span className="absolute top-1/2 -start-1.5 size-3 -translate-y-1/2 rounded-full bg-gold" />
+          </div>
+          <div className="absolute top-[46%] -end-12 size-[30rem] -translate-y-1/2 rounded-full border border-white/[0.06] max-lg:hidden" />
         </div>
 
-        <div className="lg:col-start-1 lg:row-start-2">
-          <AccreditationBadges title={accreditationsTitle} badges={accreditations} />
+        <div className="container-site grid items-center gap-x-12 gap-y-16 pt-14 pb-16 sm:pt-20 lg:grid-cols-12 lg:pt-24 lg:pb-24">
+          <div className="lg:col-span-7">
+            <p className="cv-intro flex items-center gap-3 text-sm font-bold text-gold ltr:tracking-wide" style={order(0)}>
+              <span aria-hidden="true" className="h-px w-10 bg-gold" />
+              {hero.eyebrow}
+            </p>
+            <h1 className="mt-7 font-display font-semibold">
+              <span className="block overflow-hidden pb-2">
+                <span className="cv-intro cv-intro-line block text-[2.5rem] leading-[1.3] text-balance sm:text-6xl sm:leading-[1.25] xl:text-[4.25rem]" style={order(1)}>
+                  {name}
+                </span>
+              </span>{" "}
+              <span className="block overflow-hidden pb-1">
+                <span className="cv-intro cv-intro-line block text-xl font-medium leading-normal text-gold sm:text-2xl xl:text-[1.75rem]" style={order(2)}>
+                  {tagline}
+                </span>
+              </span>
+            </h1>
+            <p className="cv-intro mt-8 max-w-xl text-lg font-bold leading-relaxed text-white sm:text-xl sm:leading-relaxed" style={order(3)}>
+              {hero.lead}
+            </p>
+            <p className="cv-intro mt-3 max-w-xl leading-loose text-white/65" style={order(3)}>
+              {hero.text}
+            </p>
+            <div className="cv-intro mt-10 flex flex-wrap gap-3" style={order(4)}>
+              <ButtonLink href={actions[0].href} variant="gold">
+                {actions[0].label}
+                <ArrowLeft aria-hidden="true" className="size-4 transition-transform ltr:rotate-180 rtl:group-hover:-translate-x-1 ltr:group-hover:translate-x-1" />
+              </ButtonLink>
+              <ButtonLink href={actions[1].href} variant="light">
+                {actions[1].label}
+              </ButtonLink>
+            </div>
+            <div className="cv-intro mt-10 flex items-center gap-4" style={order(5)}>
+              <p className="text-xs font-bold text-white/55">{chrome.followUs}</p>
+              <span aria-hidden="true" className="h-px w-8 bg-white/20" />
+              <SocialLinks locale={locale} />
+            </div>
+          </div>
+
+          <figure className="relative mx-auto w-full max-w-[18rem] sm:max-w-[21rem] lg:col-span-5 lg:max-w-[22rem]">
+            <div aria-hidden="true" className="cv-intro absolute -inset-3 -bottom-3 rounded-t-full border border-gold/45" style={order(3)} />
+            <div className="cv-intro cv-intro-photo relative aspect-[4/5] overflow-hidden rounded-t-full bg-brand" style={order(1)}>
+              <Image src={hero.image.src} alt={hero.image.alt} fill preload sizes="(min-width: 1024px) 22rem, (min-width: 640px) 21rem, 18rem" className="object-cover object-[36%_center]" />
+              <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink-dark/80 to-transparent" />
+            </div>
+            <figcaption className="cv-intro relative mx-6 -mt-10 border-t-2 border-gold bg-white px-5 py-4 shadow-pop" style={order(4)}>
+              <span className="block font-display text-lg font-semibold text-ink">{hero.caption.name}</span>
+              <span className="mt-0.5 block text-sm text-body">{hero.caption.role}</span>
+            </figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
+
+        {children}
+      </section>
+    </IntroTiming>
   );
 }

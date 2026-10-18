@@ -452,3 +452,16 @@ html:has(.cv-page) {
     }
   }
 }
+
+/* The home hero's gold orbit (HomeHero): turns once every 2 minutes, carrying its dot round the photo. */
+@keyframes home-orbit {
+  to { rotate: 360deg; }
+}
+
+.home-orbit {
+  animation: home-orbit 120s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-orbit { animation: none; }
+}
