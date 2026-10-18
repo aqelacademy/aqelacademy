@@ -36,12 +36,9 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/blog/[s
   return (
     <>
       <PageHeader title={article.title} parents={[{ href: "/blog", label: articleCopy[locale].listTitle }]} />
-      <div className="relative isolate">
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-32 bg-ink-dark sm:h-48" />
-        <div className="container-site">
-          <div className="relative mx-auto aspect-[16/9] max-w-5xl overflow-hidden rounded-[2rem] bg-surface shadow-pop">
-            <Image src={article.image.src} alt={article.image.alt} fill sizes="(min-width: 1024px) 64rem, 100vw" preload className="object-cover" />
-          </div>
+      <div className="container-site pt-10 sm:pt-14">
+        <div className="relative mx-auto aspect-[16/9] max-w-5xl overflow-hidden rounded-[2rem] bg-surface">
+          <Image src={article.image.src} alt={article.image.alt} fill sizes="(min-width: 1024px) 64rem, 100vw" preload className="object-cover" />
         </div>
       </div>
       <div className="container-site pt-12 pb-20 sm:pb-28">

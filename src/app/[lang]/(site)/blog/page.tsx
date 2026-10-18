@@ -17,7 +17,7 @@ export default async function BlogPage() {
   return (
     <>
       <PageHeader title={articleCopy[locale].listTitle} />
-      <section className="bg-canvas py-20 sm:py-28">
+      <section className="bg-canvas pt-12 pb-20 sm:pt-16 sm:pb-28">
         <Reveal className="container-site">
           <ArticleShowcase locale={locale} articles={getArticles(locale)} />
         </Reveal>
