@@ -9,7 +9,7 @@ interface PortfolioCareerProps {
   image: ContentImage;
 }
 
-/** His roles as a ledger, newest first: years, role and place, country. The teaching photo stays beside it on large screens. */
+/** His roles as a ledger, newest first: years, role and place, country (stacked on phones, years on top). The teaching photo stays beside it on large screens. */
 export function PortfolioCareer({ roles, present, image }: PortfolioCareerProps) {
   return (
     <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -21,15 +21,15 @@ export function PortfolioCareer({ roles, present, image }: PortfolioCareerProps)
 
       <ol className="lg:col-span-8">
         {roles.map((role) => (
-          <li key={`${role.start}-${role.place}`} className="grid grid-cols-[6.5rem_1fr] gap-x-5 gap-y-2 border-b border-line py-6 first:border-t sm:grid-cols-[8.5rem_1fr_auto] sm:gap-x-8">
-            <p className="font-bold text-ink tabular-nums">
+          <li key={`${role.start}-${role.place}`} className="grid gap-y-2 border-b border-line py-5 first:border-t sm:grid-cols-[8.5rem_1fr_auto] sm:gap-x-8 sm:py-6">
+            <p className="text-sm font-bold text-gold-dark tabular-nums sm:text-base sm:text-ink">
               {role.start} – {role.end ?? <span className="text-gold-dark">{present}</span>}
             </p>
             <div>
               <p className="text-lg leading-snug font-bold text-ink">{role.role}</p>
               <p className="mt-1 leading-relaxed">{role.place}</p>
             </div>
-            <p className="col-start-2 self-start sm:col-start-auto">
+            <p className="self-start">
               <span className="inline-block rounded-full bg-canvas px-3 py-1 text-xs font-bold text-ink">{role.country}</span>
             </p>
           </li>

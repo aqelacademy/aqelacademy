@@ -59,8 +59,8 @@ export default async function DoctorProfilePage() {
 
       <PortfolioSection id={chapters.profile.id} index={indexOf("profile")} kicker={chapters.profile.kicker} title={chapters.profile.title}>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <p className="text-xl leading-loose font-bold text-ink sm:text-2xl sm:leading-loose lg:col-span-7">{profile.intro}</p>
-          <div className="rounded-[2rem] bg-ink-dark p-8 text-white lg:col-span-5">
+          <p className="text-lg leading-loose font-semibold text-ink sm:text-2xl sm:leading-loose sm:font-bold lg:col-span-7">{profile.intro}</p>
+          <div className="rounded-[2rem] bg-ink-dark p-6 text-white sm:p-8 lg:col-span-5">
             <h3 className="text-2xl font-bold">{profile.disciplines.title}</h3>
             <p className="mt-3 leading-relaxed text-white/75">{profile.disciplines.text}</p>
             <ol className="mt-8 space-y-3">
@@ -99,11 +99,11 @@ export default async function DoctorProfilePage() {
       <PortfolioSection id={chapters.strengths.id} index={indexOf("strengths")} kicker={chapters.strengths.kicker} title={chapters.strengths.title}>
         <ol className="cv-stagger grid gap-x-12 sm:grid-cols-2">
           {profile.strengths.items.map((item, index) => (
-            <li key={item} style={order(index)} className="flex gap-5 border-t border-line py-6">
+            <li key={item} style={order(index)} className="flex gap-4 border-t border-line py-5 sm:gap-5 sm:py-6">
               <span aria-hidden="true" className="text-3xl leading-none font-bold text-gold tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="text-lg leading-relaxed font-bold text-ink">{item}</p>
+              <p className="leading-relaxed font-bold text-ink sm:text-lg">{item}</p>
             </li>
           ))}
         </ol>
