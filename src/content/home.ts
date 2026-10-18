@@ -1,8 +1,9 @@
 import classroom from "@/assets/images/classroom.jpg";
+import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
 import qabaCourseworkProvider from "@/assets/images/qaba-coursework-provider.png";
 import qabaTrainingProgram from "@/assets/images/qaba-training-program.png";
 import type { Locale } from "@/lib/i18n";
-import type { ContentImage, NavLink } from "@/types/content";
+import type { ContentImage, NavLink, TitledText } from "@/types/content";
 
 /** The badges carry QABA's own wording, so their alt text stays as printed in both languages. */
 const accreditations: ContentImage[] = [
@@ -35,8 +36,16 @@ interface HomeContent {
   stats: { years: number; yearsLabel: string; programmesLabel: string };
   accreditationsTitle: string;
   accreditations: ContentImage[];
-  featuredCourses: HomeSection & { action: NavLink };
-  journey: HomeSection & { text: string; points: string[]; primaryAction: NavLink; secondaryAction: NavLink };
+  /** `fee` labels each course's price. */
+  featuredCourses: HomeSection & { action: NavLink; fee: string };
+  journey: HomeSection & {
+    text: string;
+    points: TitledText[];
+    image: ContentImage;
+    caption: { name: string; role: string };
+    primaryAction: NavLink;
+    secondaryAction: NavLink;
+  };
   latestArticles: HomeSection & { action: NavLink };
   cta: { title: string; text: string; primaryAction: NavLink; secondaryAction: NavLink };
 }
@@ -64,12 +73,20 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "البرامج التدريبية",
       title: "الدورات المميزة",
       action: { href: "/courses", label: "جميع الدورات" },
+      fee: "رسوم الدورة",
     },
     journey: {
       kicker: "لماذا نحن",
       title: "ابدأ رحلتك معنا",
       text: "سواء كنت معلمًا، أو أخصائيًا، أو ولي أمر يبحث عن المعرفة، ستجد في أكاديمية الدكتور موفق عقل التدريب والدعم الذي تحتاجه لتطوير مهاراتك وتحقيق أهدافك.",
-      points: ["شهادات تدريب معتمدة", "تدريب عملي وتفاعلي", "إشراف مباشر من مختصين ذوي خبرة", "محتوى علمي محدث باستمرار"],
+      points: [
+        { title: "شهادات تدريب معتمدة", text: "برامج معتمدة من مجلس QABA، تغطي متطلبات الدراسة لشهاداته المهنية المعترف بها دوليًا." },
+        { title: "تدريب عملي وتفاعلي", text: "تطبيقات ودراسات حالة وتمارين تنقل المعرفة من قاعة التدريب إلى الميدان." },
+        { title: "إشراف مباشر من مختصين ذوي خبرة", text: "يرافقك الدكتور موفق عقل بنفسه، بخبرة ميدانية تتجاوز 25 عامًا." },
+        { title: "محتوى علمي محدث باستمرار", text: "مادة مبنية على أحدث الأبحاث والممارسات القائمة على الأدلة العلمية." },
+      ],
+      image: { src: drTeaching, alt: "الدكتور موفق عقل خلال إحدى الدورات التدريبية" },
+      caption: { name: "د. موفق عقل", role: "مؤسس الأكاديمية والمدرب الرئيسي" },
       primaryAction: { href: "/courses", label: "سجّل الآن" },
       secondaryAction: { href: "/contact-us", label: "اتصل بنا" },
     },
@@ -101,12 +118,20 @@ export const homeContent: Record<Locale, HomeContent> = {
       kicker: "Training programmes",
       title: "Featured courses",
       action: { href: "/courses", label: "All courses" },
+      fee: "Course fee",
     },
     journey: {
       kicker: "Why us",
       title: "Start your journey with us",
       text: "Whether you are a teacher, a specialist or a parent who wants to learn more, Dr Muaffaq Aqel Academy gives you the training and support you need to build your skills and reach your goals.",
-      points: ["Accredited training certificates", "Practical, interactive training", "Direct supervision by experienced specialists", "Evidence-based content, kept up to date"],
+      points: [
+        { title: "Accredited training certificates", text: "QABA-approved programmes that cover the coursework for its internationally recognised credentials." },
+        { title: "Practical, interactive training", text: "Applications, case studies and exercises that take what you learn from the classroom into the field." },
+        { title: "Direct supervision by experienced specialists", text: "Dr Muaffaq Aqel guides you himself, with more than 25 years of field experience." },
+        { title: "Evidence-based content, kept up to date", text: "Material built on the latest research and evidence-based practice." },
+      ],
+      image: { src: drTeaching, alt: "Dr Muaffaq Aqel teaching a training course" },
+      caption: { name: "Dr Muaffaq Aqel", role: "Founder and lead trainer" },
       primaryAction: { href: "/courses", label: "Enrol now" },
       secondaryAction: { href: "/contact-us", label: "Contact us" },
     },
