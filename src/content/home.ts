@@ -1,4 +1,4 @@
-import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
+import classroom from "@/assets/images/classroom.jpg";
 import qabaCourseworkProvider from "@/assets/images/qaba-coursework-provider.jpg";
 import qabaTrainingProgram from "@/assets/images/qaba-training-program.jpg";
 import type { Locale } from "@/lib/i18n";
@@ -23,11 +23,10 @@ interface HomeSection {
 export interface HomeHeroContent {
   eyebrow: string;
   lead: string;
-  text: string;
   image: ContentImage;
-  caption: { name: string; role: string };
   primaryAction: NavLink;
   secondaryAction: NavLink;
+  scrollCue: string;
 }
 
 interface HomeContent {
@@ -53,11 +52,10 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       eyebrow: taglines.ar,
       lead: "نُعدّ متخصصي المستقبل في تحليل السلوك التطبيقي والتربية الخاصة",
-      text: "تدريب احترافي قائم على الأدلة العلمية يجمع بين المعرفة العلمية، والتطبيق العملي، والخبرة الميدانية الممتدة لأكثر من 25 عامًا، لنُسهم في إعداد كوادر قادرة على إحداث أثر حقيقي في حياة الأطفال والأسر.",
-      image: { src: drTeaching, alt: "الدكتور موفق عقل خلال إحدى الدورات التدريبية" },
-      caption: { name: "د. موفق عقل", role: "مؤسس الأكاديمية والمدرب الرئيسي" },
+      image: { src: classroom, alt: "أطفال يتعلمون باللعب في غرفة صفية هادئة مليئة بالألعاب التعليمية" },
       primaryAction: { href: "/courses", label: "استعرض الدورات" },
       secondaryAction: { href: "/contact-us", label: "تواصل معنا" },
+      scrollCue: "اكتشف المزيد",
     },
     stats: { years: yearsOfExperience, yearsLabel: "عامًا من الخبرة الميدانية", programmesLabel: "برامج تدريبية معتمدة" },
     accreditationsTitle: "معتمدون من",
@@ -91,11 +89,10 @@ export const homeContent: Record<Locale, HomeContent> = {
     hero: {
       eyebrow: taglines.en,
       lead: "Preparing tomorrow's specialists in Applied Behaviour Analysis and special education",
-      text: "Professional, evidence-based training that brings together scientific knowledge, hands-on practice and more than 25 years of field experience, to prepare professionals who make a real difference to the lives of children and families.",
-      image: { src: drTeaching, alt: "Dr Muaffaq Aqel teaching a training course" },
-      caption: { name: "Dr Muaffaq Aqel", role: "Founder and lead trainer" },
+      image: { src: classroom, alt: "Children learning through play in a calm classroom full of educational toys" },
       primaryAction: { href: "/courses", label: "Browse courses" },
       secondaryAction: { href: "/contact-us", label: "Contact us" },
+      scrollCue: "Discover more",
     },
     stats: { years: yearsOfExperience, yearsLabel: "years of field experience", programmesLabel: "accredited training programmes" },
     accreditationsTitle: "Approved by",
