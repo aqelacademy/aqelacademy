@@ -93,7 +93,7 @@ export default async function DoctorProfilePage() {
       </PortfolioSection>
 
       <PortfolioSection id={chapters.books.id} index={indexOf("books")} kicker={chapters.books.kicker} title={chapters.books.title} text={profile.books.text} tone="ivory">
-        <PortfolioBooks items={profile.books.items} publishedLabel={profile.books.publishedLabel} inProgressLabel={profile.books.inProgressLabel} />
+        <PortfolioBooks items={profile.books.items} publishedLabel={profile.books.publishedLabel} inProgressLabel={profile.books.inProgressLabel} author={`${profile.cover.honorific} ${profile.cover.name}`} />
       </PortfolioSection>
 
       <PortfolioSection id={chapters.strengths.id} index={indexOf("strengths")} kicker={chapters.strengths.kicker} title={chapters.strengths.title}>

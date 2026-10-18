@@ -325,3 +325,136 @@ html:has(.cv-page) {
 @media (prefers-reduced-motion: reduce) {
   .portfolio-hero .cv-intro { animation: none !important; }
 }
+
+/*
+ * The portfolio's books (PortfolioBooks) as 3D volumes. `.book` turns in perspective; its cover sits at the front,
+ * `::before` is the block of pages along the fore-edge and `::after` the back board. The spine is on the reading
+ * start side (right in Arabic), so the page edges show on the other one. Hover swings the book to face the reader.
+ */
+.book-scene {
+  --book-depth: 1.1rem;
+  perspective: 1200px;
+}
+
+@media (min-width: 40rem) {
+  .book-scene { --book-depth: 1.6rem; }
+}
+
+.book {
+  --book-turn: -24deg;
+  position: relative;
+  aspect-ratio: 2 / 3;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--book-turn));
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[dir="rtl"] .book {
+  --book-turn: 24deg;
+}
+
+.book-scene:hover .book {
+  transform: rotateY(0deg);
+}
+
+.book-cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: translateZ(calc(var(--book-depth) / 2));
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: 6px 10px 24px rgb(12 25 56 / 0.28);
+}
+
+[dir="rtl"] .book-cover {
+  border-radius: 6px 2px 2px 6px;
+  box-shadow: -6px 10px 24px rgb(12 25 56 / 0.28);
+}
+
+/* The hinge: a shaded groove along the spine edge of the cover. */
+.book-cover::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 12%;
+  background: linear-gradient(to right, rgb(0 0 0 / 0.28), rgb(255 255 255 / 0.12) 30%, rgb(0 0 0 / 0.12) 45%, transparent);
+  pointer-events: none;
+}
+
+[dir="rtl"] .book-cover::before {
+  background: linear-gradient(to left, rgb(0 0 0 / 0.28), rgb(255 255 255 / 0.12) 30%, rgb(0 0 0 / 0.12) 45%, transparent);
+}
+
+/* The block of pages, standing along the fore-edge. */
+.book::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: var(--book-depth);
+  right: 0;
+  transform: translateX(50%) rotateY(90deg);
+  background: repeating-linear-gradient(to right, #fbf8f1 0 2px, #e4dccb 2px 3px);
+}
+
+[dir="rtl"] .book::before {
+  right: auto;
+  left: 0;
+  transform: translateX(-50%) rotateY(-90deg);
+}
+
+/* The back board. */
+.book::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateZ(calc(var(--book-depth) / -2));
+  border-radius: 2px 6px 6px 2px;
+  background: var(--color-ink-dark);
+}
+
+/* A soft sheen across the cover. */
+.book-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgb(255 255 255 / 0.14) 48%, transparent 60%);
+  pointer-events: none;
+}
+
+/* A thin inner frame on the cover. */
+.book-frame {
+  position: absolute;
+  inset: 0.6rem;
+  inset-inline-start: 1.1rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.book-published .book-cover {
+  background: linear-gradient(160deg, #1b3266, var(--color-ink-dark) 70%);
+  color: #f3dcae;
+}
+
+.book-draft .book-cover {
+  background: linear-gradient(160deg, #fbf7ee, #efe6d3);
+  color: var(--color-ink);
+}
+
+.book-draft::after {
+  background: #d9ceb6;
+}
+
+/* The shelf under each row of books. */
+.book-shelf {
+  height: 0.9rem;
+  background: linear-gradient(to bottom, #2a3f72, var(--color-ink-dark));
+  box-shadow: 0 14px 24px -10px rgb(12 25 56 / 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book { transition: none; }
+}
