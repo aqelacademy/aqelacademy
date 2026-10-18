@@ -113,7 +113,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
                   <span className="max-w-[8.5rem] text-xs leading-snug text-white/70">{fact.label}</span>
                 </p>
               ))}
-              <section aria-label={accreditations.title} className="col-span-2 flex items-center gap-4">
+              <section aria-label={accreditations.title} className="col-span-2 flex items-center gap-4 max-lg:w-full max-lg:justify-center">
                 {accreditations.badges.map((badge) => (
                   <Image key={badge.alt} src={badge.src} alt={badge.alt} sizes="128px" className="h-11 w-auto" />
                 ))}
@@ -125,7 +125,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
               </span>
               {hero.scrollCue}
             </p>
-            <div className="flex items-center gap-4 lg:justify-end">
+            <div className="flex items-center gap-4 max-lg:justify-center lg:justify-end">
               <p className="text-xs text-white/60 max-sm:hidden">{chrome.followUs}</p>
               <SocialLinks locale={locale} />
             </div>
