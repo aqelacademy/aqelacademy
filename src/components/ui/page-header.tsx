@@ -36,7 +36,7 @@ export async function PageHeader({ title, parents = [], compact = false }: PageH
             {back.label}
           </Link>
         </nav>
-        <h1 className={`max-w-4xl font-bold text-balance ${compact ? "mt-4 text-3xl leading-snug md:text-4xl md:leading-snug" : "mt-5 text-3xl leading-tight md:text-5xl md:leading-tight"}`}>{title}</h1>
+        <h1 className={`max-w-3xl font-bold text-balance ${compact ? "mt-4 text-3xl leading-snug md:text-4xl md:leading-snug" : "mt-5 text-3xl leading-tight md:text-5xl md:leading-tight"}`}>{title}</h1>
         <span aria-hidden="true" className={`block size-1.5 rounded-full bg-gold ${compact ? "mt-5" : "mt-7"}`} />
       </div>
     </div>

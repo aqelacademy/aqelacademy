@@ -27,13 +27,13 @@ export async function CourseSummaryCard({ course, bookable = true }: CourseSumma
   ];
 
   return (
-    <div className={`${cardClassName} overflow-hidden`}>
+    <div className={`${cardClassName} overflow-hidden shadow-pop`}>
       <div className="relative aspect-[16/9] border-b border-line bg-surface">
         <Image src={course.image.src} alt={course.image.alt} fill sizes="(min-width: 1024px) 22rem, 100vw" className="object-cover" />
       </div>
       <div className="p-5 sm:p-6">
         {!bookable && <p className="mb-2 font-bold leading-snug text-ink">{course.title}</p>}
-        <p className="text-3xl font-bold text-ink">{formatPrice(course.priceUsd)}</p>
+        <p className="text-4xl font-bold text-ink tabular-nums">{formatPrice(course.priceUsd)}</p>
         <dl className="mt-4 divide-y divide-line">
           {details.map(({ id, icon: Icon, label, value }) => (
             <div key={id} className="flex items-center justify-between gap-4 py-3 text-sm">
