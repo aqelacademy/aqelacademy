@@ -12,9 +12,12 @@ interface PolicySectionCardsProps {
 export function PolicySectionCards({ sections, className }: PolicySectionCardsProps) {
   return (
     <div className={`grid gap-6 ${className}`}>
-      {sections.map(({ title, text, items }) => (
-        <article key={title} className={`${cardClassName} border-t-2 border-t-gold p-6`}>
-          <h3 className="text-base font-bold leading-snug text-ink">{title}</h3>
+      {sections.map(({ title, text, items }, index) => (
+        <article key={title} className={`${cardClassName} p-6 sm:p-7`}>
+          <span aria-hidden="true" className="text-sm font-bold text-gold-dark tabular-nums">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className="mt-2 text-lg font-bold leading-snug text-ink">{title}</h3>
           {text && <p className="mt-3 leading-relaxed">{text}</p>}
           {items && (
             <ul className="mt-3 list-disc space-y-2 ps-5 leading-relaxed marker:text-gold">

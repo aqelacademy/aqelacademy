@@ -1,7 +1,7 @@
 export type ButtonVariant = "primary" | "outline" | "ghost" | "gold" | "light" | "whatsapp" | "success" | "danger";
 
 const baseClasses =
-  "group inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
+  "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
 
 /** Each variant sets its own focus color, so the ring stays visible on navy backgrounds too. */
 const variantClasses: Record<ButtonVariant, string> = {

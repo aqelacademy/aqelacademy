@@ -27,7 +27,7 @@ export async function CourseSummaryCard({ course, bookable = true }: CourseSumma
   ];
 
   return (
-    <div className={`${cardClassName} overflow-hidden border-t-2 border-t-gold`}>
+    <div className={`${cardClassName} overflow-hidden`}>
       <div className="relative aspect-[16/9] border-b border-line bg-surface">
         <Image src={course.image.src} alt={course.image.alt} fill sizes="(min-width: 1024px) 22rem, 100vw" className="object-cover" />
       </div>
