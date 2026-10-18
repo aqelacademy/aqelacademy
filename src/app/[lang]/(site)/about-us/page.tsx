@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DoctorProfileLink } from "@/components/profile/doctor-profile-link";
+import { order } from "@/components/profile/order";
 import { cardClassName } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/check-list";
 import { PageHeader } from "@/components/ui/page-header";
@@ -24,7 +25,7 @@ export default async function AboutPage() {
     <>
       <PageHeader title={title} />
 
-      <section className="container-site py-20">
+      <section className="container-site py-20 sm:py-28">
         <Reveal>
           <SplitSection image={aboutVision.image}>
             <SectionHeading title={aboutVision.title} />
@@ -37,7 +38,7 @@ export default async function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="border-y border-line bg-canvas py-20">
+      <section className="border-y border-line bg-canvas py-20 sm:py-28">
         <Reveal className="container-site">
           <SplitSection image={aboutAcademy.image} imageSide="start">
             <SectionHeading title={aboutAcademy.title} />
@@ -62,10 +63,11 @@ export default async function AboutPage() {
       </section>
 
       <section>
-        <Reveal className="container-site grid gap-12 py-20 lg:grid-cols-2 lg:gap-16">
-        <div className={`${cardClassName} border-t-2 border-t-gold p-6 sm:p-8`}>
-          <SectionHeading title={aboutWhyUs.title} />
-          <div className="font-bold text-ink">
+        <Reveal className="container-site grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-16">
+        <div className="rounded-[2rem] bg-ink-dark p-7 text-white sm:p-10">
+          <span aria-hidden="true" className="block size-1.5 rounded-full bg-gold" />
+          <h2 className="mt-4 mb-8 text-2xl leading-snug font-bold md:text-4xl md:leading-snug">{aboutWhyUs.title}</h2>
+          <div className="text-lg font-bold">
             <CheckList items={aboutWhyUs.points} />
           </div>
         </div>
@@ -80,17 +82,19 @@ export default async function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="container-site pb-20">
-        <Reveal>
+      <section className="border-t border-line bg-canvas py-20 sm:py-28">
+        <Reveal className="container-site">
           <SectionHeading title={aboutValues.title} />
-          <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="cv-stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {aboutValues.items.map((value, index) => (
-              <li key={value.title} className="border-t border-line pt-6">
-                <span aria-hidden="true" className="text-3xl font-bold tabular-nums text-gold">
-                  0{index + 1}
+              <li key={value.title} style={order(index)} className={`${cardClassName} flex flex-col gap-8 p-7 transition-colors duration-300 hover:border-gold/50`}>
+                <span aria-hidden="true" className="text-5xl leading-none font-bold text-gold tabular-nums">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 text-lg font-bold text-ink">{value.title}</h3>
-                <p className="mt-2 leading-relaxed">{value.text}</p>
+                <div>
+                  <h3 className="text-xl font-bold text-ink">{value.title}</h3>
+                  <p className="mt-2 leading-relaxed">{value.text}</p>
+                </div>
               </li>
             ))}
           </ul>
