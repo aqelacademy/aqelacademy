@@ -484,3 +484,46 @@ html:has(.cv-page) {
 @media (prefers-reduced-motion: reduce) {
   .home-hero .cv-intro { animation: none !important; }
 }
+
+/* The home courses (CourseIndex) arrive row by row inside their Reveal: the gold rule draws across from the reading edge, the seal settles, then the text rises. */
+[data-reveal] .home-row-rule {
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  transition-delay: calc(var(--i, 0) * 160ms + 200ms);
+}
+
+[dir="ltr"] [data-reveal] .home-row-rule {
+  transform-origin: left;
+}
+
+[data-reveal] .home-row-seal {
+  transition:
+    opacity 0.8s ease-out,
+    transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 160ms + 500ms);
+}
+
+[data-reveal] .home-row-body {
+  transition:
+    opacity 0.9s ease-out,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 160ms + 650ms);
+}
+
+[data-reveal="hidden"] .home-row-rule {
+  transform: scaleX(0);
+}
+
+[data-reveal="hidden"] .home-row-seal {
+  opacity: 0;
+  transform: scale(0.8) rotate(-15deg);
+}
+
+[data-reveal="hidden"] .home-row-body {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] :is(.home-row-rule, .home-row-seal, .home-row-body) { transition: none; }
+}

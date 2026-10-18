@@ -32,11 +32,16 @@ export default async function HomePage() {
     <>
       <HomeHero locale={locale} hero={hero} facts={facts} accreditations={{ title: accreditationsTitle, badges: accreditations }} />
 
-      <section className="container-site py-20 sm:py-28">
-        <Reveal>
-          <HomeSectionHeading index="01" kicker={featuredSection.kicker} title={featuredSection.title}>
-            <p className="max-w-md leading-relaxed">{courseCopy[locale].listIntro}</p>
-            <ArrowLink link={localeLink(locale, featuredSection.action)} />
+      <section className="relative isolate bg-ink-dark py-20 text-white sm:py-28">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <div className="container-site h-full">
+            <div className="cv-columns h-full border-x border-white/[0.04]" />
+          </div>
+        </div>
+        <Reveal className="container-site">
+          <HomeSectionHeading index="01" kicker={featuredSection.kicker} title={featuredSection.title} dark>
+            <p className="max-w-md leading-relaxed text-white/70">{courseCopy[locale].listIntro}</p>
+            <ArrowLink link={localeLink(locale, featuredSection.action)} className="text-white" />
           </HomeSectionHeading>
           <CourseIndex locale={locale} courses={courses.slice(0, 3)} />
         </Reveal>
