@@ -17,9 +17,8 @@ export default async function CoursesPage() {
 
   return (
     <>
-      <PageHeader title={copy.listTitle} />
+      <PageHeader title={copy.listTitle} intro={copy.listIntro} />
       <NavySection>
-        <p className="mb-14 max-w-3xl text-lg leading-loose text-white/75 lg:mb-20">{copy.listIntro}</p>
         <CoursePath locale={locale} courses={getCourses(locale)} />
       </NavySection>
     </>

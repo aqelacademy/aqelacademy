@@ -529,9 +529,9 @@ html:has(.cv-page) {
   }
 }
 
-/* Course cards (CoursePath) on large screens: each starts a step higher than the one before, and they settle level as the list scrolls into view. The motion is on the inner card, so it never fights the row's Reveal entrance. */
+/* Course cards (CoursePath) on large screens: each starts a step higher than the one before (the earlier ones sit lower, so nothing rises over the section's top), and they settle level as the list scrolls into view. The motion is on the inner card, so it never fights the row's Reveal entrance. ponytail: the steps assume three courses; give `--steps` from the list if there are ever more. */
 @keyframes course-level {
-  from { transform: translateY(calc(var(--i, 0) * -3.5rem)); }
+  from { transform: translateY(calc((2 - var(--i, 0)) * 3rem)); }
 }
 
 @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {

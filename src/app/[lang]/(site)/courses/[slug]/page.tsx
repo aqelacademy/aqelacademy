@@ -39,8 +39,7 @@ export default async function CoursePage({ params }: PageProps<"/[lang]/courses/
     <>
       <PageHeader title={course.title} parents={[{ href: "/courses", label: copy.listTitle }]} />
       <div className="container-site grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_24rem] lg:gap-16">
-        {/* On large screens the summary rises into the navy title band. */}
-        <aside className="lg:sticky lg:top-24 lg:order-2 lg:-mt-44 lg:self-start">
+        <aside className="lg:sticky lg:top-24 lg:order-2 lg:self-start">
           <CourseSummaryCard course={course} />
         </aside>
         <div>

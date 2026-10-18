@@ -24,7 +24,7 @@ export default async function CourseFeesPage() {
     <>
       <PageHeader title={copy.title} />
       <NavySection>
-        <p className="mb-14 text-sm text-white/70 lg:mb-20">
+        <p className="mb-10 text-sm text-white/70">
           {copy.lastUpdated} <time dateTime={copy.updatedAt}>{formatDate(copy.updatedAt, locale)}</time>
         </p>
         <CoursePath locale={locale} courses={courses} />
