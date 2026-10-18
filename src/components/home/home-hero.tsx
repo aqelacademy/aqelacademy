@@ -55,7 +55,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
           </div>
         </div>
 
-        <div className="home-hero-text container-site flex min-h-[calc(100svh-4.1875rem)] flex-col pb-6 lg:pt-20 lg:pb-8">
+        <div className="home-hero-text container-site flex min-h-[calc(100svh-4.1875rem)] flex-col pb-6 lg:pt-20 lg:pb-20">
           <div className="flex max-w-3xl flex-1 flex-col justify-end max-lg:min-h-[calc(100svh-4.1875rem-6rem)]">
             <p className="cv-intro home-rise flex items-center gap-3 text-xs font-medium text-white/80 sm:text-sm ltr:tracking-wide" style={order(0)}>
               <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
@@ -90,7 +90,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
             </div>
           </div>
 
-          <div className="cv-intro home-rise mt-12 grid gap-6 border-t border-white/20 pt-6 lg:mt-14 lg:grid-cols-[1fr_auto_1fr] lg:items-center" style={order(5)}>
+          <div className="cv-intro home-rise mt-12 grid gap-6 border-t border-white/20 pt-6 lg:mt-14 lg:grid-cols-[auto_1fr_auto] lg:items-center" style={order(5)}>
             <div className="grid grid-cols-2 items-center gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-x-8">
               {facts.map((fact) => (
                 <p key={fact.label} className="flex items-center gap-3">
@@ -107,7 +107,7 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
                 ))}
               </section>
             </div>
-            <p className="flex items-center gap-3 text-xs text-white/60 max-lg:hidden">
+            <p className="flex items-center gap-3 justify-self-center text-xs text-white/60 max-lg:hidden">
               <span aria-hidden="true" className="relative h-8 w-px overflow-hidden bg-white/20">
                 <span className="cv-cue absolute inset-x-0 top-0 h-1/2 bg-gold" />
               </span>
