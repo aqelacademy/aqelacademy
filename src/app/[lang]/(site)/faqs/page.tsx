@@ -25,7 +25,7 @@ export default async function FaqsPage() {
   return (
     <>
       <PageHeader title={title} />
-      <section className="bg-canvas py-20 sm:py-28">
+      <section className="bg-canvas pt-12 pb-20 sm:pt-16 sm:pb-28">
         <div className="container-site grid gap-10 lg:grid-cols-12 lg:gap-16">
           <aside className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
             <div className="rounded-[2rem] bg-ink-dark p-8 text-white">

@@ -25,7 +25,7 @@ export default async function AboutPage() {
     <>
       <PageHeader title={title} />
 
-      <section className="container-site py-20 sm:py-28">
+      <section className="container-site pt-12 pb-20 sm:pt-16 sm:pb-28">
         <Reveal>
           <SplitSection image={aboutVision.image}>
             <SectionHeading title={aboutVision.title} />

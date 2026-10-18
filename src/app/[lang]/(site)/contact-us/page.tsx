@@ -47,7 +47,7 @@ export default async function ContactPage() {
   return (
     <>
       <PageHeader title={title} />
-      <section className="container-site grid gap-12 py-20 sm:py-28 lg:grid-cols-12 lg:gap-16">
+      <section className="container-site grid gap-12 pt-12 pb-20 sm:pt-16 sm:pb-28 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <SectionHeading title={contactIntro.title} />
           <div className="space-y-4 text-lg leading-loose">
