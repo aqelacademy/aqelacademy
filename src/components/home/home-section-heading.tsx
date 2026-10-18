@@ -11,11 +11,11 @@ interface HomeSectionHeadingProps {
   dark?: boolean;
 }
 
-/** The home page's numbered section opening: index and kicker on a gold rule, then the title in the display face. */
+/** The home page's numbered section opening: index and kicker on a gold rule, then the title in the display face. Without children it sits close to the text that follows. */
 export function HomeSectionHeading({ index, kicker, title, children, dark = false }: HomeSectionHeadingProps) {
   return (
-    <div className="mb-12 grid gap-6 sm:mb-16 lg:grid-cols-12 lg:items-end">
-      <div className="lg:col-span-7">
+    <div className={`grid gap-6 lg:grid-cols-12 lg:items-end ${children ? "mb-12 sm:mb-16" : "mb-6"}`}>
+      <div className={children ? "lg:col-span-7" : "lg:col-span-12"}>
         <p className={`flex items-center gap-3 text-sm font-bold ${dark ? "text-gold" : "text-gold-dark"}`}>
           <span className="font-display text-base tabular-nums">{index}</span>
           <span aria-hidden="true" className="h-px w-10 bg-gold" />
