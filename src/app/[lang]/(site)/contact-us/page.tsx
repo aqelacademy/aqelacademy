@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { cardClassName } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SocialLinks } from "@/components/ui/social-links";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { contactContent } from "@/content/contact";
 import { site, siteText } from "@/content/site";
@@ -46,35 +47,44 @@ export default async function ContactPage() {
   return (
     <>
       <PageHeader title={title} />
-      <section className="container-site py-20">
-        <div className="max-w-2xl">
+      <section className="container-site grid gap-12 py-20 sm:py-28 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
           <SectionHeading title={contactIntro.title} />
           <div className="space-y-4 text-lg leading-loose">
             {contactIntro.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+          <div className="mt-10 rounded-[2rem] bg-ink-dark p-7 text-white">
+            <p className="flex items-center gap-3 text-sm font-medium text-white/70">
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
+              {siteText[locale].chrome.followUs}
+            </p>
+            <div className="mt-5">
+              <SocialLinks locale={locale} />
+            </div>
+          </div>
         </div>
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
           {channels.map(({ id, icon: Icon, label, value, href, ltr, external }) => (
-            <li key={id} className={`${cardClassName} p-6`}>
-              <span className={`flex size-12 items-center justify-center rounded-full ${id === "whatsapp" ? "bg-whatsapp-dark text-white" : "border border-gold/50 bg-gold-soft text-gold-dark"}`}>
+            <li key={id} className={`${cardClassName} relative flex flex-col p-7 transition-colors duration-300 hover:border-gold/50`}>
+              <span className={`flex size-14 items-center justify-center rounded-full ${id === "whatsapp" ? "bg-whatsapp-dark text-white" : "bg-ink text-gold"}`}>
                 <Icon aria-hidden="true" className="size-6" />
               </span>
-              <h2 className="mt-5 font-bold text-ink">{label}</h2>
+              <h2 className="mt-10 text-sm text-body">{label}</h2>
               {href ? (
                 <a
                   href={href}
                   dir={ltr ? "ltr" : undefined}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  className="mt-1 block break-all transition-colors hover:text-gold-dark"
+                  className="mt-1 block text-lg font-bold break-all text-ink after:absolute after:inset-0 after:rounded-2xl ltr:text-left rtl:text-right"
                 >
                   {value}
                 </a>
               ) : (
-                <p className="mt-1">{value}</p>
+                <p className="mt-1 text-lg font-bold text-ink">{value}</p>
               )}
             </li>
           ))}
