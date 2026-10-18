@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { ArticleGrid } from "@/components/blog/article-grid";
+import { ArticleShowcase } from "@/components/blog/article-showcase";
 import { PageHeader } from "@/components/ui/page-header";
+import { Reveal } from "@/components/ui/reveal";
 import { articleCopy, getArticles } from "@/content/articles";
 import { getLocale } from "@/lib/locale";
 import { languageAlternates } from "@/lib/metadata";
@@ -16,8 +17,10 @@ export default async function BlogPage() {
   return (
     <>
       <PageHeader title={articleCopy[locale].listTitle} />
-      <section className="container-site py-20">
-        <ArticleGrid articles={getArticles(locale)} preloadFirst />
+      <section className="bg-canvas py-20 sm:py-28">
+        <Reveal className="container-site">
+          <ArticleShowcase locale={locale} articles={getArticles(locale)} />
+        </Reveal>
       </section>
     </>
   );

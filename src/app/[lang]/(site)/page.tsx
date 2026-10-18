@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowLink } from "@/components/ui/arrow-link";
-import { ArticleShowcase } from "@/components/home/article-showcase";
+import { ArticleShowcase } from "@/components/blog/article-showcase";
 import { CoursePath } from "@/components/courses/course-path";
 import { HomeApproach } from "@/components/home/home-approach";
 import { HomeClosing } from "@/components/home/home-closing";
