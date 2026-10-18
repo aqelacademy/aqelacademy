@@ -1,10 +1,10 @@
-import drPortrait from "@/assets/images/dr-muaffaq-portrait.jpg";
+import drHeadshot from "@/assets/images/dr-muaffaq-headshot.jpg";
 import drSpeaking from "@/assets/images/dr-muaffaq-speaking.jpg";
 import drTeaching from "@/assets/images/dr-muaffaq-teaching.jpg";
 import type { Locale } from "@/lib/i18n";
 import type { ContentImage, NavLink } from "@/types/content";
 
-/** The doctor's CV page (/about-us/dr-muaffaq-aqel), built from his Arabic and English CVs (2026). His real experience is 25 years (the CVs say 20; they are older). */
+/** The doctor's portfolio page (/about-us/dr-muaffaq-aqel), built from his Arabic and English CVs (2026). His real experience is 25 years (the CVs say 20; they are older). */
 export const doctorProfilePath = "/about-us/dr-muaffaq-aqel";
 
 export type ChapterId = "profile" | "qualifications" | "career" | "teaching" | "tools" | "conferences" | "books" | "strengths";
@@ -69,7 +69,7 @@ export interface Book {
 interface DoctorProfile {
   metaTitle: string;
   metaDescription: string;
-  /** The side index's accessible name. */
+  /** The section bar's accessible name. */
   chaptersLabel: string;
   chapters: Record<ChapterId, Chapter>;
   cover: {
@@ -79,11 +79,10 @@ interface DoctorProfile {
     fullName: string;
     role: string;
     facts: { label: string; value: string }[];
-    scrollCue: string;
     image: ContentImage;
   };
   stats: ProfileStat[];
-  /** Read word by word as it scrolls past. */
+  /** The opening statement of the "profile" section. */
   intro: string;
   disciplines: Disciplines;
   education: { title: string; steps: Degree[] };
@@ -91,7 +90,7 @@ interface DoctorProfile {
   career: { text: string; present: string; image: ContentImage; roles: CareerRole[] };
   teaching: { text: string; items: string[] };
   tools: { text: string; rows: [string[], string[]] };
-  conferences: { text: string; paperLabel: string; /** Phones: the cards scroll sideways. */ swipeHint: string; items: Conference[] };
+  conferences: { text: string; paperLabel: string; items: Conference[] };
   books: { text: string; publishedLabel: string; inProgressLabel: string; items: Book[] };
   strengths: { items: string[] };
   /** The image is the photo from his CV (cleaned of its decorations), shown round above the closing panel. */
@@ -125,8 +124,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
         { label: "الإقامة", value: "سلطنة عُمان" },
         { label: "ترخيص QBA", value: "14456" },
       ],
-      scrollCue: "تابع القراءة",
-      image: { src: drPortrait, alt: "الدكتور موفق عقل" },
+      image: { src: drHeadshot, alt: "الدكتور موفق عقل" },
     },
     stats: [
       { value: 25, suffix: "+", label: "عامًا من الخبرة في التدريب والتأهيل" },
@@ -217,7 +215,6 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     conferences: {
       text: "شارك بأوراق علمية في مؤتمرات وملتقيات في الأردن ومصر وسلطنة عُمان.",
       paperLabel: "ورقة علمية",
-      swipeHint: "اسحب لرؤية المزيد",
       items: [
         { year: 2012, country: "الأردن", title: "مؤتمر التوجهات الحديثة في التربية الخاصة" },
         { year: 2015, country: "الأردن", title: "الملتقى الإقليمي الأول في التوحد: تشخيص طيف التوحد وصعوبات التعلم وعلاجها" },
@@ -287,8 +284,7 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
         { label: "Based in", value: "Oman" },
         { label: "QBA licence", value: "14456" },
       ],
-      scrollCue: "Read on",
-      image: { src: drPortrait, alt: "Dr Muaffaq Aqel" },
+      image: { src: drHeadshot, alt: "Dr Muaffaq Aqel" },
     },
     stats: [
       { value: 25, suffix: "+", label: "years of training and rehabilitation" },
@@ -379,7 +375,6 @@ export const doctorProfile: Record<Locale, DoctorProfile> = {
     conferences: {
       text: "He has presented papers at conferences and forums in Jordan, Egypt and Oman.",
       paperLabel: "Paper",
-      swipeHint: "Swipe to see more",
       items: [
         { year: 2012, country: "Jordan", title: "Conference on Modern Trends in Special Education" },
         { year: 2015, country: "Jordan", title: "First Regional Forum on Autism: diagnosing and treating autism spectrum disorder and learning difficulties" },

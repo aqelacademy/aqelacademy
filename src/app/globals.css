@@ -547,3 +547,13 @@ html:has(.cv-page) {
     }
   }
 }
+
+/* The doctor's portfolio hero (PortfolioHero): its items rise in order (`--i`) once IntroTiming sets data-intro="play"; until then `cv-intro` holds them hidden for a few seconds at most. */
+.portfolio-hero[data-intro="play"] .cv-intro {
+  animation: cv-fade 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-hero .cv-intro { animation: none !important; }
+}
