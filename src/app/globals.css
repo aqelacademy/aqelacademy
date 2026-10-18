@@ -76,14 +76,37 @@ body {
   color: var(--color-ink);
 }
 
-/* Opening screen (src/components/layout/splash.tsx): exactly 1 s in all; the bar fills in 0.75 s, then the screen fades out in 0.25 s. Pure CSS, so it runs once per full page load and never blocks the page if scripts fail. */
-@keyframes splash-fill {
-  from { width: 0; }
-  to { width: 100%; }
+/*
+ * Opening screen (src/components/layout/splash.tsx), 1.9 s in all: the emblem opens out of a circle (0–0.85 s), the
+ * name rises (0.35 s), the tagline draws out from its star (0.6 s), a light sweeps the gold (0.8 s), then the screen
+ * lifts away like a curtain from 1.4 s. Pure CSS, so it runs once per full page load and never blocks the page if
+ * scripts fail. `.splash`'s own animation must stay the exit: afterSplash (src/lib/splash.ts) reads its delay.
+ */
+@keyframes splash-out {
+  to { transform: translateY(-100%); visibility: hidden; }
 }
 
-@keyframes splash-out {
-  to { opacity: 0; visibility: hidden; }
+@keyframes splash-stage-out {
+  to { opacity: 0; transform: translateY(-3rem); }
+}
+
+@keyframes splash-iris {
+  from { clip-path: circle(0% at 50% 58%); transform: scale(0.9); }
+  to { clip-path: circle(75% at 50% 50%); transform: none; }
+}
+
+@keyframes splash-rise {
+  from { transform: translateY(110%); }
+}
+
+@keyframes splash-draw {
+  from { clip-path: inset(0 50%); opacity: 0; }
+  to { clip-path: inset(0); opacity: 1; }
+}
+
+@keyframes splash-sweep {
+  from { background-position: 150% 0; }
+  to { background-position: -50% 0; }
 }
 
 html[data-splash="seen"] .splash {
@@ -91,11 +114,30 @@ html[data-splash="seen"] .splash {
 }
 
 .splash {
-  animation: splash-out 0.25s ease-out 0.75s forwards;
+  animation: splash-out 0.55s cubic-bezier(0.76, 0, 0.24, 1) 1.4s forwards;
 }
 
-.splash-bar {
-  animation: splash-fill 0.75s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+.splash-stage {
+  animation: splash-stage-out 0.4s cubic-bezier(0.5, 0, 0.75, 0) 1.4s forwards;
+}
+
+.splash-mark {
+  animation: splash-iris 0.85s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.splash-name {
+  animation: splash-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.splash-tagline {
+  animation: splash-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.6s both;
+}
+
+.splash-sheen {
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.85) 50%, transparent 65%) no-repeat;
+  background-size: 250% 100%;
+  mix-blend-mode: soft-light;
+  animation: splash-sweep 0.75s ease-in-out 0.8s both;
 }
 
 /* Sections slide up once as they scroll into view (src/components/ui/reveal.tsx). The attribute is only set by script, so nothing is hidden without it. */
@@ -111,9 +153,14 @@ html[data-splash="seen"] .splash {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash { animation-duration: 0.01s; animation-delay: 0.6s; }
-  .splash-bar { animation-duration: 0.6s; }
+  /* The logo simply shows, then the screen fades instead of moving. */
+  .splash { animation: splash-fade 0.3s ease-out 0.7s forwards; }
+  .splash :is(.splash-stage, .splash-mark, .splash-name, .splash-tagline, .splash-sheen) { animation: none; }
   [data-reveal] { transition: none; }
+}
+
+@keyframes splash-fade {
+  to { opacity: 0; visibility: hidden; }
 }
 
 /* The doctor's CV page (about-us/dr-muaffaq-aqel). Scroll effects read `--progress` (0–1, set by ScrollProgress); without script it falls back to the finished state. */
