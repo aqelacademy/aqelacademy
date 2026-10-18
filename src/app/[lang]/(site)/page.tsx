@@ -3,7 +3,6 @@ import { ArrowLink } from "@/components/home/arrow-link";
 import { ArticleSpread } from "@/components/home/article-spread";
 import { CourseIndex } from "@/components/home/course-index";
 import { HomeClosing } from "@/components/home/home-closing";
-import { HomeFacts } from "@/components/home/home-facts";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomePillars } from "@/components/home/home-pillars";
 import { HomeSectionHeading } from "@/components/home/home-section-heading";
@@ -31,9 +30,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <HomeHero locale={locale} hero={hero}>
-        <HomeFacts facts={facts} accreditationsTitle={accreditationsTitle} accreditations={accreditations} />
-      </HomeHero>
+      <HomeHero locale={locale} hero={hero} facts={facts} accreditations={{ title: accreditationsTitle, badges: accreditations }} />
 
       <section className="container-site py-20 sm:py-28">
         <Reveal>
