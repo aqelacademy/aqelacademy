@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { ArrowLink } from "@/components/home/arrow-link";
-import { ArticleSpread } from "@/components/home/article-spread";
-import { CourseIndex } from "@/components/home/course-index";
+import { ArticleShowcase } from "@/components/home/article-showcase";
+import { CoursePath } from "@/components/home/course-path";
+import { HomeApproach } from "@/components/home/home-approach";
 import { HomeClosing } from "@/components/home/home-closing";
 import { HomeHero } from "@/components/home/home-hero";
-import { HomePillars } from "@/components/home/home-pillars";
 import { HomeSectionHeading } from "@/components/home/home-section-heading";
-import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/ui/reveal";
 import { getArticles } from "@/content/articles";
 import { courseCopy, getCourses } from "@/content/courses";
@@ -43,34 +42,24 @@ export default async function HomePage() {
             <p className="max-w-md leading-relaxed text-white/70">{courseCopy[locale].listIntro}</p>
             <ArrowLink link={localeLink(locale, featuredSection.action)} className="text-white" />
           </HomeSectionHeading>
-          <CourseIndex locale={locale} courses={courses.slice(0, 3)} />
+          <CoursePath locale={locale} courses={courses.slice(0, 3)} feeLabel={featuredSection.fee} />
         </Reveal>
       </section>
 
-      <section className="border-y border-gold/25 bg-gold-soft py-20 sm:py-28">
-        <Reveal className="container-site grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <HomeSectionHeading index="02" kicker={journey.kicker} title={journey.title} />
-            <p className="text-lg leading-loose">{journey.text}</p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <ButtonLink href={localeLink(locale, journey.primaryAction).href}>{journey.primaryAction.label}</ButtonLink>
-              <ButtonLink href={localeLink(locale, journey.secondaryAction).href} variant="outline">
-                {journey.secondaryAction.label}
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <HomePillars points={journey.points} />
-          </div>
-        </Reveal>
-      </section>
+      <HomeApproach
+        heading={journey}
+        points={journey.points}
+        image={journey.image}
+        caption={journey.caption}
+        actions={[localeLink(locale, journey.primaryAction), localeLink(locale, journey.secondaryAction)]}
+      />
 
-      <section className="container-site py-20 sm:py-28">
-        <Reveal>
+      <section className="border-t border-line bg-canvas py-20 sm:py-28">
+        <Reveal className="container-site">
           <HomeSectionHeading index="03" kicker={articlesSection.kicker} title={articlesSection.title}>
             <ArrowLink link={localeLink(locale, articlesSection.action)} />
           </HomeSectionHeading>
-          <ArticleSpread locale={locale} articles={getArticles(locale).slice(0, 3)} />
+          <ArticleShowcase locale={locale} articles={getArticles(locale).slice(0, 3)} />
         </Reveal>
       </section>
 

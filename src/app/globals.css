@@ -481,45 +481,54 @@ html:has(.cv-page) {
   .home-hero .cv-intro { animation: none !important; }
 }
 
-/* The home courses (CourseIndex) arrive row by row inside their Reveal: the gold rule draws across from the reading edge, the seal settles, then the text rises. */
-[data-reveal] .home-row-rule {
-  transform-origin: right;
-  transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-  transition-delay: calc(var(--i, 0) * 160ms + 200ms);
-}
-
-[dir="ltr"] [data-reveal] .home-row-rule {
-  transform-origin: left;
-}
-
-[data-reveal] .home-row-seal {
-  transition:
-    opacity 0.8s ease-out,
-    transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 160ms + 500ms);
-}
-
-[data-reveal] .home-row-body {
+/* The home courses (CoursePath) climb in one after another inside their Reveal, each from a little lower than the last. */
+[data-reveal] .home-step {
   transition:
     opacity 0.9s ease-out,
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 160ms + 650ms);
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 180ms + 200ms);
 }
 
-[data-reveal="hidden"] .home-row-rule {
-  transform: scaleX(0);
-}
-
-[data-reveal="hidden"] .home-row-seal {
+[data-reveal="hidden"] .home-step {
   opacity: 0;
-  transform: scale(0.8) rotate(-15deg);
+  transform: translateY(calc(3rem + var(--i, 0) * 1.5rem));
 }
 
-[data-reveal="hidden"] .home-row-body {
-  opacity: 0;
-  transform: translateY(1rem);
+/* The latest articles (ArticleShowcase) unveil from the bottom, one after another, inside their Reveal. */
+[data-reveal] .home-unveil {
+  transition: clip-path 1.3s cubic-bezier(0.76, 0, 0.24, 1);
+  transition-delay: calc(var(--i, 0) * 160ms + 150ms);
+}
+
+[data-reveal="hidden"] .home-unveil {
+  clip-path: inset(100% 0 0 0 round 1.75rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] :is(.home-row-rule, .home-row-seal, .home-row-body) { transition: none; }
+  [data-reveal] :is(.home-step, .home-unveil) { transition: none; }
+}
+
+/* "Why us" (HomeApproach): each reason comes into focus as it reaches the middle of the screen, and its numeral turns gold. Browsers without view timelines show them all in full. */
+@keyframes home-focus {
+  from { opacity: 0.3; }
+}
+
+@keyframes home-focus-number {
+  to { color: var(--color-gold); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .home-focus {
+      animation: home-focus linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 45%;
+    }
+
+    .home-focus-number {
+      animation: home-focus-number linear both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 45%;
+    }
+  }
 }
