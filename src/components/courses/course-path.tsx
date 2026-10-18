@@ -12,21 +12,19 @@ interface CoursePathProps {
   courses: Course[];
 }
 
-/** Each step stands higher than the one before on large screens, so the three courses read as a rising professional path. */
-const stepLift = ["lg:mb-0", "lg:mb-14", "lg:mb-28"];
-
 /**
- * The courses on navy (home, courses, course fees), as a rising path of three cards: the seal, the level and step number, the title, then hours and
- * fee in the hero's light numerals, and the hero's pill to the course. Inside a Reveal the cards climb in one after
- * another (`.home-step`). The title is the card's one link and stretches over it.
+ * The courses on navy (home, courses, course fees): the seal, the level and step number, the title, then hours and
+ * fee in large numerals, and the hero's pill to the course. Inside a Reveal the cards climb in one after another
+ * (`.home-step`). On large screens they start as rising stairs and settle level as the list scrolls into view
+ * (`.course-stairs`, a CSS view timeline on the inner card). The title is the card's one link and stretches over it.
  */
 export function CoursePath({ locale, courses }: CoursePathProps) {
   const copy = courseCopy[locale];
 
   return (
-    <ol className="grid gap-5 lg:grid-cols-3 lg:items-end lg:gap-6">
+    <ol className="course-stairs grid gap-5 lg:grid-cols-3 lg:gap-6">
       {courses.map((course, index) => (
-        <li key={course.slug} style={order(index)} className={`home-step ${stepLift[index] ?? ""}`}>
+        <li key={course.slug} style={order(index)} className="home-step">
           <article className="group relative isolate flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition-colors duration-500 hover:border-gold/40 hover:bg-white/[0.07] sm:p-8">
             <div className="flex items-center justify-between gap-4">
               <span className="relative size-14 overflow-hidden rounded-full bg-white ring-1 ring-gold/60 ring-offset-4 ring-offset-ink-dark">

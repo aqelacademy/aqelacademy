@@ -528,3 +528,22 @@ html:has(.cv-page) {
     }
   }
 }
+
+/* Course cards (CoursePath) on large screens: each starts a step higher than the one before, and they settle level as the list scrolls into view. The motion is on the inner card, so it never fights the row's Reveal entrance. */
+@keyframes course-level {
+  from { transform: translateY(calc(var(--i, 0) * -3.5rem)); }
+}
+
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .course-stairs {
+      view-timeline-name: --course-stairs;
+    }
+
+    .course-stairs > li > article {
+      animation: course-level linear both;
+      animation-timeline: --course-stairs;
+      animation-range: entry 0% cover 55%;
+    }
+  }
+}
