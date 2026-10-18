@@ -150,7 +150,7 @@ Every page below also exists in English under `/en` (for example `/en/courses`),
 | `/blog`            | Articles                     |
 | `/blog/[slug]`     | Article                      |
 | `/about-us`        | About the academy            |
-| `/about-us/dr-muaffaq-aqel` | Dr Muaffaq Aqel's CV (linked from About us) |
+| `/about-us/dr-muaffaq-aqel` | Dr Muaffaq Aqel's portfolio (linked from About us) |
 | `/faqs`            | Frequently asked questions   |
 | `/contact-us`      | Contact details              |
 | `/policy`          | Privacy policy               |
@@ -184,7 +184,7 @@ src/
                 [lang]/(site) public pages, [lang]/(app) sign-in/account/booking,
                 (dashboard)/admin the doctor's dashboard (its own root layout, Arabic only)
   components/   UI components (layout, header, ui, forms, home, courses, blog,
-                bookings, messages, notifications, admin, profile)
+                bookings, messages, notifications, admin, portfolio, profile)
   content/      Site content in Arabic and English: courses, articles, pages, contact details
   lib/          Helpers, validation, Supabase clients, data access layer (dal/)
   types/        Shared content types
