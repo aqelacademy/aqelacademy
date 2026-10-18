@@ -17,7 +17,7 @@ export default async function RefundPolicyPage() {
 
   return (
     <>
-      <PageHeader title={title} compact />
+      <PageHeader title={title} />
       <div className="container-site py-14">
         <p className="text-sm">
           {lastUpdated} <time dateTime={refundPolicyUpdatedAt}>{formatDate(refundPolicyUpdatedAt, locale)}</time>
