@@ -6,6 +6,7 @@ import { HomeApproach } from "@/components/home/home-approach";
 import { HomeClosing } from "@/components/home/home-closing";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeSectionHeading } from "@/components/home/home-section-heading";
+import { NavySection } from "@/components/ui/navy-section";
 import { Reveal } from "@/components/ui/reveal";
 import { getArticles } from "@/content/articles";
 import { courseCopy, getCourses } from "@/content/courses";
@@ -31,20 +32,13 @@ export default async function HomePage() {
     <>
       <HomeHero locale={locale} hero={hero} facts={facts} accreditations={{ title: accreditationsTitle, badges: accreditations }} />
 
-      <section className="relative isolate bg-ink-dark py-20 text-white sm:py-28">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-          <div className="container-site h-full">
-            <div className="cv-columns h-full border-x border-white/[0.04]" />
-          </div>
-        </div>
-        <Reveal className="container-site">
-          <HomeSectionHeading index="01" kicker={featuredSection.kicker} title={featuredSection.title} dark>
-            <p className="max-w-md leading-relaxed text-white/70">{courseCopy[locale].listIntro}</p>
-            <ArrowLink link={localeLink(locale, featuredSection.action)} className="text-white" />
-          </HomeSectionHeading>
-          <CoursePath locale={locale} courses={courses.slice(0, 3)} />
-        </Reveal>
-      </section>
+      <NavySection>
+        <HomeSectionHeading index="01" kicker={featuredSection.kicker} title={featuredSection.title} dark>
+          <p className="max-w-md leading-relaxed text-white/70">{courseCopy[locale].listIntro}</p>
+          <ArrowLink link={localeLink(locale, featuredSection.action)} className="text-white" />
+        </HomeSectionHeading>
+        <CoursePath locale={locale} courses={courses.slice(0, 3)} />
+      </NavySection>
 
       <HomeApproach
         heading={journey}

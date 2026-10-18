@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CourseGrid } from "@/components/courses/course-grid";
+import { CoursePath } from "@/components/courses/course-path";
+import { NavySection } from "@/components/ui/navy-section";
 import { PageHeader } from "@/components/ui/page-header";
 import { courseCopy, getCourses } from "@/content/courses";
 import { getLocale } from "@/lib/locale";
@@ -17,10 +18,10 @@ export default async function CoursesPage() {
   return (
     <>
       <PageHeader title={copy.listTitle} />
-      <section className="container-site py-20">
-        <p className="mb-12 max-w-3xl text-lg leading-loose">{copy.listIntro}</p>
-        <CourseGrid courses={getCourses(locale)} preloadFirst />
-      </section>
+      <NavySection>
+        <p className="mb-14 max-w-3xl text-lg leading-loose text-white/75 lg:mb-20">{copy.listIntro}</p>
+        <CoursePath locale={locale} courses={getCourses(locale)} />
+      </NavySection>
     </>
   );
 }
