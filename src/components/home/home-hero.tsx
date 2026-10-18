@@ -60,13 +60,16 @@ export function HomeHero({ locale, hero, facts, accreditations }: HomeHeroProps)
         <div className="home-hero-text container-site flex flex-col pb-6 lg:min-h-[calc(100svh-4.1875rem)] lg:pt-20 lg:pb-20">
           <div className="flex max-w-3xl flex-1 flex-col justify-end">
             {/* Phones: the words sit centred on the photo, and the photo ends in a clean cut above the actions. */}
-            <div className="relative isolate -mx-4 flex min-h-[36rem] flex-col items-center justify-end px-4 pt-32 pb-28 text-center sm:min-h-[40rem] lg:contents lg:text-start">
+            <div className="relative isolate -mx-4 flex min-h-[36rem] flex-col items-center justify-end px-4 pt-24 pb-36 text-center sm:min-h-[40rem] lg:contents lg:text-start">
               <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden lg:hidden">
                 <div className="absolute inset-0 rtl:-scale-x-100">
                   <Image src={hero.image.src} alt="" loading="eager" fill sizes="100vw" className="object-cover object-[62%_center]" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-ink-dark/90 via-ink-dark/60 to-ink-dark/30" />
               </div>
+              {/* A gold rule with a small diamond at its middle marks where the photo ends. */}
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-0.5 translate-y-1/2 bg-gradient-to-r from-gold/20 via-gold to-gold/20 lg:hidden" />
+              <span aria-hidden="true" className="absolute bottom-0 left-1/2 size-2.5 -translate-x-1/2 translate-y-1/2 rotate-45 bg-gold ring-4 ring-ink-dark lg:hidden" />
               <p className="cv-intro home-rise flex items-center gap-3 text-xs font-medium text-white/80 sm:text-sm ltr:tracking-wide max-lg:justify-center" style={order(0)}>
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-gold" />
                 {hero.eyebrow}
