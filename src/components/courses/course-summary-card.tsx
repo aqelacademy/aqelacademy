@@ -4,7 +4,7 @@ import { CourseBookingAction } from "@/components/courses/course-booking-action"
 import { cardClassName } from "@/components/ui/card";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { courseCopy, courseDurationLabel, courseHoursLabel } from "@/content/courses";
-import { formatCourseLevel, formatPrice } from "@/lib/format";
+import { formatCourseLevel } from "@/lib/format";
 import { getLocale } from "@/lib/locale";
 import { whatsappUrl } from "@/lib/whatsapp";
 import type { Course } from "@/types/content";
@@ -33,7 +33,7 @@ export async function CourseSummaryCard({ course, bookable = true }: CourseSumma
       </div>
       <div className="p-5 sm:p-6">
         {!bookable && <p className="mb-2 font-bold leading-snug text-ink">{course.title}</p>}
-        <p className="text-4xl font-bold text-ink tabular-nums">{formatPrice(course.priceUsd)}</p>
+        <p className="min-h-10 text-4xl font-bold text-ink tabular-nums" />
         <dl className="mt-4 divide-y divide-line">
           {details.map(({ id, icon: Icon, label, value }) => (
             <div key={id} className="flex items-center justify-between gap-4 py-3 text-sm">

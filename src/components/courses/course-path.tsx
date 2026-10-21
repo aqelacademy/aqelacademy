@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PillArrow } from "@/components/ui/pill-arrow";
 import { order } from "@/components/profile/order";
 import { courseCopy, courseDurationLabel } from "@/content/courses";
-import { formatCourseLevel, formatPrice } from "@/lib/format";
+import { formatCourseLevel } from "@/lib/format";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { Course } from "@/types/content";
 
@@ -50,7 +50,7 @@ export function CoursePath({ locale, courses }: CoursePathProps) {
               </div>
               <div className="border-s border-white/10 ps-5">
                 <dt className="text-xs text-white/55">{copy.fee}</dt>
-                <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{formatPrice(course.priceUsd)}</dd>
+                <dd className="mt-1 min-h-9 text-3xl font-bold text-white tabular-nums" />
               </div>
             </dl>
             <div className="mt-6 flex items-center justify-between gap-4">
