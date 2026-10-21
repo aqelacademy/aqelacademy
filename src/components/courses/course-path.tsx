@@ -43,14 +43,10 @@ export function CoursePath({ locale, courses }: CoursePathProps) {
               </Link>
             </h3>
             <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-white/60">{course.excerpt}</p>
-            <dl className="mt-8 grid grid-cols-2 border-y border-white/10 py-5">
+            <dl className="mt-8 border-y border-white/10 py-5">
               <div>
                 <dt className="text-xs text-white/55">{copy.hours}</dt>
                 <dd className="mt-1 text-3xl font-bold text-white tabular-nums">{course.trainingHours}</dd>
-              </div>
-              <div className="border-s border-white/10 ps-5">
-                <dt className="text-xs text-white/55">{copy.fee}</dt>
-                <dd className="mt-1 min-h-9 text-3xl font-bold text-white tabular-nums" />
               </div>
             </dl>
             <div className="mt-6 flex items-center justify-between gap-4">
